@@ -1,1 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUMBU – Conselho Africano do Renascimento</title>
 
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- jsPDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+body { font-family: 'Poppins', sans-serif; background: #1f130b; color: #f5f0e6; margin: 0; }
+header { text-align: center; background: #3d2616; padding: 20px; }
+header img.capa { width: 100%; max-height: 250px; object-fit: cover; border-radius: 8px; }
+header img.perfil { width: 120px; border-radius: 50%; margin-top: 10px; border: 3px solid #d4af37; }
+header img.logo { width: 80px; margin-top: 10px; }
+header h1 { margin: 10px 0 5px; color: #d4af37; font-family: 'Roboto Slab', serif; }
+main { max-width: 1200px; margin: 30px auto; padding: 20px; }
+h2 { color: #d4af37; margin-bottom: 15px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.card { background: #3a2415; padding: 20px; border-radius: 8px; border: 2px solid #d4af37; }
+.card h3 { margin-top: 0; color: #d4af37; }
+.download-link { display: inline-block; margin-top: 10px; padding: 6px 12px; background: #f5a623; color: #2b1b0f; border-radius: 4px; text-decoration: none; font-weight: bold; }
+.download-link:hover { background: #d49c23; }
+form label { display: block; margin-top: 10px; }
+form input, form select { width: 100%; padding: 10px; margin-top: 5px; border-radius: 5px; border: none; }
+button { margin-top: 15px; width: 100%; padding: 12px; background: #d4af37; color: #2b1b0f; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+button:hover { background: #c19c2d; }
+#credencial { margin-top: 20px; padding: 15px; border: 2px solid #d4af37; border-radius: 8px; display: none; background: #1f130b; }
+#chat { margin-top: 30px; }
+#chatMessages { background: #3a2415; border: 2px solid #d4af37; border-radius: 8px; height: 200px; overflow-y: auto; padding: 10px; }
+#chat input { width: 80%; padding: 10px; margin-top: 5px; border-radius: 5px; border: none; }
+#chat button { width: 18%; padding: 10px; margin-left: 2%; background: #f5a623; border: none; border-radius: 5px; font-weight: bold; }
+#participantes { margin-top: 15px; background: #3a2415; border: 2px solid #d4af37; border-radius: 8px; padding: 10px; max-height: 150px; overflow-y: auto; }
+footer { text-align: center; padding: 20px; opacity: 0.8; }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="images/capa.png" alt="Capa do LUMBU" class="capa">
+  <img src="images/perfil.png" alt="Perfil do LUMBU" class="perfil">
+  <img src="images/logo.png" alt="Logo LUMBU" class="logo">
+  <h1>LUMBU</h1>
+  <p>Conselho Africano do Renascimento</p>
+</header>
+
+<main>
+
+<h2>Calendário Anual dos LUMBUs</h2>
+<div class="grid">
+  <div class="card"><h3>25 de Janeiro</h3><p>História Pré-colonial</p></div>
+  <div class="card"><h3>25 de Fevereiro</h3><p>Línguas Africanas</p></div>
+  <div class="card"><h3>25 de Março</h3><p>Influência Ocidental</p></div>
+  <div class="card"><h3>25 de Abril</h3><p>Arte e Espiritualidade</p></div>
+  <div class="card"><h3>25 de Maio</h3><p>Dia da África – Especial</p></div>
+</div>
+
+<h2>Login / Registro por NIL</h2>
+<form id="loginForm">
+  <label>NIL:<input type="text" id="loginNIL" placeholder="Insira seu NIL" required></label>
+  <button type="submit">Entrar</button>
+</form>
+
+<form id="lumbuForm">
+  <label>Nome Completo<input type="text" id="nome" placeholder="Insira seu nome completo" required></label>
+  <label>Província<input type="text" id="provincia" placeholder="Insira sua província" required></label>
+  <label>Escolha seu título<select id="tituloEscolha">
+    <option>Afrocrata</option>
+    <option>Afrocentrista</option>
+    <option>Kulturista</option>
+    <option>Renascente</option>
+    <option>PanAfricano</option>
+  </select></label>
+  <label>Evento<select id="evento">
+    <option>25 de Janeiro – História Pré-colonial</option>
+    <option>25 de Fevereiro – Línguas Africanas</option>
+    <option>25 de Março – Influência Ocidental</option>
+    <option>25 de Abril – Arte e Espiritualidade</option>
+    <option>25 de Maio – Dia da África – Especial</option>
+  </select></label>
+  <button type="submit">Gerar Credencial</button>
+</form>
+
+<div id="credencial">
+  <h3>Credencial do LUMBU</h3>
+  <p><strong>NIL:</strong> <span id="cNIL"></span></p>
+  <p><strong>Nome:</strong> <span id="cNome"></span></p>
+  <p><strong>Província:</strong> <span id="cProvincia"></span></p>
+  <p><strong>Evento:</strong> <span id="cEvento"></span></p>
+  <a id="downloadCredencial" class="download-link" download="credencial_LUMBU.pdf">Download PDF</a>
+</div>
+
+<h2>Biblioteca do LUMBU</h2>
+<div class="grid">
+  <div class="card"><h3>Janeiro</h3><p>História Pré-colonial</p><a href="biblioteca/janeiro.pdf" class="download-link">Baixar PDF</a></div>
+  <div class="card"><h3>Fevereiro</h3><p>Línguas e Expressões</p><a href="biblioteca/fevereiro.pdf" class="download-link">Baixar PDF</a></div>
+  <div class="card"><h3>Março</h3><p>Influência Ocidental</p><a href="biblioteca/marco.pdf" class="download-link">Baixar PDF</a></div>
+  <div class="card"><h3>Abril</h3><p>Arte e Espiritualidade</p><a href="biblioteca/abril.pdf" class="download-link">Baixar PDF</a></div>
+  <div class="card"><h3>Maio</h3><p>Dia da África – Especial</p><a href="biblioteca/maio.pdf" class="download-link">Baixar PDF</a></div>
+</div>
+
+<h2>Participantes Online</h2>
+<div id="participantes"></div>
+
+<h2>Chat Pré-LUMBU</h2>
+<div id="chat">
+  <div id="chatMessages"></div>
+  <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+  <button id="sendChat">Enviar</button>
+</div>
+
+<div class="card doacao">
+  <h3>Contribua para o LUMBU</h3>
+  <p>IBAN: 0040 0000 90984961102 20 - BAI</p>
+  <p>Xpress / Multicaixa: 946903366</p>
+  <p>As doações ajudam a organizar encontros presenciais e materiais.</p>
+</div>
+
+<div class="card">
+  <h3>Sobre o Criador</h3>
+  <p><strong>Augusto Isaías Manuel Tona "Augusto Tona"</strong></p>
+  <p>Fundador do LUMBU, promovendo a identidade africana e o renascimento cultural.</p>
+</div>
+
+</main>
+<footer>
+  <p>LUMBU – Onde África Fala por Si</p>
+</footer>
+
+<script>
+const { jsPDF } = window.jspdf;
+
+// Base NIL → dados
+let NIL_DB = JSON.parse(localStorage.getItem('NIL_DB')) || {};
+
+// Função para gerar NIL único
+function gerarNIL(titulo){
+  let count = Object.values(NIL_DB).filter(u => u.titulo===titulo).length + 1;
+  let numero = count.toString().padStart(3,'0');
+  return `${titulo}-${numero}`;
+}
+
+// Registrar usuário e retornar NIL permanente
+function registrarUsuario(nome, provincia, titulo){
+  for(let key in NIL_DB){
+    if(NIL_DB[key].nome===nome && NIL_DB[key].provincia===provincia){
+      return key; // retorna NIL existente
+    }
+  }
+  let NIL = gerarNIL(titulo);
+  NIL_DB[NIL] = {nome:nome, provincia:provincia, titulo:titulo};
+  localStorage.setItem('NIL_DB', JSON.stringify(NIL_DB));
+  atualizarParticipantes();
+  return NIL;
+}
+
+// Atualiza lista de participantes online
+function atualizarParticipantes(){
+  const div = document.getElementById('participantes');
+  div.innerHTML = '';
+  for(let key in NIL_DB){
+    let p = document.createElement('p');
+    p.textContent = `${key} - ${NIL_DB[key].titulo}`;
+    div.appendChild(p);
+  }
+}
+
+// Formulário de registro
+const form = document.getElementById('lumbuForm');
+const credencial = document.getElementById('credencial');
+const downloadLink = document.getElementById('downloadCredencial');
+
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  const nome = document.getElementById('nome').value.trim();
+  const provincia = document.getElementById('provincia').value.trim();
+  const titulo = document.getElementById('tituloEscolha').value;
+  const evento = document.getElementById('evento').value;
+
+  const NIL = registrarUsuario(nome, provincia, titulo);
+
+  document.getElementById('cNIL').innerText = NIL;
+  document.getElementById('cNome').innerText = nome;
+  document.getElementById('cProvincia').innerText = provincia;
+  document.getElementById('cEvento').innerText = evento;
+
+  credencial.style.display = 'block';
+
+  // PDF
+  const doc = new jsPDF();
+  doc.setFontSize(22);
+  doc.text("LUMBU – Conselho Africano do Renascimento", 20, 20);
+  doc.setFontSize(16);
+  doc.text(`NIL: ${NIL}`, 20, 40);
+  doc.text(`Nome: ${nome}`, 20, 50);
+  doc.text(`Província: ${provincia}`, 20, 60);
+  doc.text(`Evento: ${evento}`, 20, 70);
+  doc.addImage('images/logo.png','PNG',150,10,40,40);
+  const pdfBlob = doc.output('blob');
+  downloadLink.href = URL.createObjectURL(pdfBlob);
+});
+
+// Chat simples
+const chatMessages = document.getElementById('chatMessages');
+const chatInput = document.getElementById('chatInput');
+document.getElementById('sendChat').addEventListener('click', ()=>{
+  const msg = chatInput.value.trim();
+  if(msg){
+    const p = document.createElement('p');
+    p.textContent = msg;
+    chatMessages.appendChild(p);
+    chatInput.value = '';
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+});
+
+// Inicializa lista de participantes
+atualizarParticipantes();
+</script>
+
+</body>
+</html>
