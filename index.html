@@ -5,122 +5,92 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LUMBU</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 body{
   margin:0;
-  font-family:'Inter',sans-serif;
-  background:#f6f4ef;
-  color:#1f1f1f;
+  font-family:'Poppins',sans-serif;
+  background:#f6f3ee;
+  color:#1f130b;
 }
 
-/* CAPA */
 header{
-  background:url("https://via.placeholder.com/1400x400.png?text=LUMBU") center/cover no-repeat;
-  height:300px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-header h1{
-  background:rgba(0,0,0,0.6);
-  color:#f5d36c;
-  padding:20px 40px;
-  border-radius:8px;
-  font-size:3rem;
+  background:url("https://via.placeholder.com/1400x350.png?text=LUMBU");
+  background-size:cover;
+  background-position:center;
+  padding:120px 20px;
+  text-align:center;
+  color:#d4af37;
 }
 
-/* CONTEÚDO */
+header h1{
+  font-size:3.2rem;
+  text-shadow:2px 2px 6px #000;
+}
+
 main{
-  max-width:1000px;
-  margin:30px auto;
-  padding:0 20px;
+  max-width:1100px;
+  margin:auto;
+  padding:30px 20px;
 }
 
 section{
-  background:#ffffff;
+  background:#fff;
   padding:25px;
+  border-radius:12px;
   margin-bottom:25px;
-  border-radius:10px;
   box-shadow:0 5px 15px rgba(0,0,0,0.08);
 }
 
 h2{
-  margin-top:0;
-  color:#8b5e00;
+  color:#b8962e;
+  margin-bottom:15px;
 }
 
-/* PESQUISA */
-.search-box{
+button{
+  background:#b8962e;
+  color:#1f130b;
+  border:none;
+  padding:12px 20px;
+  border-radius:6px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+button:hover{background:#a68426;}
+
+#searchBox{
   display:flex;
   gap:10px;
 }
-.search-box input{
+
+#searchInput{
   flex:1;
   padding:12px;
-  font-size:16px;
+  border-radius:6px;
   border:1px solid #ccc;
-  border-radius:6px;
-}
-.search-box button{
-  padding:12px 20px;
-  background:#8b5e00;
-  color:#fff;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
-}
-.search-box button:hover{
-  background:#6e4a00;
 }
 
-/* BOTÕES */
-.toggle-btn{
-  margin-top:10px;
-  background:#e5e1d8;
-  border:none;
-  padding:10px 15px;
-  border-radius:6px;
-  cursor:pointer;
-  font-weight:600;
-}
-
-/* BIBLIOTECA */
-#biblioteca{
-  display:none;
-  margin-top:20px;
-}
-.material{
+.result{
   padding:15px;
   border-bottom:1px solid #ddd;
 }
-.material:last-child{
-  border-bottom:none;
-}
-.material h4{
-  margin:0 0 5px 0;
-  color:#333;
-}
-.material p{
-  margin:0;
-  font-size:14px;
-  color:#555;
+
+.result a{
+  text-decoration:none;
+  font-weight:600;
+  color:#1f130b;
 }
 
-/* RESULTADOS */
-#resultado-msg{
-  margin-top:15px;
-  font-weight:600;
-  color:#8b0000;
-}
+.hidden{display:none;}
 
 footer{
   text-align:center;
   padding:20px;
   font-size:13px;
-  background:#1f1f1f;
-  color:#ddd;
+  background:#1f130b;
+  color:#f6f3ee;
 }
 </style>
 </head>
@@ -134,98 +104,91 @@ footer{
 <main>
 
 <section>
-  <h2>Pesquisa de Conteúdos</h2>
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Pesquisar história, política, cultura, Angola...">
-    <button onclick="pesquisar()">Pesquisar</button>
-  </div>
-  <div id="resultado-msg"></div>
+<h2>Pesquisa – Biblioteca do LUMBU</h2>
+
+<div id="searchBox">
+  <input id="searchInput" placeholder="Ex: história, política, Angola, colonialismo">
+  <button onclick="pesquisar()">Pesquisar</button>
+</div>
+
+<div id="resultados"></div>
 </section>
 
 <section>
-  <h2>Biblioteca do LUMBU</h2>
-  <button class="toggle-btn" onclick="toggleBiblioteca()" id="btnBiblioteca">
-    Mostrar Biblioteca
-  </button>
+<h2>Calendário do LUMBU</h2>
+<button onclick="toggle('calendario')">Mostrar / Ocultar</button>
 
-  <div id="biblioteca">
-
-    <div class="material" data-tags="história reinos pré-colonial angola">
-      <h4>Janeiro – História Pré-colonial</h4>
-      <p>Reinos africanos, organização social e política antes da colonização.</p>
-    </div>
-
-    <div class="material" data-tags="línguas kikongo kimbundu cultura">
-      <h4>Fevereiro – Línguas Africanas</h4>
-      <p>Línguas nacionais, provérbios e identidade cultural.</p>
-    </div>
-
-    <div class="material" data-tags="colonialismo política ocidente">
-      <h4>Março – Influência Ocidental</h4>
-      <p>Colonialismo, neocolonialismo e impactos políticos em África.</p>
-    </div>
-
-    <div class="material" data-tags="arte símbolos espiritualidade">
-      <h4>Abril – Arte e Espiritualidade</h4>
-      <p>Simbolismo africano, artes tradicionais e espiritualidade.</p>
-    </div>
-
-    <div class="material" data-tags="africanismo pan-africanismo identidade">
-      <h4>Maio – Dia da África (Especial)</h4>
-      <p>Unidade africana, africanismo e consciência histórica.</p>
-    </div>
-
-  </div>
+<div id="calendario" class="hidden">
+  <p><strong>25 Janeiro</strong> – História Pré-colonial</p>
+  <p><strong>25 Fevereiro</strong> – Línguas Africanas</p>
+  <p><strong>25 Março</strong> – Influência Ocidental</p>
+  <p><strong>25 Maio</strong> – Dia da África (Especial)</p>
+</div>
 </section>
 
 <section>
-  <h2>Sobre</h2>
-  <p>
-    O LUMBU é um espaço de reflexão, estudo e reencontro com a identidade africana,
-    centrado na história, cultura, política e realidade africana,
-    com especial atenção a Angola.
-  </p>
+<h2>Fundo de Solidariedade</h2>
+<button onclick="toggle('doacao')">Mostrar / Ocultar</button>
+
+<div id="doacao" class="hidden">
+<p>As contribuições sustentam encontros presenciais e materiais do LUMBU.</p>
+<p><strong>IBAN:</strong> 0040 0000 90984961102 20</p>
+<p><strong>Xpress:</strong> 946903366</p>
+</div>
+</section>
+
+<section>
+<h2>Sobre</h2>
+<p><strong>Augusto Tona</strong></p>
+<p>Projeto dedicado ao Renascimento Africano, identidade, história e consciência crítica.</p>
 </section>
 
 </main>
 
 <footer>
-  LUMBU – Onde África Fala por Si
+LUMBU – Onde África Fala por Si
 </footer>
 
 <script>
-function toggleBiblioteca(){
-  const bib = document.getElementById("biblioteca");
-  const btn = document.getElementById("btnBiblioteca");
-
-  if(bib.style.display === "block"){
-    bib.style.display = "none";
-    btn.innerText = "Mostrar Biblioteca";
-  }else{
-    bib.style.display = "block";
-    btn.innerText = "Ocultar Biblioteca";
-  }
-}
+// BIBLIOTECA REAL (SEUS CONTEÚDOS)
+const biblioteca = [
+ {titulo:"História Pré-colonial", tags:["história","reinos","africa"], arquivo:"biblioteca/janeiro.pdf"},
+ {titulo:"Línguas Africanas", tags:["línguas","kikongo","kimbundu"], arquivo:"biblioteca/fevereiro.pdf"},
+ {titulo:"Influência Ocidental", tags:["colonialismo","política","angola"], arquivo:"biblioteca/marco.pdf"},
+ {titulo:"Arte e Espiritualidade", tags:["arte","símbolos","cultura"], arquivo:"biblioteca/abril.pdf"},
+ {titulo:"Dia da África", tags:["africanismo","pan-africanismo"], arquivo:"biblioteca/maio.pdf"}
+];
 
 function pesquisar(){
-  const termo = document.getElementById("searchInput").value.toLowerCase().trim();
-  const materiais = document.querySelectorAll(".material");
-  let encontrou = false;
+  const termo=document.getElementById("searchInput").value.toLowerCase();
+  const area=document.getElementById("resultados");
+  area.innerHTML="";
 
-  materiais.forEach(m => {
-    const tags = m.dataset.tags;
-    const texto = m.innerText.toLowerCase();
+  if(termo===""){
+    area.innerHTML="<p>Digite algo para pesquisar.</p>";
+    return;
+  }
 
-    if(termo === "" || tags.includes(termo) || texto.includes(termo)){
-      m.style.display = "block";
-      encontrou = true;
-    }else{
-      m.style.display = "none";
-    }
+  const encontrados=biblioteca.filter(item =>
+    item.titulo.toLowerCase().includes(termo) ||
+    item.tags.some(tag=>tag.includes(termo))
+  );
+
+  if(encontrados.length===0){
+    area.innerHTML="<p>Nenhum resultado encontrado.</p>";
+    return;
+  }
+
+  encontrados.forEach(item=>{
+    area.innerHTML+=`
+      <div class="result">
+        <a href="${item.arquivo}" target="_blank">${item.titulo}</a>
+      </div>`;
   });
+}
 
-  document.getElementById("resultado-msg").innerText =
-    encontrou ? "" : "Nenhum conteúdo relacionado foi encontrado.";
+function toggle(id){
+  document.getElementById(id).classList.toggle("hidden");
 }
 </script>
 
