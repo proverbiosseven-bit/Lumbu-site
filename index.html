@@ -1,114 +1,119 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <title>LUMBU – Onde África fala por si</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #111;
-            color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: #000;
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 {
-            color: #d4af37;
-            margin: 0;
-        }
-        section {
-            padding: 20px;
-        }
-        h2 {
-            color: #d4af37;
-        }
-        form {
-            background: #1c1c1c;
-            padding: 20px;
-            border-radius: 8px;
-            max-width: 500px;
-            margin: auto;
-        }
-        input, select, button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-            border: none;
-            border-radius: 4px;
-        }
-        button {
-            background: #d4af37;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .card {
-            margin-top: 20px;
-            background: #000;
-            padding: 15px;
-            border: 2px solid #d4af37;
-            display: none;
-        }
-        footer {
-            text-align: center;
-            padding: 15px;
-            background: #000;
-            font-size: 14px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUMBU – Registo Oficial</title>
+  <style>
+    body {font-family: Arial, sans-serif; background: #2b1b0f; color: #f5f0e6; margin: 0; padding: 0;}
+    header {text-align: center; padding: 20px; background: #3d2616;}
+    header img.capa {width: 100%; border-radius: 8px;}
+    header h1 {margin: 10px 0 5px; color: #d4af37; letter-spacing: 2px;}
+    header p {margin: 0; color: #f5f0e6;}
+    header img.perfil {width: 120px; border-radius: 50%; margin-top: 10px;}
+
+    main {max-width: 700px; margin: 30px auto; background: #3a2415; padding: 30px; border-radius: 8px;}
+    h2 {color: #d4af37; margin-bottom: 15px;}
+    label {display: block; margin-top: 15px;}
+    input, select {width: 100%; padding: 10px; margin-top: 5px; border-radius: 5px; border: none;}
+    button {margin-top: 25px; width: 100%; padding: 15px; background: #d4af37; color: #2b1b0f; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;}
+    button:hover {background: #c19c2d;}
+    .card {margin-top: 30px; padding: 20px; background: #1f130b; border: 2px solid #d4af37; border-radius: 8px; text-align: center;}
+    .card h3 {margin-top: 10px; color: #d4af37;}
+    .card img {width: 80px; border-radius: 50%; margin-bottom: 10px;}
+    footer {text-align: center; padding: 20px; font-size: 12px; opacity: 0.8;}
+
+    /* Calendário */
+    .calendario {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      background: #3a2415;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .evento {
+      background: #d4af37;
+      color: #2b1b0f;
+      flex: 1 1 30%;
+      margin: 10px;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .evento span {
+      display: block;
+      margin-top: 5px;
+      font-weight: normal;
+      font-size: 14px;
+    }
+    .evento.destaque {
+      background: #f5a623;
+      color: #2b1b0f;
+    }
+  </style>
 </head>
 <body>
-
 <header>
-    <h1>LUMBU</h1>
-    <p>Onde África fala por Si</p>
+  <img src="images/capa.png" alt="Capa do LUMBU" class="capa">
+  <h1>LUMBU</h1>
+  <p>Conselho Africano do Renascimento</p>
+  <img src="images/perfil.png" alt="Perfil do LUMBU" class="perfil">
 </header>
 
-<section>
-    <h2>Registo para o Lumbu</h2>
-    <p>O Lumbu é um quintal africano de pensamento, cultura e verdade.</p>
+<main>
+  <h2>Calendário Anual dos LUMBUs</h2>
+  <div class="calendario">
+    <div class="evento destaque">25 de Maio<br><span>Dia da África</span></div>
+    <div class="evento destaque">23 de Agosto<br><span>Dia da Libertação</span></div>
+    <div class="evento destaque">Novembro<br><span>LUMBU Cultural</span></div>
+  </div>
 
-    <form onsubmit="gerarCartao(event)">
-        <input type="text" id="nome" placeholder="Nome completo" required>
-        <input type="text" id="pais" placeholder="País" required>
-        <select id="lumbu" required>
-            <option value="">Selecione o Lumbu</option>
-            <option>Lumbu da História Africana</option>
-            <option>Lumbu da Cultura e Tradição</option>
-            <option>Lumbu da Juventude Africana</option>
-        </select>
-        <button type="submit">Gerar Credencial</button>
-    </form>
+  <h2>Registo para Participação</h2>
+  <p>Inscreva-se para participar nos encontros mensais do LUMBU e receba sua credencial simbólica.</p>
 
-    <div class="card" id="cartao">
-        <h3>Credencial LUMBU</h3>
-        <p><strong>Nome:</strong> <span id="cNome"></span></p>
-        <p><strong>País:</strong> <span id="cPais"></span></p>
-        <p><strong>Evento:</strong> <span id="cLumbu"></span></p>
-        <p><em>Cartão simbólico de participação</em></p>
-    </div>
-</section>
+  <form id="lumbuForm">
+    <label>Nome Completo<input type="text" id="nome" required></label>
+    <label>Email<input type="email" id="email" required></label>
+    <label>País / Comunidade<input type="text" id="pais" required></label>
+    <label>LUMBU que deseja participar
+      <select id="evento">
+        <option>25 de Maio – Dia da África</option>
+        <option>23 de Agosto – Dia da Libertação</option>
+        <option>Novembro – LUMBU Cultural</option>
+      </select>
+    </label>
+    <button type="submit">Gerar Credencial</button>
+  </form>
+
+  <div class="card" id="credencial" style="display:none;">
+    <img src="images/perfil.png" alt="Símbolo LUMBU">
+    <h3>Credencial do LUMBU</h3>
+    <p><strong>Nome:</strong> <span id="cNome"></span></p>
+    <p><strong>Evento:</strong> <span id="cEvento"></span></p>
+    <p><strong>Comunidade:</strong> <span id="cPais"></span></p>
+    <p><em>“Ndinga ke tunga kimvuka”</em></p>
+  </div>
+</main>
 
 <footer>
-    LUMBU © Conselho Africano do Renascimento
+  <p>LUMBU – Onde África Fala por Si</p>
 </footer>
 
 <script>
-function gerarCartao(e) {
-    e.preventDefault();
-    document.getElementById("cNome").innerText =
-        document.getElementById("nome").value;
-    document.getElementById("cPais").innerText =
-        document.getElementById("pais").value;
-    document.getElementById("cLumbu").innerText =
-        document.getElementById("lumbu").value;
-    document.getElementById("cartao").style.display = "block";
-}
-</script>
+  const form = document.getElementById('lumbuForm');
+  const credencial = document.getElementById('credencial');
 
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('cNome').innerText = document.getElementById('nome').value;
+    document.getElementById('cEvento').innerText = document.getElementById('evento').value;
+    document.getElementById('cPais').innerText = document.getElementById('pais').value;
+    credencial.style.display = 'block';
+  });
+</script>
 </body>
 </html>
