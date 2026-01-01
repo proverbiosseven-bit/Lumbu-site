@@ -1,40 +1,342 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LUMBU – Registo Oficial</title>
-  <style>
-    body {font-family: Arial, sans-serif; background: #2b1b0f; color: #f5f0e6; margin: 0; padding: 0;}
-    header {text-align: center; padding: 20px; background: #3d2616;}
-    header img.capa {width: 100%; border-radius: 8px;}
-    header h1 {margin: 10px 0 5px; color: #d4af37; letter-spacing: 2px;}
-    header p {margin: 0; color: #f5f0e6;}
-    header img.perfil {width: 120px; border-radius: 50%; margin-top: 10px;}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUMBU – Conselho Africano do Renascimento</title>
 
-    main {max-width: 700px; margin: 30px auto; background: #3a2415; padding: 30px; border-radius: 8px;}
-    h2 {color: #d4af37; margin-bottom: 15px;}
-    label {display: block; margin-top: 15px;}
-    input, select {width: 100%; padding: 10px; margin-top: 5px; border-radius: 5px; border: none;}
-    button {margin-top: 25px; width: 100%; padding: 15px; background: #d4af37; color: #2b1b0f; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;}
-    button:hover {background: #c19c2d;}
-    .card {margin-top: 30px; padding: 20px; background: #1f130b; border: 2px solid #d4af37; border-radius: 8px; text-align: center;}
-    .card h3 {margin-top: 10px; color: #d4af37;}
-    .card img {width: 80px; border-radius: 50%; margin-bottom: 10px;}
-    footer {text-align: center; padding: 20px; font-size: 12px; opacity: 0.8;}
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
 
-    /* Calendário */
-    .calendario {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      background: #3a2415;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-    .evento {
-      background: #d4af37;
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #2b1b0f;
+    color: #f5f0e6;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    text-align: center;
+    padding: 20px;
+    background: #3d2616;
+  }
+
+  header img.capa {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  header h1 {
+    margin: 10px 0 5px;
+    color: #d4af37;
+    letter-spacing: 2px;
+    font-family: 'Roboto Slab', serif;
+  }
+
+  header p {
+    margin: 0;
+    color: #f5f0e6;
+  }
+
+  header img.perfil {
+    width: 120px;
+    border-radius: 50%;
+    margin-top: 10px;
+  }
+
+  main {
+    max-width: 900px;
+    margin: 30px auto;
+    background: #3a2415;
+    padding: 30px;
+    border-radius: 8px;
+  }
+
+  h2 {
+    color: #d4af37;
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: block;
+    margin-top: 15px;
+  }
+
+  input, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+  }
+
+  button {
+    margin-top: 25px;
+    width: 100%;
+    padding: 15px;
+    background: #d4af37;
+    color: #2b1b0f;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #c19c2d;
+  }
+
+  .card {
+    margin-top: 30px;
+    padding: 20px;
+    background: #1f130b;
+    border: 2px solid #d4af37;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .card h3 {
+    margin-top: 10px;
+    color: #d4af37;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    opacity: 0.8;
+  }
+
+  .calendario {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: #3a2415;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .evento {
+    background: #d4af37;
+    color: #2b1b0f;
+    flex: 1 1 28%;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .evento span {
+    display: block;
+    margin-top: 5px;
+    font-weight: normal;
+    font-size: 14px;
+  }
+
+  .evento.destaque {
+    background: #f5a623;
+    color: #2b1b0f;
+  }
+
+  .biblioteca {
+    margin-top: 30px;
+  }
+
+  .mes {
+    background: #d4af37;
+    color: #2b1b0f;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+
+  .mes h4 {
+    margin: 0;
+  }
+
+  .mes p {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+  }
+
+  .download-link {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 6px 12px;
+    background: #f5a623;
+    color: #2b1b0f;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .download-link:hover {
+    background: #d49c23;
+  }
+
+  .doacao {
+    margin-top: 40px;
+    background: #1f130b;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid #d4af37;
+  }
+
+  .doacao h3 {
+    color: #d4af37;
+  }
+
+  .doacao p {
+    font-size: 14px;
+  }
+
+</style>
+</head>
+
+<body>
+<header>
+  <img src="images/capa.png" alt="Capa do LUMBU" class="capa">
+  <h1>LUMBU</h1>
+  <p>Conselho Africano do Renascimento</p>
+  <img src="images/perfil.png" alt="Perfil do LUMBU" class="perfil">
+</header>
+
+<main>
+  <h2>Calendário Anual dos LUMBUs</h2>
+  <div class="calendario">
+    <div class="evento destaque">25 de Janeiro<br><span>Reunião Mensal</span></div>
+    <div class="evento destaque">25 de Fevereiro<br><span>Reunião Mensal</span></div>
+    <div class="evento destaque">25 de Março<br><span>Influência Ocidental</span></div>
+    <div class="evento destaque">25 de Abril<br><span>Artes e Símbolos</span></div>
+    <div class="evento destaque">25 de Maio<br><span>Dia da África – Especial</span></div>
+    <div class="evento destaque">25 de Junho<br><span>História Moderna</span></div>
+    <div class="evento destaque">25 de Julho<br><span>Filosofia Africana</span></div>
+    <div class="evento destaque">25 de Agosto<br><span>Revoluções e Independência</span></div>
+    <div class="evento destaque">25 de Setembro<br><span>Economia e Desenvolvimento</span></div>
+    <div class="evento destaque">25 de Outubro<br><span>Cinema e Literatura</span></div>
+    <div class="evento destaque">25 de Novembro<br><span>LUMBU Cultural</span></div>
+    <div class="evento destaque">25 de Dezembro<br><span>Revisão Anual</span></div>
+  </div>
+
+  <h2>Registo para Participação</h2>
+  <p>Inscreva-se para participar nos encontros mensais do LUMBU e receba sua credencial para download.</p>
+
+  <form id="lumbuForm">
+    <label>Nome Completo<input type="text" id="nome" required></label>
+    <label>Email<input type="email" id="email" required></label>
+    <label>País / Comunidade<input type="text" id="pais" required></label>
+    <label>LUMBU que deseja participar
+      <select id="evento">
+        <option>25 de Janeiro – Reunião Mensal</option>
+        <option>25 de Fevereiro – Reunião Mensal</option>
+        <option>25 de Março – Influência Ocidental</option>
+        <option>25 de Abril – Artes e Símbolos</option>
+        <option>25 de Maio – Dia da África – Especial</option>
+        <option>25 de Junho – História Moderna</option>
+        <option>25 de Julho – Filosofia Africana</option>
+        <option>25 de Agosto – Revoluções e Independência</option>
+        <option>25 de Setembro – Economia e Desenvolvimento</option>
+        <option>25 de Outubro – Cinema e Literatura</option>
+        <option>25 de Novembro – LUMBU Cultural</option>
+        <option>25 de Dezembro – Revisão Anual</option>
+      </select>
+    </label>
+    <button type="submit">Gerar Credencial</button>
+  </form>
+
+  <div class="card" id="credencial" style="display:none;">
+    <h3>Credencial do LUMBU</h3>
+    <p><strong>Nome:</strong> <span id="cNome"></span></p>
+    <p><strong>Evento:</strong> <span id="cEvento"></span></p>
+    <p><strong>Comunidade:</strong> <span id="cPais"></span></p>
+    <p><em>“Ndinga ke tunga kimvuka”</em></p>
+    <a id="downloadCredencial" class="download-link" download="credencial_LUMBU.pdf">Download PDF</a>
+  </div>
+
+  <h2>Biblioteca do LUMBU</h2>
+  <div class="biblioteca">
+    <div class="mes">
+      <h4>Janeiro – História Pré-colonial</h4>
+      <p>Material obrigatório: PDFs sobre reinos africanos, mapas e textos históricos.</p>
+      <a href="biblioteca/janeiro.pdf" class="download-link" download>Baixar Material</a>
+    </div>
+    <div class="mes">
+      <h4>Fevereiro – Línguas e Expressões</h4>
+      <p>Palavras em Kikongo/Kimbundu, provérbios, vídeos explicativos.</p>
+      <a href="biblioteca/fevereiro.pdf" class="download-link" download>Baixar Material</a>
+    </div>
+    <div class="mes">
+      <h4>Março – Influência Ocidental</h4>
+      <p>Artigos sobre colonialismo, neocolonialismo e impacto político-cultural.</p>
+      <a href="biblioteca/marco.pdf" class="download-link" download>Baixar Material</a>
+    </div>
+    <div class="mes">
+      <h4>Abril – Artes e Símbolos</h4>
+      <p>Galeria de trajes, tutoriais de artesanato e significado dos símbolos africanos.</p>
+      <a href="biblioteca/abril.pdf" class="download-link" download>Baixar Material</a>
+    </div>
+    <div class="mes">
+      <h4>Maio – Dia da África (Especial)</h4>
+      <p>Documentários, debates online e livros recomendados sobre africanismo.</p>
+      <a href="biblioteca/maio.pdf" class="download-link" download>Baixar Material</a>
+    </div>
+  </div>
+
+  <div class="doacao">
+    <h3>Contribua para o LUMBU</h3>
+    <p>As doações recebidas serão usadas exclusivamente para materiais, utensílios e organização das reuniões presenciais.</p>
+    <p><strong>IBAN:</strong> 0040 0000 90984961102 20 - BAI</p>
+    <p><strong>Multicaixa / Xpress:</strong> 946903366</p>
+    <p>Futuro PayPal institucional será adicionado em breve para doações internacionais.</p>
+  </div>
+
+  <div class="doacao">
+    <h3>Sobre o Criador</h3>
+    <p><strong>Augusto Isaías Manuel Tona "Augusto Tona"</strong></p>
+    <p>O LUMBU nasceu da visão de fortalecer a identidade africana e promover o conhecimento sobre cultura, história e política africana. Todas as contribuições serão destinadas exclusivamente para organizar encontros presenciais, materiais e utensílios, sempre em prol da comunidade e do renascimento africano.</p>
+  </div>
+
+</main>
+
+<footer>
+  <p>LUMBU – Onde África Fala por Si</p>
+</footer>
+
+<script>
+  const form = document.getElementById('lumbuForm');
+  const credencial = document.getElementById('credencial');
+  const downloadLink = document.getElementById('downloadCredencial');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const nome = document.getElementById('nome').value;
+    const evento = document.getElementById('evento').value;
+    const pais = document.getElementById('pais').value;
+
+    document.getElementById('cNome').innerText = nome;
+    document.getElementById('cEvento').innerText = evento;
+    document.getElementById('cPais').innerText = pais;
+    credencial.style.display = 'block';
+
+    const pdfContent = `
+      Credencial do LUMBU
+      Nome: ${nome}
+      Evento: ${evento}
+      Comunidade: ${pais}
+      "Ndinga ke tunga kimvuka"
+    `;
+    const blob = new Blob([pdfContent], {type: "application/pdf"});
+    downloadLink.href = URL.createObjectURL(blob);
+  });
+</script>
+
+</body>
+  </html>      background: #d4af37;
       color: #2b1b0f;
       flex: 1 1 30%;
       margin: 10px;
