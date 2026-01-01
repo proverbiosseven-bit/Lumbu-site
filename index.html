@@ -5,107 +5,95 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LUMBU</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
 body{
   margin:0;
   font-family:'Poppins',sans-serif;
-  background:#f7f5ef;
-  color:#1e1b16;
+  background:#f6f3ee;
+  color:#1f130b;
 }
-
-/* CAPA */
 header{
-  position:relative;
+  background:url("https://images.unsplash.com/photo-1549880338-65ddcdfd017b") center/cover no-repeat;
   height:320px;
-  background:url('https://images.unsplash.com/photo-1547471080-7cc2caa01a7e') center/cover no-repeat;
-}
-header::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.45);
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 header h1{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  z-index:1;
-  color:#e3c77b;
-  font-size:3.5rem;
+  color:#f5d77a;
   font-family:'Playfair Display',serif;
-  letter-spacing:4px;
+  font-size:3.2rem;
+  background:rgba(0,0,0,0.5);
+  padding:20px 40px;
+  border-radius:10px;
 }
-
-/* CONTAINER */
 main{
   max-width:1100px;
-  margin:auto;
-  padding:30px 20px;
+  margin:30px auto;
+  padding:0 20px;
 }
-
-/* SEÇÕES */
 section{
-  margin-bottom:40px;
-}
-
-/* BOTÕES */
-button{
-  background:#e3c77b;
-  color:#2b2417;
-  border:none;
-  padding:14px 20px;
-  border-radius:8px;
-  font-weight:600;
-  cursor:pointer;
-  transition:.3s;
-}
-button:hover{
-  background:#d2b46a;
-}
-
-/* PESQUISA */
-#search{
-  width:100%;
-  padding:14px;
-  font-size:16px;
-  border-radius:8px;
-  border:1px solid #ccc;
-}
-
-/* CARDS */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-  margin-top:20px;
-}
-
-.card{
-  background:#fff;
+  background:#ffffff;
+  padding:25px;
   border-radius:12px;
-  padding:20px;
-  box-shadow:0 6px 15px rgba(0,0,0,0.08);
-  transition:.3s;
+  margin-bottom:25px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
 }
-.card:hover{
-  transform:translateY(-5px);
+h2{
+  color:#b88b2e;
+  margin-bottom:15px;
 }
+button{
+  background:#b88b2e;
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  padding:12px 18px;
+  cursor:pointer;
+  font-weight:600;
+}
+button:hover{background:#9f7724;}
+.hidden{display:none;}
 
-/* OCULTOS */
-.hidden{
-  display:none;
+.cards{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
 }
-
-/* FOOTER */
-footer{
-  background:#1e1b16;
-  color:#eee;
+.card{
+  background:#f5d77a;
+  padding:15px;
+  border-radius:10px;
+  min-width:180px;
   text-align:center;
-  padding:20px;
-  font-size:14px;
+  font-weight:600;
+}
+
+#searchBox{
+  display:flex;
+  gap:10px;
+}
+#searchInput{
+  flex:1;
+  padding:12px;
+  border-radius:6px;
+  border:1px solid #b88b2e;
+}
+
+.result{
+  margin-top:15px;
+  padding:10px;
+  border-bottom:1px solid #ddd;
+}
+
+footer{
+  background:#1f130b;
+  color:#f5f0e6;
+  text-align:center;
+  padding:15px;
+  font-size:13px;
 }
 </style>
 </head>
@@ -118,103 +106,106 @@ footer{
 
 <main>
 
-<!-- PESQUISA -->
 <section>
-<input id="search" type="text" placeholder="Pesquisar história, política, cultura africana..." onkeyup="filtrar()">
+<h2>Pesquisa no LUMBU</h2>
+<div id="searchBox">
+  <input id="searchInput" type="text" placeholder="Pesquisar história, política, cultura...">
+  <button onclick="pesquisar()">Pesquisar</button>
+</div>
+<div id="searchResults"></div>
 </section>
 
-<!-- TITULOS NIL -->
 <section>
-<h2>Títulos Simbólicos (NIL)</h2>
-<button onclick="mostrar('titulos',this)">MOSTRAR</button>
-
-<div id="titulos" class="grid hidden">
+<h2>NIL – Títulos Simbólicos</h2>
+<button onclick="toggle('titulos')">Mostrar / Ocultar</button>
+<div id="titulos" class="hidden cards">
   <div class="card">Afrocrata</div>
-  <div class="card">Afrocentrista</div>
-  <div class="card">Renascente</div>
-  <div class="card">Guardião da Memória</div>
-  <div class="card">Filho da Terra</div>
-  <div class="card">Voz Ancestral</div>
   <div class="card">Pan-Africano</div>
-  <div class="card">Semeador Cultural</div>
+  <div class="card">Guardião da Memória</div>
+  <div class="card">Renascente</div>
+  <div class="card">Filho da Terra</div>
+  <div class="card">Herança Viva</div>
 </div>
 </section>
 
-<!-- CALENDÁRIO -->
 <section>
-<h2>Calendário LUMBU</h2>
-<button onclick="mostrar('calendario',this)">MOSTRAR</button>
-
-<div id="calendario" class="grid hidden">
-  <div class="card">25 Janeiro<br>História Pré-Colonial</div>
-  <div class="card">25 Fevereiro<br>Línguas Africanas</div>
-  <div class="card">25 Março<br>Influência Ocidental</div>
-  <div class="card">25 Abril<br>Espiritualidade</div>
-  <div class="card"><strong>25 Maio</strong><br>Dia da África</div>
+<h2>Calendário do LUMBU</h2>
+<button onclick="toggle('calendario')">Mostrar / Ocultar</button>
+<div id="calendario" class="hidden cards">
+  <div class="card">25 Janeiro – História Pré-colonial</div>
+  <div class="card">25 Fevereiro – Línguas Africanas</div>
+  <div class="card">25 Março – Influência Ocidental</div>
+  <div class="card">25 Maio – Dia da África (Especial)</div>
 </div>
 </section>
 
-<!-- BIBLIOTECA -->
 <section>
-<h2>Biblioteca LUMBU</h2>
-<button onclick="mostrar('biblioteca',this)">MOSTRAR</button>
-
-<div id="biblioteca" class="grid hidden">
-  <div class="card" data-key="história reinos antigos">
-    História Pré-Colonial Africana
+<h2>Biblioteca do LUMBU</h2>
+<button onclick="toggle('biblioteca')">Mostrar / Ocultar</button>
+<div id="biblioteca" class="hidden">
+  <div class="result" data-keywords="história reinos pré-colonial">
+    Janeiro – História Pré-colonial
   </div>
-  <div class="card" data-key="línguas kikongo kimbundu">
-    Línguas e Identidade
+  <div class="result" data-keywords="línguas kikongo kimbundu cultura">
+    Fevereiro – Línguas Africanas
   </div>
-  <div class="card" data-key="política colonialismo neocolonialismo">
-    Influência Ocidental em África
+  <div class="result" data-keywords="colonialismo política ocidente">
+    Março – Influência Ocidental
   </div>
-  <div class="card" data-key="arte símbolos espiritualidade">
-    Arte, Símbolos e Espiritualidade
+  <div class="result" data-keywords="africanismo identidade cultura">
+    Maio – Dia da África
   </div>
 </div>
 </section>
 
-<!-- SOLIDARIEDADE -->
 <section>
 <h2>Fundo de Solidariedade</h2>
-<button onclick="mostrar('solidariedade',this)">MOSTRAR</button>
-
-<div id="solidariedade" class="card hidden">
-  <p>Apoio exclusivo às reuniões presenciais do LUMBU.</p>
-  <p><strong>IBAN:</strong> 0040 0000 90984961102 20 – BAI</p>
+<button onclick="toggle('solidariedade')">Mostrar / Ocultar</button>
+<div id="solidariedade" class="hidden">
+  <p><strong>IBAN:</strong> 0040 0000 90984961102 20 - BAI</p>
   <p><strong>Xpress:</strong> 946903366</p>
 </div>
 </section>
 
-<!-- SOBRE -->
 <section>
 <h2>Sobre o Criador</h2>
-<div class="card">
-  Augusto Tona
-</div>
+<p><strong>Augusto Tona</strong></p>
 </section>
 
 </main>
 
 <footer>
-LUMBU — Onde África fala por si
+LUMBU – Onde África fala por si
 </footer>
 
 <script>
-function mostrar(id,btn){
-  document.getElementById(id).classList.remove('hidden');
-  btn.remove();
+function toggle(id){
+  document.getElementById(id).classList.toggle('hidden');
 }
 
-function filtrar(){
-  let q=document.getElementById('search').value.toLowerCase();
-  document.querySelectorAll('.card').forEach(c=>{
-    let key=(c.dataset.key||c.innerText).toLowerCase();
-    c.style.display = key.includes(q) ? 'block' : 'none';
+function pesquisar(){
+  const termo=document.getElementById('searchInput').value.toLowerCase();
+  const resultados=document.querySelectorAll('.result');
+  let encontrou=false;
+
+  resultados.forEach(r=>{
+    const k=r.dataset.keywords;
+    if(k.includes(termo)){
+      r.style.display='block';
+      encontrou=true;
+    }else{
+      r.style.display='none';
+    }
   });
+
+  if(!encontrou){
+    document.getElementById('searchResults').innerHTML=
+      "<p><em>Nenhum conteúdo relacionado encontrado no LUMBU.</em></p>";
+  }else{
+    document.getElementById('searchResults').innerHTML="";
+  }
 }
 </script>
 
 </body>
-  </html>
+</html>
