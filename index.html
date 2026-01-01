@@ -5,36 +5,143 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LUMBU – Conselho Africano do Renascimento</title>
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
 <style>
-  body {
-    font-family: 'Poppins', sans-serif;
-    background: #2b1b0f;
-    color: #f5f0e6;
-    margin: 0;
-    padding: 0;
-  }
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#24160d;
+  color:#f5f0e6;
+}
+header{
+  background:#3a2315;
+  text-align:center;
+  padding:20px;
+}
+header h1{
+  font-family:'Roboto Slab',serif;
+  color:#d4af37;
+}
+main{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+}
+.card{
+  background:#3d2618;
+  border:2px solid #d4af37;
+  border-radius:8px;
+  padding:20px;
+  margin-bottom:20px;
+}
+button{
+  background:#d4af37;
+  color:#24160d;
+  border:none;
+  padding:12px;
+  width:100%;
+  font-weight:bold;
+  border-radius:5px;
+  cursor:pointer;
+}
+select{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+}
+#resultado{
+  display:none;
+  margin-top:20px;
+}
+.download{
+  display:block;
+  margin-top:15px;
+  background:#f5a623;
+  color:#24160d;
+  padding:10px;
+  text-align:center;
+  border-radius:5px;
+  text-decoration:none;
+  font-weight:bold;
+}
+</style>
+</head>
 
-  header {
-    text-align: center;
-    padding: 20px;
-    background: #3d2616;
-  }
+<body>
 
-  header img.capa {
-    width: 100%;
-    border-radius: 8px;
-  }
+<header>
+  <h1>LUMBU</h1>
+  <p>Conselho Africano do Renascimento</p>
+</header>
 
-  header h1 {
-    margin: 10px 0 5px;
-    color: #d4af37;
-    letter-spacing: 2px;
-    font-family: 'Roboto Slab', serif;
-  }
+<main>
 
+<div class="card">
+  <h2>Gerar NIL – Identidade LUMBU</h2>
+  <p>O NIL é o seu número interno no LUMBU. Ele representa sua consciência e compromisso com o Renascimento Africano.</p>
+
+  <label>Escolha o LUMBU</label>
+  <select id="evento">
+    <option>25 de Janeiro – História Pré-colonial</option>
+    <option>25 de Fevereiro – Línguas Africanas</option>
+    <option>25 de Março – Influência Ocidental</option>
+    <option>25 de Abril – Arte e Espiritualidade</option>
+    <option>25 de Maio – Dia da África (Especial)</option>
+  </select>
+
+  <button onclick="gerarNIL()">Gerar meu NIL</button>
+
+  <div id="resultado">
+    <p><strong>NIL:</strong> <span id="nil"></span></p>
+    <p><strong>Evento:</strong> <span id="eventoFinal"></span></p>
+    <a id="baixar" class="download">Baixar Credencial (PDF)</a>
+  </div>
+</div>
+
+</main>
+
+<script>
+const { jsPDF } = window.jspdf;
+
+const titulos = [
+  "KULUNTU",
+  "MUNTU",
+  "KANDA",
+  "TATA",
+  "MAMA",
+  "NKOSI",
+  "ZOLA",
+  "SEMBA"
+];
+
+function gerarNIL(){
+  const titulo = titulos[Math.floor(Math.random()*titulos.length)];
+  const numero = Math.floor(1000 + Math.random()*9000);
+  const nil = `${titulo}-${numero}`;
+  const evento = document.getElementById("evento").value;
+
+  document.getElementById("nil").innerText = nil;
+  document.getElementById("eventoFinal").innerText = evento;
+  document.getElementById("resultado").style.display="block";
+
+  const doc = new jsPDF();
+  doc.setFontSize(20);
+  doc.text("LUMBU – Conselho Africano do Renascimento",20,20);
+  doc.setFontSize(14);
+  doc.text(`NIL: ${nil}`,20,40);
+  doc.text(`Evento: ${evento}`,20,55);
+  doc.text("Ndinga ke tunga kimvuka",20,75);
+  doc.text("Onde África fala por si.",20,90);
+
+  const blob = doc.output("blob");
+  document.getElementById("baixar").href = URL.createObjectURL(blob);
+}
+</script>
+
+</body>
+    </html>
   header p {
     margin: 0;
     color: #f5f0e6;
