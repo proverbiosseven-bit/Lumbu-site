@@ -191,6 +191,43 @@ function toggle(id){
   document.getElementById(id).classList.toggle("hidden");
 }
 </script>
+<script>
+function executarPesquisa() {
+  const input = document.getElementById("searchInput").value.toLowerCase().trim();
+  const itens = document.querySelectorAll("#bibliotecaList li");
+  const resultado = document.getElementById("resultadoPesquisa");
 
+  let encontrou = false;
+
+  // limpa mensagens antigas
+  resultado.innerHTML = "";
+
+  itens.forEach(item => {
+    const texto = item.innerText.toLowerCase();
+    const tags = item.getAttribute("data-tags").toLowerCase();
+
+    if (input === "") {
+      item.style.display = "list-item";
+      encontrou = true;
+    } else if (texto.includes(input) || tags.includes(input)) {
+      item.style.display = "list-item";
+      encontrou = true;
+    } else {
+      item.style.display = "none";
+    }
+  });
+
+  if (!encontrou) {
+    resultado.innerHTML = "<p>Nenhum conteúdo relacionado encontrado, mas o LUMBU continuará a expandir esta biblioteca.</p>";
+  }
+}
+
+// permitir pesquisar também ao pressionar Enter
+document.getElementById("searchInput").addEventListener("keyup", function(e) {
+  if (e.key === "Enter") {
+    executarPesquisa();
+  }
+});
+  </script>
 </body>
 </html>
