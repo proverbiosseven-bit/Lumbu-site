@@ -4,331 +4,198 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LUMBU – Conselho Africano do Renascimento</title>
-
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-
-<!-- jsPDF para credencial PDF -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
 <style>
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #f0ede8;
-  color: #1f130b;
-  margin: 0;
-  line-height: 1.6;
-}
-header {
-  position: relative;
-  text-align: center;
-}
-header img.capa {
-  width: 100%;
-  max-height: 250px;
-  object-fit: cover;
-}
-header h1 {
-  position: absolute;
-  top: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  margin: 0;
-  color: #d4af37;
-  font-family: 'Roboto Slab', serif;
-  text-shadow: 1px 1px #000;
-}
-#credencialCard {
-  position: absolute;
-  bottom: -70px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #d4af37;
-  color: #2b1b0f;
-  padding: 15px 25px;
-  border-radius: 10px;
-  border: 2px solid #1f130b;
-  width: 80%;
-  max-width: 400px;
-  display: none;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-}
-main {
-  max-width: 900px;
-  margin: 100px auto 20px auto;
-  padding: 10px;
-}
-section {
-  background: #fff9f0;
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  border: 2px solid #d4af37;
-}
-h2 {
-  color: #d4af37;
-  margin-bottom: 15px;
-}
-button {
-  background: #d4af37;
-  color: #2b1b0f;
-  border: none;
-  border-radius: 5px;
-  padding: 12px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-top: 10px;
-  width: 100%;
-}
-button:hover {
-  background: #c19c2d;
-}
-input, select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border-radius: 5px;
-  border: 1px solid #d4af37;
-}
-#chatMessages {
-  background: #fff5e6;
-  border: 1px solid #d4af37;
-  border-radius: 8px;
-  height: 200px;
-  overflow-y: auto;
-  padding: 10px;
-}
-#chat input {
-  width: 80%;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #d4af37;
-}
-#chat button {
-  width: 18%;
-  padding: 10px;
-  margin-left: 2%;
-}
-#participantes {
-  margin-top: 15px;
-  background: #fff5e6;
-  border: 1px solid #d4af37;
-  border-radius: 8px;
-  padding: 10px;
-  max-height: 150px;
-  overflow-y: auto;
-}
-.toggle-btn {
-  margin-top: 10px;
-  background: #f5a623;
-  color: #2b1b0f;
-}
-.toggle-btn:hover {
-  background: #d49c23;
-}
-.biblioteca-content {
-  display: none;
-  margin-top: 10px;
-}
-footer {
-  text-align: center;
-  padding: 15px;
-  font-size: 12px;
-  opacity: 0.8;
-  background: #3a2415;
-  color: #f5f0e6;
-  border-top: 2px solid #d4af37;
-}
+body {margin:0; font-family:'Poppins',sans-serif; background:#f5f0e6; color:#1f130b;}
+header {position:relative; text-align:center;}
+header img.capa {width:100%; max-height:280px; object-fit:cover;}
+header h1 {position:absolute; top:20px; left:50%; transform:translateX(-50%); margin:0; color:#d4af37; font-family:'Roboto Slab',serif; text-shadow:1px 1px #000;}
+main {max-width:1000px; margin:20px auto; padding:0 15px;}
+section {background:#fff; padding:20px; border-radius:10px; margin-bottom:20px; border:2px solid #d4af37;}
+h2 {color:#d4af37; margin-bottom:15px;}
+button {background:#d4af37; color:#2b1b0f; border:none; border-radius:6px; padding:12px; cursor:pointer; font-weight:bold; margin-top:10px; transition:0.3s;}
+button:hover {background:#c19c2d;}
+input, select {width:100%; padding:10px; margin-top:5px; border-radius:5px; border:1px solid #d4af37;}
+.cards-container {display:flex; flex-wrap:wrap; gap:15px; justify-content:center;}
+.card-event, .card-biblioteca {background:#f5a623; padding:15px; border-radius:10px; flex:1 1 180px; max-width:220px; text-align:center; font-weight:bold; cursor:pointer; transition:transform 0.2s;}
+.card-event:hover, .card-biblioteca:hover {transform:scale(1.05);}
+.card-credencial {display:none; background:#d4af37; padding:20px; border-radius:12px; border:2px solid #1f130b; text-align:center; margin-top:-130px; width:300px; margin-left:auto; margin-right:auto; box-shadow:0 5px 15px rgba(0,0,0,0.3);}
+.biblioteca-content, #calendarioContent, #solidariedadeContent, #titulosContent {display:none; margin-top:10px;}
+.download-link {display:inline-block; margin-top:10px; padding:6px 12px; background:#2b1b0f; color:#f5f0e6; border-radius:4px; text-decoration:none; font-weight:bold;}
+.download-link:hover {background:#1f130b;}
+#searchInput {margin-top:10px; padding:10px; border-radius:5px; border:1px solid #d4af37; width:100%;}
+footer {text-align:center; padding:15px; font-size:12px; opacity:0.9; background:#3a2415; color:#f5f0e6; border-top:2px solid #d4af37;}
 </style>
 </head>
 <body>
 
 <header>
-  <img src="https://via.placeholder.com/900x250.png?text=LUMBU+Capa" alt="Capa do LUMBU" class="capa">
+  <img src="https://via.placeholder.com/1000x280.png?text=LUMBU+Capa" alt="Capa do LUMBU" class="capa">
   <h1>LUMBU</h1>
-  <div id="credencialCard">
-    <p><strong>NIL:</strong> <span id="cNIL">XXXX</span></p>
-    <p><strong>Nome:</strong> <span id="cNome">Seu Nome</span></p>
-    <p><strong>Província:</strong> <span id="cProvincia">Sua Província</span></p>
-    <p><strong>Evento:</strong> <span id="cEvento">Evento</span></p>
-  </div>
 </header>
 
 <main>
 
+<!-- Calendário -->
 <section>
-  <h2>Calendário Anual dos LUMBUs</h2>
+<h2>Calendário Anual dos LUMBUs</h2>
+<button onclick="toggleCalendario()">Mostrar / Esconder Calendário</button>
+<div id="calendarioContent" class="cards-container">
+  <div class="card-event">25 Jan<br>História Pré-colonial</div>
+  <div class="card-event">25 Fev<br>Línguas Africanas</div>
+  <div class="card-event">25 Mar<br>Influência Ocidental</div>
+  <div class="card-event">25 Abr<br>Arte e Espiritualidade</div>
+  <div class="card-event destaque">25 Mai<br>Dia da África – Especial</div>
+</div>
+</section>
+
+<!-- Credencial -->
+<section>
+<h2>Registro / Credencial</h2>
+<form id="lumbuForm">
+  <label>Nome Completo <input type="text" id="nome" placeholder="Nome completo" required></label>
+  <label>Província <input type="text" id="provincia" placeholder="Sua província" required></label>
+  <label>Escolha seu título (NIL)
+    <select id="tituloEscolha">
+      <option>Afrocrata</option>
+      <option>Afrocentrista</option>
+      <option>Kulturista</option>
+      <option>Renascente</option>
+      <option>PanAfricano</option>
+      <option>Guardião</option>
+      <option>Origens</option>
+      <option>Historiador</option>
+      <option>Visionário</option>
+    </select>
+  </label>
+  <label>Evento
+    <select id="evento">
+      <option>25 de Janeiro – História Pré-colonial</option>
+      <option>25 de Fevereiro – Línguas Africanas</option>
+      <option>25 de Março – Influência Ocidental</option>
+      <option>25 de Abril – Arte e Espiritualidade</option>
+      <option>25 de Maio – Dia da África – Especial</option>
+    </select>
+  </label>
+  <button type="submit">Gerar Credencial</button>
+  <a id="downloadCredencial" class="download-link" download="credencial_LUMBU.pdf" style="display:none;">Baixar PDF</a>
+</form>
+
+<div class="card-credencial" id="credencialCard">
+  <p><strong>NIL:</strong> <span id="cNIL">XXXX</span></p>
+  <p><strong>Nome:</strong> <span id="cNome">Seu Nome</span></p>
+  <p><strong>Província:</strong> <span id="cProvincia">Sua Província</span></p>
+  <p><strong>Evento:</strong> <span id="cEvento">Evento</span></p>
+</div>
+</section>
+
+<!-- NIL Títulos -->
+<section>
+<h2>NIL – Títulos Disponíveis</h2>
+<button onclick="toggleTitulos()">Mostrar / Esconder Todos os Apelidos/Títulos</button>
+<div id="titulosContent">
   <ul>
-    <li>25 de Janeiro – História Pré-colonial</li>
-    <li>25 de Fevereiro – Línguas Africanas</li>
-    <li>25 de Março – Influência Ocidental</li>
-    <li>25 de Abril – Arte e Espiritualidade</li>
-    <li>25 de Maio – Dia da África – Especial</li>
+    <li>Afrocrata</li><li>Afrocentrista</li><li>Kulturista</li><li>Renascente</li><li>PanAfricano</li>
+    <li>Guardião</li><li>Origens</li><li>Historiador</li><li>Visionário</li><li>Mestre</li>
+    <li>Sábio</li><li>Defensor</li><li>Explorador</li>
   </ul>
+</div>
 </section>
 
+<!-- Biblioteca -->
 <section>
-  <h2>Registro / Credencial</h2>
-  <form id="lumbuForm">
-    <label>Nome Completo <input type="text" id="nome" placeholder="Nome completo"></label>
-    <label>Província <input type="text" id="provincia" placeholder="Sua província"></label>
-    <label>Escolha seu título
-      <select id="tituloEscolha">
-        <option>Afrocrata</option>
-        <option>Afrocentrista</option>
-        <option>Kulturista</option>
-        <option>Renascente</option>
-        <option>PanAfricano</option>
-      </select>
-    </label>
-    <label>Evento
-      <select id="evento">
-        <option>25 de Janeiro – História Pré-colonial</option>
-        <option>25 de Fevereiro – Línguas Africanas</option>
-        <option>25 de Março – Influência Ocidental</option>
-        <option>25 de Abril – Arte e Espiritualidade</option>
-        <option>25 de Maio – Dia da África – Especial</option>
-      </select>
-    </label>
-    <button type="submit">Gerar Credencial</button>
-    <a id="downloadCredencial" class="download-link" download="credencial_LUMBU.pdf" style="display:none;">Baixar PDF</a>
-  </form>
+<h2>Biblioteca & Pesquisa</h2>
+<button onclick="toggleBiblioteca()">Mostrar / Esconder Biblioteca</button>
+<input type="text" id="searchInput" placeholder="Pesquisar por História, Política, Cultura..." onkeyup="filterBiblioteca()">
+<div class="biblioteca-content" id="biblioteca">
+  <ul id="bibliotecaList">
+    <li data-tags="história política"><a href="#" class="download-link">Janeiro – História Pré-colonial</a></li>
+    <li data-tags="línguas cultura"><a href="#" class="download-link">Fevereiro – Línguas Africanas</a></li>
+    <li data-tags="colonialismo política"><a href="#" class="download-link">Março – Influência Ocidental</a></li>
+    <li data-tags="arte espiritualidade"><a href="#" class="download-link">Abril – Arte e Espiritualidade</a></li>
+    <li data-tags="africanismo cultura"><a href="#" class="download-link">Maio – Dia da África – Especial</a></li>
+  </ul>
+</div>
 </section>
 
+<!-- Fundo de Solidariedade -->
 <section>
-  <h2>Biblioteca & Informação</h2>
-  <button class="toggle-btn" onclick="toggleBiblioteca()">Mostrar / Esconder</button>
-  <div class="biblioteca-content" id="biblioteca">
-    <ul>
-      <li><a href="#" class="download-link">Janeiro – História Pré-colonial (PDF fictício)</a></li>
-      <li><a href="#" class="download-link">Fevereiro – Línguas Africanas (PDF fictício)</a></li>
-      <li><a href="#" class="download-link">Março – Influência Ocidental (PDF fictício)</a></li>
-      <li><a href="#" class="download-link">Abril – Arte e Espiritualidade (PDF fictício)</a></li>
-      <li><a href="#" class="download-link">Maio – Dia da África – Especial (PDF fictício)</a></li>
-    </ul>
-  </div>
+<h2>Fundo de Solidariedade</h2>
+<button onclick="toggleSolidariedade()">Mostrar / Esconder Informações de Contribuição</button>
+<div id="solidariedadeContent">
+<p>As doações são usadas exclusivamente para materiais e organização dos encontros LUMBU.</p>
+<p><strong>IBAN:</strong> 0040 0000 90984961102 20 - BAI</p>
+<p><strong>Multicaixa / Xpress:</strong> 946903366</p>
+</div>
 </section>
 
+<!-- Sobre Criador -->
 <section>
-  <h2>Participantes Online</h2>
-  <div id="participantes"></div>
-</section>
-
-<section>
-  <h2>Chat Pré-LUMBU</h2>
-  <div id="chat">
-    <div id="chatMessages"></div>
-    <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
-    <button id="sendChat">Enviar</button>
-  </div>
-</section>
-
-<section>
-  <h2>Sobre o Criador</h2>
-  <p><strong>Augusto Isaías Manuel Tona "Augusto Tona"</strong> – Fundador do LUMBU</p>
-  <button class="toggle-btn" onclick="toggleInfo()">Mais informações</button>
-  <div class="biblioteca-content" id="infoExtra">
-    <p>O LUMBU promove identidade africana, cultura, história e renascimento. Todas as contribuições são usadas exclusivamente para encontros e materiais.</p>
-  </div>
+<h2>Sobre o Criador</h2>
+<p><strong>Augusto Tona</strong></p>
 </section>
 
 <footer>
-  <p>Fundo de solidariedade discreto &mdash; LUMBU – Onde África Fala por Si</p>
+<p>LUMBU – Onde África Fala por Si</p>
 </footer>
 
 <script>
 const { jsPDF } = window.jspdf;
-let NIL_DB = JSON.parse(localStorage.getItem('NIL_DB')) || {};
 
-function gerarNIL(titulo){
-  let count = Object.values(NIL_DB).filter(u => u.titulo===titulo).length + 1;
-  let numero = count.toString().padStart(3,'0');
-  return `${titulo}-${numero}`;
+// Toggle funções
+function toggleBiblioteca(){document.getElementById('biblioteca').style.display=document.getElementById('biblioteca').style.display==='block'?'none':'block';}
+function toggleCalendario(){document.getElementById('calendarioContent').style.display=document.getElementById('calendarioContent').style.display==='flex'?'none':'flex';}
+function toggleSolidariedade(){document.getElementById('solidariedadeContent').style.display=document.getElementById('solidariedadeContent').style.display==='block'?'none':'block';}
+function toggleTitulos(){document.getElementById('titulosContent').style.display=document.getElementById('titulosContent').style.display==='block'?'none':'block';}
+
+// Pesquisa fuzzy inteligente
+function filterBiblioteca() {
+  let input = document.getElementById('searchInput').value.toLowerCase();
+  let items = document.querySelectorAll('#bibliotecaList li');
+  items.forEach(item => {
+    let tags = item.getAttribute('data-tags').toLowerCase();
+    let text = item.innerText.toLowerCase();
+    if(input === "" || tags.includes(input) || text.includes(input) || isSimilar(text, input)) {item.style.display='block';}
+    else {item.style.display='none';}
+  });
+}
+function isSimilar(text,input){
+  let words=text.split(/[\s-]+/);
+  for(let word of words){if(word.startsWith(input)||word.includes(input)) return true;}
+  return false;
 }
 
-function registrarUsuario(nome, provincia, titulo){
-  for(let key in NIL_DB){
-    if(NIL_DB[key].nome===nome && NIL_DB[key].provincia===provincia){
-      return key;
-    }
-  }
-  let NIL = gerarNIL(titulo);
-  NIL_DB[NIL] = {nome:nome, provincia:provincia, titulo:titulo};
-  localStorage.setItem('NIL_DB', JSON.stringify(NIL_DB));
-  atualizarParticipantes();
-  return NIL;
-}
+// Credencial PDF
+const form=document.getElementById('lumbuForm');
+const credCard=document.getElementById('credencialCard');
+const downloadLink=document.getElementById('downloadCredencial');
 
-function atualizarParticipantes(){
-  const div = document.getElementById('participantes');
-  div.innerHTML = '';
-  for(let key in NIL_DB){
-    let p = document.createElement('p');
-    p.textContent = `${key} - ${NIL_DB[key].titulo}`;
-    div.appendChild(p);
-  }
-}
-
-function toggleBiblioteca(){
-  const lib = document.getElementById('biblioteca');
-  lib.style.display = lib.style.display === 'block' ? 'none' : 'block';
-}
-
-function toggleInfo(){
-  const info = document.getElementById('infoExtra');
-  info.style.display = info.style.display === 'block' ? 'none' : 'block';
-}
-
-// Formulário de registro e credencial
-const form = document.getElementById('lumbuForm');
-const credCard = document.getElementById('credencialCard');
-const downloadLink = document.getElementById('downloadCredencial');
-
-form.addEventListener('submit', function(e){
+form.addEventListener('submit',function(e){
   e.preventDefault();
-  const nome = document.getElementById('nome').value.trim();
-  const provincia = document.getElementById('provincia').value.trim();
-  const titulo = document.getElementById('tituloEscolha').value;
-  const evento = document.getElementById('evento').value;
+  const nome=document.getElementById('nome').value.trim();
+  const provincia=document.getElementById('provincia').value.trim();
+  const titulo=document.getElementById('tituloEscolha').value;
+  const evento=document.getElementById('evento').value;
 
-  const NIL = registrarUsuario(nome, provincia, titulo);
+  document.getElementById('cNIL').innerText=titulo;
+  document.getElementById('cNome').innerText=nome;
+  document.getElementById('cProvincia').innerText=provincia;
+  document.getElementById('cEvento').innerText=evento;
 
-  document.getElementById('cNIL').innerText = NIL;
-  document.getElementById('cNome').innerText = nome;
-  document.getElementById('cProvincia').innerText = provincia;
-  document.getElementById('cEvento').innerText = evento;
+  credCard.style.display='block';
+  downloadLink.style.display='inline-block';
 
-  credCard.style.display = 'block';
-  downloadLink.style.display = 'inline-block';
-
-  // Gerar PDF
-  const doc = new jsPDF();
+  const doc=new jsPDF();
   doc.setFontSize(22);
-  doc.text("LUMBU – Conselho Africano do Renascimento", 20, 20);
+  doc.text("LUMBU – Conselho Africano do Renascimento",20,20);
   doc.setFontSize(16);
-  doc.text(`NIL: ${NIL}`, 20, 40);
-  doc.text(`Nome: ${nome}`, 20, 50);
-  doc.text(`Província: ${provincia}`, 20, 60);
-  doc.text(`Evento: ${evento}`, 20, 70);
-  const pdfBlob = doc.output('blob');
-  downloadLink.href = URL.createObjectURL(pdfBlob);
+  doc.text(`NIL: ${titulo}`,20,40);
+  doc.text(`Nome: ${nome}`,20,50);
+  doc.text(`Província: ${provincia}`,20,60);
+  doc.text(`Evento: ${evento}`,20,70);
+  downloadLink.href=URL.createObjectURL(doc.output('blob'));
 });
-
-// Chat simples
-const chatMessages = document.getElementById('chatMessages');
-const chatInput = document.getElementById('chatInput');
-document.getElementById('sendChat').addEventListener('click', ()=>{
-  const msg = chatInput.value.trim();
-  if(msg){
-    const p = document.createElement('p');
-    p.textContent = msg;
-    chatMessages.appendChild(p);
-    chatInput.value = '';
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  }
-});
-
-atualizarParticipantes();
 </script>
 
 </body>
