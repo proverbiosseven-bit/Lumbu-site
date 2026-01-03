@@ -1,1 +1,23 @@
+.content-item {
+  margin-bottom: 15px;
+  padding: 12px;
+  background: #fff;
+  border-left: 4px solid #cfae70;
+  border-radius: 6px;
+}
 
+.full-text {
+  display: none;
+  margin-top: 10px;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.btn-toggle {
+  margin-top: 8px;
+  padding: 6px 12px;
+  background: #063c2e;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  }
