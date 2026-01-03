@@ -1,48 +1,140 @@
+/* ===== RESET BÁSICO ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== CORPO ===== */
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  color: #2b1b0f;
+}
+
+/* ===== HERO / CAPA ===== */
+.hero {
+  background: linear-gradient(
+    rgba(6, 60, 46, 0.9),
+    rgba(6, 60, 46, 0.9)
+  ),
+  url("images/africa-pattern.png");
+  background-size: cover;
+  background-position: center;
+  padding: 50px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+/* FOTO DA CAPA */
+.hero-photo {
+  width: 120px;
+  height: 120px;
+  max-width: 120px;
+  max-height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #cfae70;
+  margin: 0 auto 15px auto;
+  display: block;
+}
+
+/* TÍTULO */
+.hero h1 {
+  font-size: 2.2rem;
+  margin: 10px 0 5px 0;
+}
+
+/* DESCRIÇÃO */
+.hero p {
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+  line-height: 1.5;
+}
+
+/* ===== PESQUISA ===== */
+.search-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.search-box input {
+  padding: 10px;
+  font-size: 16px;
+  width: 250px;
+  border-radius: 5px;
+  border: none;
+}
+
+.search-box button {
+  padding: 10px 20px;
+  background: #cfae70;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.search-box button:hover {
+  background: #b6924f;
+}
+
+/* ===== SEÇÕES ===== */
+section {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+section h2 {
+  margin-bottom: 15px;
+  color: #3a2415;
+}
+
+/* ===== BIBLIOTECA ===== */
 .content-item {
   margin-bottom: 15px;
   padding: 12px;
-  background: #fff;
   border-left: 4px solid #cfae70;
-  border-radius: 6px;
-}
-
-.full-text {
-  display: none;
-  margin-top: 10px;
-  line-height: 1.6;
-  font-size: 14px;
-}
-
-.btn-toggle {
-  margin-top: 8px;
-  padding: 6px 12px;
-  background: #063c2e;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  }
-
-.content-item {
-  background: #ffffff;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-left: 4px solid #cfae70;
-  border-radius: 6px;
-}
-
-.full-text {
-  display: none;
-  margin-top: 10px;
-  line-height: 1.6;
-  font-size: 14px;
-}
-
-.btn-toggle {
-  margin-top: 8px;
-  padding: 6px 12px;
-  background: #063c2e;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
   cursor: pointer;
+}
+
+.content-item:hover {
+  background: #f0f0f0;
+}
+
+.full-text {
+  display: none;
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ===== BOTÃO MOSTRAR / OCULTAR ===== */
+.btn-toggle {
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  background: #3a2415;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-toggle:hover {
+  background: #2b1b0f;
+}
+
+/* ===== RODAPÉ ===== */
+footer {
+  text-align: center;
+  font-size: 12px;
+  margin: 40px 0 20px 0;
+  color: #555;
     }
