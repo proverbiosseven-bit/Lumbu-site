@@ -1,208 +1,283 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
-<title>LUMBU — Centro de Pensamento Africano</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUMBU - Centro de Pensamento Africano</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #f5f5f5;
+      color: #2b1b0f;
+    }
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f4f6f5;
-  color: #222;
-}
+    /* HERO / CAPA */
+    .hero {
+      background: linear-gradient(
+        rgba(6, 60, 46, 0.8),
+        rgba(6, 60, 46, 0.8)
+      ), url("images/africa-pattern.png");
+      background-size: cover;
+      background-position: center;
+      padding: 30px 20px;
+      text-align: center;
+      color: #fff;
+    }
 
-header {
-  background: linear-gradient(135deg, #0b3d2e, #1e7f5c);
-  color: white;
-  padding: 50px 20px;
-  text-align: center;
-}
+    .hero-photo {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #cfae70;
+      margin-bottom: 15px;
+    }
 
-header h1 {
-  margin: 0;
-  font-size: 36px;
-}
+    .hero h1 {
+      margin: 0;
+      font-size: 36px;
+    }
 
-header p {
-  max-width: 700px;
-  margin: 15px auto 0;
-  font-size: 18px;
-}
+    .hero p {
+      margin: 10px 0 20px 0;
+      font-size: 16px;
+    }
 
-#searchBox {
-  margin: 30px auto;
-  max-width: 600px;
-  display: flex;
-}
+    .search-box {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
 
-#searchInput {
-  flex: 1;
-  padding: 14px;
-  font-size: 16px;
-  border: none;
-  outline: none;
-}
+    .search-box input {
+      padding: 10px;
+      font-size: 16px;
+      width: 250px;
+      border-radius: 5px;
+      border: none;
+    }
 
-#searchBtn {
-  padding: 14px 20px;
-  border: none;
-  background: #1e7f5c;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-}
+    .search-box button {
+      padding: 10px 20px;
+      background: #cfae70;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
 
-main {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 0 20px;
-}
+    .search-box button:hover {
+      background: #b6924f;
+    }
 
-.result {
-  background: white;
-  padding: 20px;
-  margin-bottom: 15px;
-  border-left: 6px solid #1e7f5c;
-  cursor: pointer;
-}
+    /* SEÇÕES */
+    section {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
 
-.result:hover {
-  background: #eef6f2;
-}
+    h2 {
+      color: #3a2415;
+      margin-top: 0;
+    }
 
-#contentView {
-  background: white;
-  padding: 30px;
-  display: none;
-}
+    .content-item {
+      margin-bottom: 15px;
+      padding: 10px;
+      border-left: 4px solid #cfae70;
+      cursor: pointer;
+    }
 
-#contentView h2 {
-  margin-top: 0;
-}
+    .content-item:hover {
+      background: #f0f0f0;
+    }
 
-footer {
-  text-align: center;
-  padding: 30px;
-  color: #555;
-}
-</style>
+    .full-text {
+      display: none;
+      margin-top: 5px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* BOTÕES */
+    .btn-toggle {
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #3a2415;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-toggle:hover {
+      background: #2b1b0f;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      margin: 40px 0 20px 0;
+      color: #555;
+    }
+
+    /* Resultados da pesquisa */
+    #searchResults {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 10px;
+      background: #fff3d9;
+      border-radius: 6px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    }
+
+    .result-item {
+      margin-bottom: 10px;
+    }
+
+    .result-item strong {
+      color: #3a2415;
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-  <h1>LUMBU</h1>
-  <p>Centro de pensamento africano. História, política, cultura e consciência africana.</p>
+  <!-- CAPA -->
+  <header class="hero">
+    <img src="images/augusto-tona.jpg" alt="Augusto Tona" class="hero-photo">
+    <h1>LUMBU</h1>
+    <p>Centro de pensamento africano. História, política, cultura e consciência africana.</p>
 
-  <div id="searchBox">
-    <input id="searchInput" type="text" placeholder="Pesquisar África, política, história..." />
-    <button id="searchBtn">Pesquisar</button>
-  </div>
-</header>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Pesquisar conteúdos...">
+      <button onclick="searchContent()">Pesquisar</button>
+    </div>
+  </header>
 
-<main>
-  <div id="results"></div>
+  <!-- SOBRE O LUMBU -->
+  <section id="sobre-lumbu">
+    <h2>Sobre o LUMBU</h2>
+    <p>O LUMBU é um movimento intelectual africano que visa fortalecer a consciência histórica, política e cultural do continente africano. Aqui, buscamos compreender África a partir da própria perspectiva africana.</p>
+  </section>
 
-  <div id="contentView"></div>
-</main>
+  <!-- SOBRE O CRIADOR -->
+  <section id="sobre-criador">
+    <h2>Sobre o Criador</h2>
+    <p>Augusto Tona é educador e fundador do LUMBU, com a missão de disseminar conhecimento sobre história, política e cultura africana, promovendo debates, participação ativa e consciência coletiva.</p>
+  </section>
 
-<footer>
-  Criado por <strong>Augusto Tona</strong> — Movimento Intelectual Africano
-</footer>
+  <!-- BIBLIOTECA -->
+  <section id="biblioteca">
+    <h2>Biblioteca de Conteúdos</h2>
+    <button class="btn-toggle" onclick="toggleAll()">Mostrar / Ocultar Todos</button>
 
-<script>
-const contents = [
-{
-id: 1,
-title: "Pan-Africanismo: consciência, não slogan",
-text: `O Pan-Africanismo nasce como necessidade histórica... (texto completo que te enviei)`,
-keywords: "pan-africanismo unidade africa consciência"
-},
-{
-id: 2,
-title: "Por que África é submissa a ideologias alheias?",
-text: `A submissão africana não é natural...`,
-keywords: "ideologias colonização africa politica"
-},
-{
-id: 3,
-title: "As verdadeiras causas das guerras africanas",
-text: `As guerras africanas raramente são tribais...`,
-keywords: "guerras africa geopolitica conflitos"
-},
-{
-id: 4,
-title: "África e a geopolítica global",
-text: `No xadrez mundial, África é tratada como tabuleiro...`,
-keywords: "geopolitica africa mundo poder"
-},
-{
-id: 5,
-title: "Identidade africana como poder político",
-text: `Cultura não é entretenimento...`,
-keywords: "identidade cultura africana"
-},
-{
-id: 6,
-title: "Democracia africana: cópia ou criação?",
-text: `África copiou modelos democráticos europeus...`,
-keywords: "democracia africa politica"
-},
-{
-id: 7,
-title: "Educação africana e libertação",
-text: `Educar não é apenas transmitir informação...`,
-keywords: "educacao africa consciencia"
-},
-{
-id: 8,
-title: "Juventude africana e futuro",
-text: `África é o continente mais jovem do mundo...`,
-keywords: "juventude africa futuro"
-},
-{
-id: 9,
-title: "Economia africana e dependência",
-text: `África é rica em recursos...`,
-keywords: "economia africa recursos"
-},
-{
-id: 10,
-title: "LUMBU: um movimento intelectual africano",
-text: `LUMBU não é partido nem religião...`,
-keywords: "lumbu pensamento africano"
-}
-];
+    <div class="content-item">
+      <strong>Pan-Africanismo: consciência, não slogan</strong>
+      <div class="full-text">O Pan-Africanismo surge como movimento político e cultural para unir os povos africanos, valorizando identidade e soberania.</div>
+    </div>
 
-const resultsDiv = document.getElementById("results");
-const contentView = document.getElementById("contentView");
+    <div class="content-item">
+      <strong>Por que África é submissa a ideologias alheias?</strong>
+      <div class="full-text">Explora a história do colonialismo e fatores internos que limitam autonomia política e econômica.</div>
+    </div>
 
-function search() {
-  const q = document.getElementById("searchInput").value.toLowerCase();
-  resultsDiv.innerHTML = "";
-  contentView.style.display = "none";
+    <div class="content-item">
+      <strong>Verdadeiras causas das guerras africanas</strong>
+      <div class="full-text">Conflitos armados, disputas territoriais e interesses externos aliados a divisões internas.</div>
+    </div>
 
-  contents.filter(c =>
-    c.title.toLowerCase().includes(q) ||
-    c.text.toLowerCase().includes(q) ||
-    c.keywords.includes(q)
-  ).forEach(c => {
-    const div = document.createElement("div");
-    div.className = "result";
-    div.innerHTML = `<strong>${c.title}</strong>`;
-    div.onclick = () => openContent(c);
-    resultsDiv.appendChild(div);
-  });
-}
+    <div class="content-item">
+      <strong>África e geopolítica global</strong>
+      <div class="full-text">O continente rico em recursos enfrenta desafios de poder e influência internacional.</div>
+    </div>
 
-function openContent(c) {
-  contentView.style.display = "block";
-  contentView.innerHTML = `<h2>${c.title}</h2><p>${c.text}</p>`;
-}
+    <div class="content-item">
+      <strong>Identidade africana como poder político</strong>
+      <div class="full-text">Valorização da cultura e identidade africanas fortalece participação política e social.</div>
+    </div>
 
-document.getElementById("searchBtn").onclick = search;
-</script>
+    <div class="content-item">
+      <strong>Democracia africana: cópia ou criação?</strong>
+      <div class="full-text">Análise das formas de governo no continente, influências externas e soluções próprias africanas.</div>
+    </div>
+
+    <div class="content-item">
+      <strong>Educação africana e libertação</strong>
+      <div class="full-text">A educação como ferramenta de emancipação, consciência crítica e desenvolvimento sustentável.</div>
+    </div>
+
+    <div class="content-item">
+      <strong>Juventude africana e inovação</strong>
+      <div class="full-text">O papel da juventude no desenvolvimento, empreendedorismo e cultura digital africana.</div>
+    </div>
+
+    <div class="content-item">
+      <strong>Cultura e espiritualidade</strong>
+      <div class="full-text">Tradições, rituais, arte e símbolos que conectam passado e presente.</div>
+    </div>
+
+    <div class="content-item">
+      <strong>Economia africana e recursos naturais</strong>
+      <div class="full-text">Gestão de recursos, comércio e políticas econômicas locais e internacionais.</div>
+    </div>
+
+  </section>
+
+  <!-- RESULTADOS DA PESQUISA -->
+  <div id="searchResults"></div>
+
+  <footer>
+    &copy; 2026 LUMBU - Todos os direitos reservados
+  </footer>
+
+  <script>
+    // Mostrar/Ocultar cada item
+    const contentItems = document.querySelectorAll('.content-item');
+    contentItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const fullText = item.querySelector('.full-text');
+        fullText.style.display = fullText.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+
+    // Mostrar / Ocultar todos
+    function toggleAll() {
+      contentItems.forEach(item => {
+        const fullText = item.querySelector('.full-text');
+        fullText.style.display = fullText.style.display === 'block' ? 'none' : 'block';
+      });
+    }
+
+    // Pesquisa
+    function searchContent() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const resultsDiv = document.getElementById('searchResults');
+      resultsDiv.innerHTML = '';
+      let found = false;
+
+      contentItems.forEach(item => {
+        const title = item.querySelector('strong').textContent.toLowerCase();
+        const text = item.querySelector('.full-text').textContent.toLowerCase();
+        if (title.includes(query) || text.includes(query)) {
+          const div = document.createElement('div');
+          div.className = 'result-item';
+          div.innerHTML = `<strong>${item.querySelector('strong').textContent}</strong>: ${item.querySelector('.full-text').textContent}`;
+          resultsDiv.appendChild(div);
+          found = true;
+        }
+      });
+
+      if (!found) {
+        resultsDiv.innerHTML = '<em>Nenhum resultado encontrado.</em>';
+      }
+    }
+  </script>
 
 </body>
   </html>
