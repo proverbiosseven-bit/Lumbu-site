@@ -3,112 +3,85 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LUMBU – Pesquisa Africana</title>
+<title>LUMBU – Centro Africano de Pensamento</title>
 
 <style>
-body{
-  margin:0;
+body {
+  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background:#f4f2ed;
-  color:#1f140c;
+  background: #f4f6f8;
+  color: #222;
 }
 
-/* CAPA */
-header{
-  background:url("https://images.unsplash.com/photo-1523741543316-beb7fc7023d8") center/cover no-repeat;
-  position:relative;
-  padding:90px 20px;
-  text-align:center;
-  color:#fff;
-}
-header::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.65);
-}
-header *{
-  position:relative;
-  z-index:2;
-}
-header h1{
-  color:#f0c75e;
-  font-size:48px;
-  margin-bottom:15px;
-}
-header p{
-  max-width:800px;
-  margin:auto;
-  font-size:18px;
-  line-height:1.6;
+header {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: white;
+  padding: 60px 20px 40px;
+  text-align: center;
 }
 
-/* CONTAINER */
-.container{
-  max-width:1000px;
-  margin:40px auto;
-  padding:20px;
+header h1 {
+  margin: 0;
+  font-size: 2.4em;
 }
 
-/* PESQUISA */
-.search-box{
-  background:#fff;
-  padding:25px;
-  border-radius:10px;
-  box-shadow:0 4px 12px rgba(0,0,0,.1);
-}
-.search-box input{
-  width:100%;
-  padding:14px;
-  font-size:18px;
-  border-radius:8px;
-  border:1px solid #c9b458;
+header p {
+  margin-top: 10px;
+  opacity: 0.9;
 }
 
-/* RESULTADOS */
-#results{
-  margin-top:25px;
-}
-.result-item{
-  background:#faf7f1;
-  padding:15px;
-  border-radius:8px;
-  margin-bottom:12px;
-  border-left:5px solid #d4af37;
-}
-
-/* BOTÕES */
-button{
-  margin-top:20px;
-  padding:10px 18px;
-  border:none;
-  background:#d4af37;
-  color:#2b1b0f;
-  font-weight:bold;
-  border-radius:6px;
-  cursor:pointer;
-}
-button:hover{
-  background:#b9962f;
+#searchBox {
+  margin-top: 30px;
+  width: 90%;
+  max-width: 600px;
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
 }
 
-/* SEÇÕES */
-.section{
-  background:#fff;
-  padding:25px;
-  border-radius:10px;
-  margin-top:40px;
-  box-shadow:0 4px 10px rgba(0,0,0,.08);
+section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
 }
-.hidden{display:none;}
 
-footer{
-  margin-top:60px;
-  background:#2b1b0f;
-  color:#eee;
-  text-align:center;
-  padding:20px;
-  border-top:4px solid #d4af37;
+button.toggle {
+  background: #2c5364;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+button.toggle:hover {
+  background: #1e3c50;
+}
+
+.hidden {
+  display: none;
+}
+
+.content-card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.content-card h3 {
+  margin-top: 0;
+}
+
+footer {
+  text-align: center;
+  font-size: 13px;
+  padding: 30px 10px;
+  color: #666;
 }
 </style>
 </head>
@@ -117,96 +90,98 @@ footer{
 
 <header>
   <h1>LUMBU</h1>
-  <p>
-    Um espaço africano de reflexão, pesquisa e reencontro com as nossas raízes.<br><br>
-    Pensar África com consciência africana.
-  </p>
+  <p>Centro Africano de Pensamento, História e Consciência</p>
+  <input id="searchBox" type="text" placeholder="Pesquisar África, política, história, cultura..." onkeyup="pesquisar()">
 </header>
 
-<div class="container">
+<section>
+  <button class="toggle" onclick="toggleSection('biblioteca')">Mostrar / Ocultar Conteúdos</button>
 
-  <!-- PESQUISA -->
-  <div class="search-box">
-    <input type="text" id="search" placeholder="Pesquisar história, política, cultura africana...">
-    <div id="results"></div>
-  </div>
+  <div id="biblioteca">
 
-  <!-- BIBLIOTECA -->
-  <div class="section">
-    <button onclick="toggle('biblioteca')">Mostrar / Ocultar Biblioteca</button>
-    <div id="biblioteca" class="hidden">
-
-      <div class="result-item" data-key="história reinos impérios africanos">
-        <strong>História Pré-colonial</strong><br>
-        Reinos africanos, impérios, organização social antes da colonização.
-      </div>
-
-      <div class="result-item" data-key="línguas kikongo kimbundu bantu">
-        <strong>Línguas Africanas</strong><br>
-        Kikongo, Kimbundu, Bantu, oralidade e identidade linguística.
-      </div>
-
-      <div class="result-item" data-key="colonialismo política influência ocidental">
-        <strong>Influência Ocidental</strong><br>
-        Colonialismo, neocolonialismo, política e impacto cultural.
-      </div>
-
-      <div class="result-item" data-key="arte símbolos espiritualidade africana">
-        <strong>Arte e Espiritualidade</strong><br>
-        Símbolos, rituais, estética e visão africana do mundo.
-      </div>
-
-      <div class="result-item" data-key="pan-africanismo dia da africa unidade">
-        <strong>Pan-Africanismo</strong><br>
-        Unidade africana, Dia da África e consciência continental.
-      </div>
-
+    <div class="content-card" data-tags="história africa pre-colonial reinos">
+      <h3>África Pré-Colonial</h3>
+      <p>Antes da colonização, África possuía sistemas políticos, económicos e culturais próprios, organizados em reinos, impérios e confederações.</p>
     </div>
+
+    <div class="content-card" data-tags="pan-africanismo politica africa">
+      <h3>Pan-Africanismo</h3>
+      <p>Movimento político e intelectual que defende a união dos povos africanos contra a dominação externa e a fragmentação colonial.</p>
+    </div>
+
+    <div class="content-card" data-tags="colonialismo neocolonialismo africa">
+      <h3>Colonialismo e Neocolonialismo</h3>
+      <p>A colonização europeia não terminou apenas com as independências. O neocolonialismo mantém dependências económicas e políticas.</p>
+    </div>
+
+    <div class="content-card" data-tags="guerras africa geopolítica">
+      <h3>Guerras Africanas</h3>
+      <p>Muitos conflitos africanos estão ligados a interesses externos, recursos naturais e fronteiras artificiais herdadas do colonialismo.</p>
+    </div>
+
+    <div class="content-card" data-tags="cultura identidade africana">
+      <h3>Identidade Africana</h3>
+      <p>A recuperação da identidade africana passa pelo resgate da história, das línguas e dos valores culturais tradicionais.</p>
+    </div>
+
+    <div class="content-card" data-tags="africa politica mundial">
+      <h3>África no Mundo</h3>
+      <p>África é central no equilíbrio geopolítico global, mas frequentemente excluída das decisões que afetam o seu próprio destino.</p>
+    </div>
+
   </div>
+</section>
 
-  <!-- SOBRE -->
-  <div class="section">
-    <p>
-      <strong>Sobre o LUMBU</strong><br><br>
-      O LUMBU é uma iniciativa cultural e intelectual dedicada à pesquisa,
-      partilha e valorização do pensamento africano.
-      Aqui, África fala por si, com dignidade, memória e futuro.
-    </p>
+<section>
+  <button class="toggle" onclick="toggleSection('sobre')">Sobre o Criador</button>
 
-    <p><strong>Criador:</strong> Augusto Tona</p>
+  <div id="sobre" class="hidden content-card">
+    <h3>Augusto Tona</h3>
+    <p>Educador e pensador africano. Criador do LUMBU, um espaço intelectual dedicado à reconstrução da consciência africana no contexto mundial.</p>
   </div>
+</section>
 
-</div>
+<section>
+  <button class="toggle" onclick="toggleSection('solidariedade')">Fundo de Solidariedade</button>
+
+  <div id="solidariedade" class="hidden content-card">
+    <p>As contribuições apoiam a continuidade do LUMBU como movimento intelectual africano.</p>
+    <p><strong>IBAN:</strong> 0040 0000 90984961102 20 – BAI</p>
+    <p><strong>Xpress:</strong> 946903366</p>
+  </div>
+</section>
 
 <footer>
-  LUMBU – Onde África fala por si
+  LUMBU – Onde África pensa por si
 </footer>
 
 <script>
-const searchInput=document.getElementById("search");
-const resultsBox=document.getElementById("results");
-const items=document.querySelectorAll(".result-item");
+function toggleSection(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle("hidden");
+}
 
-searchInput.addEventListener("input",()=>{
-  const q=searchInput.value.toLowerCase().trim();
-  resultsBox.innerHTML="";
-  if(q==="") return;
+function pesquisar() {
+  const termo = document.getElementById("searchBox").value.toLowerCase();
+  const cards = document.querySelectorAll(".content-card");
 
-  let found=false;
-  items.forEach(i=>{
-    if(i.dataset.key.includes(q)){
-      resultsBox.appendChild(i.cloneNode(true));
-      found=true;
+  let encontrou = false;
+
+  cards.forEach(card => {
+    const tags = card.getAttribute("data-tags");
+    const texto = card.innerText.toLowerCase();
+
+    if (tags.includes(termo) || texto.includes(termo)) {
+      card.style.display = "block";
+      encontrou = true;
+    } else {
+      card.style.display = "none";
     }
   });
 
-  if(!found){
-    resultsBox.innerHTML="<p>Nenhum conteúdo relacionado encontrado.</p>";
+  if (!encontrou && termo.length > 0) {
+    cards.forEach(card => card.style.display = "block");
   }
-});
-
-function toggle(id){
-  document.getElementById(id).classList.toggle("hidden");
 }
 </script>
 
