@@ -2,81 +2,220 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LUMBU – Centro de Pensamento Africano</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- LIGAÇÃO AO CSS -->
-  <link rel="stylesheet" href="style.css">
+  <!-- ===== STYLE / CSS ===== -->
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f2f2f2;
+      color: #2b1b0f;
+    }
+
+    /* CAPA */
+    .hero {
+      background: linear-gradient(rgba(6,60,46,0.9), rgba(6,60,46,0.9));
+      padding: 40px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 36px;
+      letter-spacing: 2px;
+    }
+
+    .hero p {
+      margin: 10px 0 20px;
+      font-size: 16px;
+    }
+
+    .search-box {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .search-box input {
+      padding: 10px;
+      width: 260px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+    }
+
+    .search-box button {
+      padding: 10px 18px;
+      background: #cfae70;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* SEÇÕES */
+    section {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #3a2415;
+    }
+
+    /* BIBLIOTECA */
+    .btn-toggle {
+      margin-bottom: 15px;
+      padding: 10px 15px;
+      background: #3a2415;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .content-item {
+      margin-bottom: 15px;
+      padding: 12px;
+      border-left: 4px solid #cfae70;
+      cursor: pointer;
+    }
+
+    .content-item:hover {
+      background: #f0f0f0;
+    }
+
+    .full-text {
+      display: none;
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #555;
+      margin: 40px 0 20px;
+    }
+  </style>
 </head>
 
+<!-- ===== BODY ===== -->
 <body>
 
-  <!-- ================= CAPA / HERO ================= -->
+  <!-- CAPA -->
   <header class="hero">
-    <img src="images/augusto-tona.jpg" alt="Augusto Tona" class="hero-photo">
-
     <h1>LUMBU</h1>
-    <p>Centro de pensamento africano. História, política, cultura e consciência africana.</p>
+    <p>Centro de pensamento africano. História, política e consciência africana.</p>
 
-    <!-- PESQUISA -->
     <div class="search-box">
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Pesquisar temas, ideias, África..."
-      >
+      <input type="text" id="searchInput" placeholder="Pesquisar África, política, história...">
       <button onclick="searchContent()">Pesquisar</button>
     </div>
   </header>
 
-  <!-- ================= SOBRE O LUMBU ================= -->
-  <section id="sobre-lumbu">
+  <!-- SOBRE -->
+  <section>
     <h2>Sobre o LUMBU</h2>
     <p>
-      O LUMBU é um centro de pensamento africano dedicado à reflexão crítica
-      sobre história, política, cultura e identidade africana.
-      O objetivo é produzir consciência, não repetir narrativas externas.
+      O LUMBU é um movimento intelectual africano dedicado à construção da consciência histórica,
+      política e cultural de África a partir da própria visão africana.
     </p>
   </section>
 
-  <!-- ================= SOBRE O CRIADOR ================= -->
-  <section id="sobre-criador">
-    <h2>Sobre o Criador</h2>
-    <p>
-      Augusto Tona é educador e pensador africano.
-      Fundador do LUMBU, trabalha para fortalecer a consciência histórica
-      e política africana através da escrita, educação e debate público.
-    </p>
-  </section>
-
-  <!-- ================= BIBLIOTECA ================= -->
+  <!-- BIBLIOTECA -->
   <section id="biblioteca">
     <h2>Biblioteca de Conteúdos</h2>
 
-    <!-- AQUI OS ITENS DA BIBLIOTECA APARECEM -->
-    <!-- (o script.js preenche automaticamente esta área) -->
-    <div id="lista-conteudos"></div>
+    <button class="btn-toggle" onclick="toggleAll()">Mostrar / Ocultar Todos</button>
 
-    <!-- BOTÃO PARA MOSTRAR MAIS ITENS -->
-    <button
-      id="btn-mais"
-      class="btn-toggle"
-      onclick="mostrarMais()"
-    >
-      Mostrar mais
-    </button>
+    <div class="content-item" onclick="toggleItem(this)">
+      <strong>Pan-Africanismo: consciência, não slogan</strong>
+      <div class="full-text">
+        O Pan-Africanismo é um projeto político e histórico de união dos povos africanos e da diáspora,
+        visando soberania, identidade e libertação real.
+      </div>
+    </div>
+
+    <div class="content-item" onclick="toggleItem(this)">
+      <strong>Por que África é submissa a ideologias alheias?</strong>
+      <div class="full-text">
+        A dependência ideológica africana nasce do colonialismo cultural, educacional e econômico,
+        que substituiu sistemas africanos próprios por modelos importados.
+      </div>
+    </div>
+
+    <div class="content-item" onclick="toggleItem(this)">
+      <strong>As verdadeiras causas das guerras africanas</strong>
+      <div class="full-text">
+        Interesses geopolíticos, exploração de recursos naturais, fronteiras artificiais e interferência
+        externa explicam grande parte dos conflitos africanos.
+      </div>
+    </div>
+
+    <div class="content-item" onclick="toggleItem(this)">
+      <strong>África na geopolítica mundial</strong>
+      <div class="full-text">
+        África é central na disputa global por minerais estratégicos, energia e influência política,
+        mas enfrenta desafios de soberania.
+      </div>
+    </div>
+
+    <div class="content-item" onclick="toggleItem(this)">
+      <strong>Educação africana como libertação</strong>
+      <div class="full-text">
+        Uma educação centrada na realidade africana é fundamental para libertar mentalmente e construir
+        desenvolvimento sustentável.
+      </div>
+    </div>
   </section>
 
-  <!-- ================= RODAPÉ ================= -->
-  <footer>
+  <!-- SOBRE O CRIADOR -->
+  <section>
+    <h2>Sobre o Criador</h2>
     <p>
-      © LUMBU – Centro de Pensamento Africano<br>
-      Conhecimento, identidade e libertação africana
+      <strong>Augusto Tona</strong> é educador e fundador do LUMBU. O projeto nasce da necessidade
+      de reconstruir a consciência africana e promover pensamento crítico no continente.
     </p>
+  </section>
+
+  <footer>
+    LUMBU – Onde África fala por si
   </footer>
 
-  <!-- ================= SCRIPT ================= -->
-  <script src="script.js"></script>
+  <!-- ===== SCRIPT / JAVASCRIPT ===== -->
+  <script>
+    function toggleItem(item) {
+      const text = item.querySelector(".full-text");
+      text.style.display = text.style.display === "block" ? "none" : "block";
+    }
+
+    function toggleAll() {
+      document.querySelectorAll(".full-text").forEach(text => {
+        text.style.display = text.style.display === "block" ? "none" : "block";
+      });
+    }
+
+    function searchContent() {
+      const query = document.getElementById("searchInput").value.toLowerCase();
+      const items = document.querySelectorAll(".content-item");
+
+      items.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        item.style.display = text.includes(query) ? "block" : "none";
+      });
+    }
+  </script>
 
 </body>
 </html>
