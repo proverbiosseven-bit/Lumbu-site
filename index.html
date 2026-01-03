@@ -3,281 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LUMBU - Centro de Pensamento Africano</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: #f5f5f5;
-      color: #2b1b0f;
-    }
+  <title>LUMBU – Centro de Pensamento Africano</title>
 
-    /* HERO / CAPA */
-    .hero {
-      background: linear-gradient(
-        rgba(6, 60, 46, 0.8),
-        rgba(6, 60, 46, 0.8)
-      ), url("images/africa-pattern.png");
-      background-size: cover;
-      background-position: center;
-      padding: 30px 20px;
-      text-align: center;
-      color: #fff;
-    }
-
-    .hero-photo {
-      width: 130px;
-      height: 130px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid #cfae70;
-      margin-bottom: 15px;
-    }
-
-    .hero h1 {
-      margin: 0;
-      font-size: 36px;
-    }
-
-    .hero p {
-      margin: 10px 0 20px 0;
-      font-size: 16px;
-    }
-
-    .search-box {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .search-box input {
-      padding: 10px;
-      font-size: 16px;
-      width: 250px;
-      border-radius: 5px;
-      border: none;
-    }
-
-    .search-box button {
-      padding: 10px 20px;
-      background: #cfae70;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .search-box button:hover {
-      background: #b6924f;
-    }
-
-    /* SEÇÕES */
-    section {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      color: #3a2415;
-      margin-top: 0;
-    }
-
-    .content-item {
-      margin-bottom: 15px;
-      padding: 10px;
-      border-left: 4px solid #cfae70;
-      cursor: pointer;
-    }
-
-    .content-item:hover {
-      background: #f0f0f0;
-    }
-
-    .full-text {
-      display: none;
-      margin-top: 5px;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    /* BOTÕES */
-    .btn-toggle {
-      margin-top: 10px;
-      padding: 10px 15px;
-      background: #3a2415;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .btn-toggle:hover {
-      background: #2b1b0f;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 12px;
-      margin: 40px 0 20px 0;
-      color: #555;
-    }
-
-    /* Resultados da pesquisa */
-    #searchResults {
-      max-width: 900px;
-      margin: 20px auto;
-      padding: 10px;
-      background: #fff3d9;
-      border-radius: 6px;
-      box-shadow: 0 0 6px rgba(0,0,0,0.1);
-    }
-
-    .result-item {
-      margin-bottom: 10px;
-    }
-
-    .result-item strong {
-      color: #3a2415;
-    }
-  </style>
+  <!-- LIGAÇÃO AO CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <!-- CAPA -->
+  <!-- ================= CAPA / HERO ================= -->
   <header class="hero">
     <img src="images/augusto-tona.jpg" alt="Augusto Tona" class="hero-photo">
+
     <h1>LUMBU</h1>
     <p>Centro de pensamento africano. História, política, cultura e consciência africana.</p>
 
+    <!-- PESQUISA -->
     <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Pesquisar conteúdos...">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Pesquisar temas, ideias, África..."
+      >
       <button onclick="searchContent()">Pesquisar</button>
     </div>
   </header>
 
-  <!-- SOBRE O LUMBU -->
+  <!-- ================= SOBRE O LUMBU ================= -->
   <section id="sobre-lumbu">
     <h2>Sobre o LUMBU</h2>
-    <p>O LUMBU é um movimento intelectual africano que visa fortalecer a consciência histórica, política e cultural do continente africano. Aqui, buscamos compreender África a partir da própria perspectiva africana.</p>
+    <p>
+      O LUMBU é um centro de pensamento africano dedicado à reflexão crítica
+      sobre história, política, cultura e identidade africana.
+      O objetivo é produzir consciência, não repetir narrativas externas.
+    </p>
   </section>
 
-  <!-- SOBRE O CRIADOR -->
+  <!-- ================= SOBRE O CRIADOR ================= -->
   <section id="sobre-criador">
     <h2>Sobre o Criador</h2>
-    <p>Augusto Tona é educador e fundador do LUMBU, com a missão de disseminar conhecimento sobre história, política e cultura africana, promovendo debates, participação ativa e consciência coletiva.</p>
+    <p>
+      Augusto Tona é educador e pensador africano.
+      Fundador do LUMBU, trabalha para fortalecer a consciência histórica
+      e política africana através da escrita, educação e debate público.
+    </p>
   </section>
 
-  <!-- BIBLIOTECA -->
+  <!-- ================= BIBLIOTECA ================= -->
   <section id="biblioteca">
     <h2>Biblioteca de Conteúdos</h2>
-    <button class="btn-toggle" onclick="toggleAll()">Mostrar / Ocultar Todos</button>
 
-    <div class="content-item">
-      <strong>Pan-Africanismo: consciência, não slogan</strong>
-      <div class="full-text">O Pan-Africanismo surge como movimento político e cultural para unir os povos africanos, valorizando identidade e soberania.</div>
-    </div>
+    <!-- AQUI OS ITENS DA BIBLIOTECA APARECEM -->
+    <!-- (o script.js preenche automaticamente esta área) -->
+    <div id="lista-conteudos"></div>
 
-    <div class="content-item">
-      <strong>Por que África é submissa a ideologias alheias?</strong>
-      <div class="full-text">Explora a história do colonialismo e fatores internos que limitam autonomia política e econômica.</div>
-    </div>
-
-    <div class="content-item">
-      <strong>Verdadeiras causas das guerras africanas</strong>
-      <div class="full-text">Conflitos armados, disputas territoriais e interesses externos aliados a divisões internas.</div>
-    </div>
-
-    <div class="content-item">
-      <strong>África e geopolítica global</strong>
-      <div class="full-text">O continente rico em recursos enfrenta desafios de poder e influência internacional.</div>
-    </div>
-
-    <div class="content-item">
-      <strong>Identidade africana como poder político</strong>
-      <div class="full-text">Valorização da cultura e identidade africanas fortalece participação política e social.</div>
-    </div>
-
-    <div class="content-item">
-      <strong>Democracia africana: cópia ou criação?</strong>
-      <div class="full-text">Análise das formas de governo no continente, influências externas e soluções próprias africanas.</div>
-    </div>
-
-    <div class="content-item">
-      <strong>Educação africana e libertação</strong>
-      <div class="full-text">A educação como ferramenta de emancipação, consciência crítica e desenvolvimento sustentável.</div>
-    </div>
-
-    <div class="content-item">
-      <strong>Juventude africana e inovação</strong>
-      <div class="full-text">O papel da juventude no desenvolvimento, empreendedorismo e cultura digital africana.</div>
-    </div>
-
-    <div class="content-item">
-      <strong>Cultura e espiritualidade</strong>
-      <div class="full-text">Tradições, rituais, arte e símbolos que conectam passado e presente.</div>
-    </div>
-
-    <div class="content-item">
-      <strong>Economia africana e recursos naturais</strong>
-      <div class="full-text">Gestão de recursos, comércio e políticas econômicas locais e internacionais.</div>
-    </div>
-
+    <!-- BOTÃO PARA MOSTRAR MAIS ITENS -->
+    <button
+      id="btn-mais"
+      class="btn-toggle"
+      onclick="mostrarMais()"
+    >
+      Mostrar mais
+    </button>
   </section>
 
-  <!-- RESULTADOS DA PESQUISA -->
-  <div id="searchResults"></div>
-
+  <!-- ================= RODAPÉ ================= -->
   <footer>
-    &copy; 2026 LUMBU - Todos os direitos reservados
+    <p>
+      © LUMBU – Centro de Pensamento Africano<br>
+      Conhecimento, identidade e libertação africana
+    </p>
   </footer>
 
-  <script>
-    // Mostrar/Ocultar cada item
-    const contentItems = document.querySelectorAll('.content-item');
-    contentItems.forEach(item => {
-      item.addEventListener('click', () => {
-        const fullText = item.querySelector('.full-text');
-        fullText.style.display = fullText.style.display === 'block' ? 'none' : 'block';
-      });
-    });
-
-    // Mostrar / Ocultar todos
-    function toggleAll() {
-      contentItems.forEach(item => {
-        const fullText = item.querySelector('.full-text');
-        fullText.style.display = fullText.style.display === 'block' ? 'none' : 'block';
-      });
-    }
-
-    // Pesquisa
-    function searchContent() {
-      const query = document.getElementById('searchInput').value.toLowerCase();
-      const resultsDiv = document.getElementById('searchResults');
-      resultsDiv.innerHTML = '';
-      let found = false;
-
-      contentItems.forEach(item => {
-        const title = item.querySelector('strong').textContent.toLowerCase();
-        const text = item.querySelector('.full-text').textContent.toLowerCase();
-        if (title.includes(query) || text.includes(query)) {
-          const div = document.createElement('div');
-          div.className = 'result-item';
-          div.innerHTML = `<strong>${item.querySelector('strong').textContent}</strong>: ${item.querySelector('.full-text').textContent}`;
-          resultsDiv.appendChild(div);
-          found = true;
-        }
-      });
-
-      if (!found) {
-        resultsDiv.innerHTML = '<em>Nenhum resultado encontrado.</em>';
-      }
-    }
-  </script>
+  <!-- ================= SCRIPT ================= -->
+  <script src="script.js"></script>
 
 </body>
-  </html>
+</html>
