@@ -2,8 +2,7 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LUMBU – Centro Africano de Pesquisa</title>
+<title>LUMBU — Centro de Pensamento Africano</title>
 
 <style>
 body {
@@ -14,26 +13,25 @@ body {
 }
 
 header {
-  background: linear-gradient(135deg, #1f4037, #99f2c8);
-  padding: 60px 20px 40px;
-  text-align: center;
+  background: linear-gradient(135deg, #0b3d2e, #1e7f5c);
   color: white;
+  padding: 50px 20px;
+  text-align: center;
 }
 
 header h1 {
   margin: 0;
-  font-size: 2.8em;
+  font-size: 36px;
 }
 
 header p {
   max-width: 700px;
   margin: 15px auto 0;
-  font-size: 1.1em;
-  opacity: 0.95;
+  font-size: 18px;
 }
 
 #searchBox {
-  margin: 30px auto 0;
+  margin: 30px auto;
   max-width: 600px;
   display: flex;
 }
@@ -43,17 +41,16 @@ header p {
   padding: 14px;
   font-size: 16px;
   border: none;
-  border-radius: 6px 0 0 6px;
+  outline: none;
 }
 
 #searchBtn {
-  padding: 14px 22px;
+  padding: 14px 20px;
   border: none;
-  background: #0b2e24;
+  background: #1e7f5c;
   color: white;
-  font-size: 16px;
   cursor: pointer;
-  border-radius: 0 6px 6px 0;
+  font-size: 16px;
 }
 
 main {
@@ -62,60 +59,32 @@ main {
   padding: 0 20px;
 }
 
-.post {
+.result {
   background: white;
-  border-radius: 10px;
   padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-}
-
-.post h2 {
-  margin-top: 0;
-  color: #1f4037;
-}
-
-.post button {
-  margin-top: 10px;
-  background: #1f4037;
-  color: white;
-  border: none;
-  padding: 8px 14px;
-  border-radius: 5px;
+  margin-bottom: 15px;
+  border-left: 6px solid #1e7f5c;
   cursor: pointer;
 }
 
-.post-content {
-  display: none;
-  margin-top: 15px;
-  line-height: 1.6;
+.result:hover {
+  background: #eef6f2;
 }
 
-section {
-  margin-top: 60px;
-}
-
-.section-box {
+#contentView {
   background: white;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+  padding: 30px;
+  display: none;
 }
 
-.toggle-btn {
-  margin-top: 15px;
-  background: #ddd;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  border-radius: 5px;
+#contentView h2 {
+  margin-top: 0;
 }
 
 footer {
   text-align: center;
   padding: 30px;
-  font-size: 14px;
-  color: #666;
+  color: #555;
 }
 </style>
 </head>
@@ -124,141 +93,116 @@ footer {
 
 <header>
   <h1>LUMBU</h1>
-  <p>Centro Africano de Pesquisa sobre História, Política, Cultura e Consciência Pan-Africana</p>
+  <p>Centro de pensamento africano. História, política, cultura e consciência africana.</p>
 
   <div id="searchBox">
-    <input type="text" id="searchInput" placeholder="Pesquisar África, política, cultura, história...">
+    <input id="searchInput" type="text" placeholder="Pesquisar África, política, história..." />
     <button id="searchBtn">Pesquisar</button>
   </div>
 </header>
 
-<main id="posts"></main>
+<main>
+  <div id="results"></div>
 
-<section>
-  <div class="section-box">
-    <h2>Sobre o LUMBU</h2>
-    <p>
-      O LUMBU é um movimento intelectual africano dedicado a reinterpretar África
-      a partir da própria África. Não é um partido, nem uma religião, nem uma ideologia
-      importada. É um espaço de pensamento crítico, consciência histórica e visão geopolítica.
-    </p>
-  </div>
-</section>
-
-<section>
-  <div class="section-box">
-    <h2>Sobre o Criador</h2>
-    <p><strong>Augusto Tona</strong> é educador e pensador africano, dedicado à construção
-    de uma consciência africana autónoma, crítica e estratégica no contexto global.</p>
-  </div>
-</section>
-
-<section>
-  <div class="section-box">
-    <h2>Fundo de Solidariedade</h2>
-    <button class="toggle-btn" onclick="toggleSolid()">Mostrar</button>
-    <div id="solid" style="display:none;margin-top:10px;">
-      <p><strong>IBAN:</strong> 0040 0000 90984961102 20 – BAI</p>
-      <p><strong>Xpress:</strong> 946903366</p>
-      <p style="font-size:14px;">Contribuições destinam-se exclusivamente ao fortalecimento
-      do LUMBU enquanto espaço intelectual africano.</p>
-    </div>
-  </div>
-</section>
+  <div id="contentView"></div>
+</main>
 
 <footer>
-  LUMBU © 2026 — Onde África pensa por si
+  Criado por <strong>Augusto Tona</strong> — Movimento Intelectual Africano
 </footer>
 
 <script>
-const data = [
-  {
-    title: "Por que África continua dependente?",
-    text: "A dependência africana não é acidental. É resultado de estruturas coloniais preservadas..."
-  },
-  {
-    title: "Pan-Africanismo explicado",
-    text: "Pan-Africanismo é uma consciência política, cultural e estratégica..."
-  },
-  {
-    title: "As verdadeiras causas das guerras africanas",
-    text: "Recursos naturais, fronteiras artificiais e interesses externos..."
-  },
-  {
-    title: "Geopolítica africana básica",
-    text: "África é central no mundo moderno, mas marginalizada nas decisões..."
-  },
-  {
-    title: "Cultura como arma política",
-    text: "Língua, música e símbolos moldam poder e identidade..."
-  },
-  {
-    title: "Educação colonial vs educação africana",
-    text: "O sistema educacional herdado reforça dependência mental..."
-  },
-  {
-    title: "O papel da juventude africana",
-    text: "Juventude é maioria demográfica e chave estratégica..."
-  },
-  {
-    title: "Estados africanos: nação ou ficção?",
-    text: "Muitos estados africanos foram desenhados sem base cultural..."
-  },
-  {
-    title: "Democracia importada funciona em África?",
-    text: "Modelos políticos europeus ignoram realidades africanas..."
-  },
-  {
-    title: "África no sistema mundial",
-    text: "Do colonialismo ao neocolonialismo econômico..."
-  }
+const contents = [
+{
+id: 1,
+title: "Pan-Africanismo: consciência, não slogan",
+text: `O Pan-Africanismo nasce como necessidade histórica... (texto completo que te enviei)`,
+keywords: "pan-africanismo unidade africa consciência"
+},
+{
+id: 2,
+title: "Por que África é submissa a ideologias alheias?",
+text: `A submissão africana não é natural...`,
+keywords: "ideologias colonização africa politica"
+},
+{
+id: 3,
+title: "As verdadeiras causas das guerras africanas",
+text: `As guerras africanas raramente são tribais...`,
+keywords: "guerras africa geopolitica conflitos"
+},
+{
+id: 4,
+title: "África e a geopolítica global",
+text: `No xadrez mundial, África é tratada como tabuleiro...`,
+keywords: "geopolitica africa mundo poder"
+},
+{
+id: 5,
+title: "Identidade africana como poder político",
+text: `Cultura não é entretenimento...`,
+keywords: "identidade cultura africana"
+},
+{
+id: 6,
+title: "Democracia africana: cópia ou criação?",
+text: `África copiou modelos democráticos europeus...`,
+keywords: "democracia africa politica"
+},
+{
+id: 7,
+title: "Educação africana e libertação",
+text: `Educar não é apenas transmitir informação...`,
+keywords: "educacao africa consciencia"
+},
+{
+id: 8,
+title: "Juventude africana e futuro",
+text: `África é o continente mais jovem do mundo...`,
+keywords: "juventude africa futuro"
+},
+{
+id: 9,
+title: "Economia africana e dependência",
+text: `África é rica em recursos...`,
+keywords: "economia africa recursos"
+},
+{
+id: 10,
+title: "LUMBU: um movimento intelectual africano",
+text: `LUMBU não é partido nem religião...`,
+keywords: "lumbu pensamento africano"
+}
 ];
 
-const postsEl = document.getElementById("posts");
-
-function renderPosts(list) {
-  postsEl.innerHTML = "";
-  if (list.length === 0) {
-    postsEl.innerHTML = "<p>Nenhum resultado encontrado.</p>";
-    return;
-  }
-  list.forEach((p, i) => {
-    postsEl.innerHTML += `
-      <div class="post">
-        <h2>${p.title}</h2>
-        <button onclick="togglePost(${i})">Ler</button>
-        <div class="post-content" id="content-${i}">
-          <p>${p.text}</p>
-        </div>
-      </div>
-    `;
-  });
-}
-
-function togglePost(i) {
-  const el = document.getElementById("content-" + i);
-  el.style.display = el.style.display === "block" ? "none" : "block";
-}
-
-function toggleSolid() {
-  const s = document.getElementById("solid");
-  s.style.display = s.style.display === "block" ? "none" : "block";
-}
-
-document.getElementById("searchBtn").onclick = search;
-document.getElementById("searchInput").onkeyup = search;
+const resultsDiv = document.getElementById("results");
+const contentView = document.getElementById("contentView");
 
 function search() {
   const q = document.getElementById("searchInput").value.toLowerCase();
-  const filtered = data.filter(d =>
-    d.title.toLowerCase().includes(q) ||
-    d.text.toLowerCase().includes(q)
-  );
-  renderPosts(filtered);
+  resultsDiv.innerHTML = "";
+  contentView.style.display = "none";
+
+  contents.filter(c =>
+    c.title.toLowerCase().includes(q) ||
+    c.text.toLowerCase().includes(q) ||
+    c.keywords.includes(q)
+  ).forEach(c => {
+    const div = document.createElement("div");
+    div.className = "result";
+    div.innerHTML = `<strong>${c.title}</strong>`;
+    div.onclick = () => openContent(c);
+    resultsDiv.appendChild(div);
+  });
 }
 
-renderPosts(data);
+function openContent(c) {
+  contentView.style.display = "block";
+  contentView.innerHTML = `<h2>${c.title}</h2><p>${c.text}</p>`;
+}
+
+document.getElementById("searchBtn").onclick = search;
 </script>
 
 </body>
-</html>
+  </html>
