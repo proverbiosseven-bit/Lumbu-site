@@ -1,207 +1,152 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LUMBU – Centro Africano de Pensamento</title>
+  <meta charset="UTF-8">
+  <title>LUMBU – Centro Africano de Pensamento</title>
 
-<style>
-/* ===== BASE ===== */
-* { box-sizing: border-box; }
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f4f4f4;
-  color: #1f1f1f;
-}
+  <!-- META SEO -->
+  <meta name="description" content="LUMBU é um centro africano de pensamento sobre história, política, cultura e consciência africana.">
+  <meta name="keywords" content="África, Pan-Africanismo, política africana, cultura africana, geopolítica africana">
+  <meta name="author" content="LUMBU">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-/* ===== CAPA ===== */
-.hero {
-  background: linear-gradient(135deg, #063c2e, #0b6b4f);
-  padding: 35px 20px;
-  text-align: center;
-  color: #fff;
-}
+  <!-- STYLE -->
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #222;
+    }
 
-.hero h1 {
-  margin: 0;
-  font-size: 34px;
-  letter-spacing: 2px;
-}
+    header {
+      background: #063c2e;
+      color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+    }
 
-.hero p {
-  max-width: 720px;
-  margin: 10px auto 20px;
-  font-size: 16px;
-  line-height: 1.5;
-}
+    header h1 {
+      margin: 0;
+      font-size: 34px;
+    }
 
-/* ===== PESQUISA ===== */
-.search-box {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
-}
+    header p {
+      margin-top: 10px;
+      font-size: 16px;
+    }
 
-.search-box input {
-  padding: 10px;
-  width: 260px;
-  border-radius: 6px;
-  border: none;
-  font-size: 15px;
-}
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 6px;
+    }
 
-.search-box button {
-  padding: 10px 18px;
-  background: #d2b56f;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-}
+    h2 {
+      border-left: 5px solid #cfae70;
+      padding-left: 10px;
+      color: #063c2e;
+    }
 
-/* ===== SEÇÕES ===== */
-section {
-  max-width: 1200px;
-  margin: 30px auto;
-  background: #fff;
-  padding: 22px;
-  border-radius: 10px;
-}
+    /* BIBLIOTECA */
+    .post {
+      border-bottom: 1px solid #ddd;
+      padding: 15px 0;
+    }
 
-/* ===== BIBLIOTECA ===== */
-.library-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 18px;
-  margin-top: 20px;
-}
+    .post button {
+      background: none;
+      border: none;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #063c2e;
+      text-align: left;
+      width: 100%;
+    }
 
-.library-card {
-  background: #fafafa;
-  padding: 16px;
-  border-radius: 8px;
-  border-left: 4px solid #d2b56f;
-  cursor: pointer;
-  transition: 0.25s;
-}
+    .post-content {
+      display: none;
+      margin-top: 10px;
+      line-height: 1.6;
+      font-size: 15px;
+    }
 
-.library-card:hover {
-  background: #f0f0f0;
-}
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 13px;
+      color: #555;
+    }
+  </style>
 
-.library-card h3 {
-  margin: 0;
-  font-size: 16px;
-  color: #063c2e;
-}
-
-.library-card p {
-  display: none;
-  margin-top: 10px;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-/* ===== BOTÃO ===== */
-.btn-toggle {
-  padding: 10px 16px;
-  background: #063c2e;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-/* ===== RODAPÉ ===== */
-footer {
-  text-align: center;
-  font-size: 12px;
-  color: #666;
-  margin: 40px 0 20px;
-}
-</style>
+  <!-- SCRIPT -->
+  <script>
+    function togglePost(id) {
+      const content = document.getElementById(id);
+      content.style.display = content.style.display === "block" ? "none" : "block";
+    }
+  </script>
 </head>
 
 <body>
 
-<!-- ===== CAPA ===== -->
-<header class="hero">
+<header>
   <h1>LUMBU</h1>
-  <p>
-    Movimento intelectual africano dedicado à história, política,
-    cultura e consciência africana a partir da visão africana.
-  </p>
-
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Pesquisar África, política, cultura…">
-    <button onclick="searchContent()">Pesquisar</button>
-  </div>
+  <p>Centro de pensamento africano sobre história, política, cultura e consciência africana</p>
 </header>
 
-<!-- ===== BIBLIOTECA ===== -->
-<section>
+<div class="container">
+
   <h2>Biblioteca LUMBU</h2>
-  <p>Centro de pesquisa africano com conteúdos organizados para estudo, reflexão e debate.</p>
 
-  <button class="btn-toggle" onclick="toggleAll()">Mostrar / Ocultar textos</button>
+  <!-- POST 1 -->
+  <div class="post">
+    <button onclick="togglePost('p1')">Por que África continua dependente?</button>
+    <div class="post-content" id="p1">
+      África não é dependente por incapacidade, mas por estruturas históricas criadas durante o colonialismo e mantidas pelo neocolonialismo moderno.
+    </div>
+  </div>
 
-  <div id="libraryGrid" class="library-grid"></div>
-</section>
+  <!-- POST 2 -->
+  <div class="post">
+    <button onclick="togglePost('p2')">Pan-Africanismo: ideia ou necessidade?</button>
+    <div class="post-content" id="p2">
+      O Pan-Africanismo não é um slogan político, mas uma resposta histórica à fragmentação africana imposta artificialmente.
+    </div>
+  </div>
+
+  <!-- POST 3 -->
+  <div class="post">
+    <button onclick="togglePost('p3')">Guerras africanas: causas internas ou externas?</button>
+    <div class="post-content" id="p3">
+      Muitos conflitos africanos têm raízes externas, mas são alimentados por elites locais desconectadas do interesse coletivo.
+    </div>
+  </div>
+
+  <!-- POST 4 -->
+  <div class="post">
+    <button onclick="togglePost('p4')">Identidade africana como poder político</button>
+    <div class="post-content" id="p4">
+      A identidade não é folclore. É base de organização social, política e resistência cultural.
+    </div>
+  </div>
+
+  <!-- POST 5 -->
+  <div class="post">
+    <button onclick="togglePost('p5')">Educação africana: libertação ou repetição?</button>
+    <div class="post-content" id="p5">
+      Sistemas educacionais africanos muitas vezes reproduzem modelos externos que não respondem às realidades locais.
+    </div>
+  </div>
+
+</div>
 
 <footer>
-  LUMBU – Onde África fala por si
+  LUMBU © 2026 · Centro Africano de Pensamento · Fundado por Augusto Tona
 </footer>
-
-<!-- ===== SCRIPT (CORAÇÃO DO SITE) ===== -->
-<script>
-const libraryGrid = document.getElementById("libraryGrid");
-let libraryData = [];
-
-// GERAR 1000 CONTEÚDOS
-for (let i = 1; i <= 1000; i++) {
-  libraryData.push({
-    title: "Estudos Africanos – Tema " + i,
-    text: "Análise crítica sobre história, política, cultura e ideologias africanas. Conteúdo do LUMBU dedicado à consciência e emancipação africana."
-  });
-}
-
-// RENDERIZAR
-function renderLibrary(data) {
-  libraryGrid.innerHTML = "";
-  data.forEach(item => {
-    const card = document.createElement("div");
-    card.className = "library-card";
-    card.innerHTML = `<h3>${item.title}</h3><p>${item.text}</p>`;
-    card.onclick = () => {
-      const p = card.querySelector("p");
-      p.style.display = p.style.display === "block" ? "none" : "block";
-    };
-    libraryGrid.appendChild(card);
-  });
-}
-
-// MOSTRAR / OCULTAR TODOS
-function toggleAll() {
-  document.querySelectorAll(".library-card p").forEach(p => {
-    p.style.display = p.style.display === "block" ? "none" : "block";
-  });
-}
-
-// PESQUISA
-function searchContent() {
-  const query = document.getElementById("searchInput").value.toLowerCase();
-  const filtered = libraryData.filter(item =>
-    item.title.toLowerCase().includes(query) ||
-    item.text.toLowerCase().includes(query)
-  );
-  renderLibrary(filtered);
-}
-
-// CARREGAR AO ABRIR
-renderLibrary(libraryData);
-</script>
 
 </body>
 </html>
