@@ -1,273 +1,206 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <title>LUMBU – Centro de Pensamento Africano</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUMBU – Centro Africano de Pensamento</title>
 
-  <!-- ===== STYLE / CSS ===== -->
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f2f2f2;
-      color: #2b1b0f;
-    }
+<style>
+/* ===== BASE ===== */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f4f4;
+  color: #1f1f1f;
+}
 
-    /* CAPA */
-    .hero {
-      background: linear-gradient(rgba(6,60,46,0.9), rgba(6,60,46,0.9));
-      padding: 40px 20px;
-      text-align: center;
-      color: white;
-    }
+/* ===== CAPA ===== */
+.hero {
+  background: linear-gradient(135deg, #063c2e, #0b6b4f);
+  padding: 35px 20px;
+  text-align: center;
+  color: #fff;
+}
 
-    .hero h1 {
-      margin: 0;
-      font-size: 36px;
-      letter-spacing: 2px;
-    }
+.hero h1 {
+  margin: 0;
+  font-size: 34px;
+  letter-spacing: 2px;
+}
 
-    .hero p {
-      margin: 10px 0 20px;
-      font-size: 16px;
-    }
+.hero p {
+  max-width: 720px;
+  margin: 10px auto 20px;
+  font-size: 16px;
+  line-height: 1.5;
+}
 
-    .search-box {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
+/* ===== PESQUISA ===== */
+.search-box {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
 
-    .search-box input {
-      padding: 10px;
-      width: 260px;
-      border-radius: 5px;
-      border: none;
-      font-size: 16px;
-    }
+.search-box input {
+  padding: 10px;
+  width: 260px;
+  border-radius: 6px;
+  border: none;
+  font-size: 15px;
+}
 
-    .search-box button {
-      padding: 10px 18px;
-      background: #cfae70;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-    }
+.search-box button {
+  padding: 10px 18px;
+  background: #d2b56f;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    /* SEÇÕES */
-    section {
-      max-width: 900px;
-      margin: 30px auto;
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    }
+/* ===== SEÇÕES ===== */
+section {
+  max-width: 1200px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 22px;
+  border-radius: 10px;
+}
 
-    h2 {
-      margin-top: 0;
-      color: #3a2415;
-    }
+/* ===== BIBLIOTECA ===== */
+.library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
 
-    /* BIBLIOTECA */
-    .btn-toggle {
-      margin-bottom: 15px;
-      padding: 10px 15px;
-      background: #3a2415;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+.library-card {
+  background: #fafafa;
+  padding: 16px;
+  border-radius: 8px;
+  border-left: 4px solid #d2b56f;
+  cursor: pointer;
+  transition: 0.25s;
+}
 
-    .content-item {
-      margin-bottom: 15px;
-      padding: 12px;
-      border-left: 4px solid #cfae70;
-      cursor: pointer;
-    }
+.library-card:hover {
+  background: #f0f0f0;
+}
 
-    .content-item:hover {
-      background: #f0f0f0;
-    }
+.library-card h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #063c2e;
+}
 
-    .full-text {
-      display: none;
-      margin-top: 8px;
-      font-size: 14px;
-      line-height: 1.6;
-    }
+.library-card p {
+  display: none;
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+}
 
-    footer {
-      text-align: center;
-      font-size: 12px;
-      color: #555;
-      margin: 40px 0 20px;
-    }
-  </style>
+/* ===== BOTÃO ===== */
+.btn-toggle {
+  padding: 10px 16px;
+  background: #063c2e;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* ===== RODAPÉ ===== */
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  margin: 40px 0 20px;
+}
+</style>
 </head>
 
-<!-- ===== BODY ===== -->
 <body>
 
-  <!-- CAPA -->
-  <header class="hero">
-    <h1>LUMBU</h1>
-    <p>Centro de pensamento africano. História, política e consciência africana.</p>
+<!-- ===== CAPA ===== -->
+<header class="hero">
+  <h1>LUMBU</h1>
+  <p>
+    Movimento intelectual africano dedicado à história, política,
+    cultura e consciência africana a partir da visão africana.
+  </p>
 
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Pesquisar África, política, história...">
-      <button onclick="searchContent()">Pesquisar</button>
-    </div>
-  </header>
-
-  <!-- SOBRE -->
-  <section>
-    <h2>Sobre o LUMBU</h2>
-    <p>
-      O LUMBU é um movimento intelectual africano dedicado à construção da consciência histórica,
-      política e cultural de África a partir da própria visão africana.
-    </p>
-  </section>
-
-  <!-- BIBLIOTECA -->
-  <section id="biblioteca"><section id="biblioteca">
-  <h2>Biblioteca de Conteúdos</h2>
-
-  <button class="btn-toggle" onclick="toggleAll()">Mostrar / Ocultar Todos</button>
-
-  <div class="library-grid" id="libraryGrid">
-    <!-- Conteúdos entram via JavaScript -->
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Pesquisar África, política, cultura…">
+    <button onclick="searchContent()">Pesquisar</button>
   </div>
+</header>
+
+<!-- ===== BIBLIOTECA ===== -->
+<section>
+  <h2>Biblioteca LUMBU</h2>
+  <p>Centro de pesquisa africano com conteúdos organizados para estudo, reflexão e debate.</p>
+
+  <button class="btn-toggle" onclick="toggleAll()">Mostrar / Ocultar textos</button>
+
+  <div id="libraryGrid" class="library-grid"></div>
 </section>
-  </section>
 
-  <!-- SOBRE O CRIADOR -->
-  <section>
-    <h2>Sobre o Criador</h2>
-    <p>
-      <strong>Augusto Tona</strong> é educador e fundador do LUMBU. O projeto nasce da necessidade
-      de reconstruir a consciência africana e promover pensamento crítico no continente.
-    </p>
-  </section>
+<footer>
+  LUMBU – Onde África fala por si
+</footer>
 
-  <footer>
-    LUMBU – Onde África fala por si
-  </footer>
+<!-- ===== SCRIPT (CORAÇÃO DO SITE) ===== -->
+<script>
+const libraryGrid = document.getElementById("libraryGrid");
+let libraryData = [];
 
-  <!-- ===== SCRIPT / JAVASCRIPT ===== -->
-  <script>
-    function toggleItem(item) {
-      const text = item.querySelector(".full-text");
-      text.style.display = text.style.display === "block" ? "none" : "block";
-    }
-
-    function toggleAll() {
-      document.querySelectorAll(".full-text").forEach(text => {
-        text.style.display = text.style.display === "block" ? "none" : "block";
-      });
-    }
-
-    function searchContent() {
-      const query = document.getElementById("searchInput").value.toLowerCase();
-      const items = document.querySelectorAll(".content-item");
-
-      items.forEach(item => {
-        const text = item.innerText.toLowerCase();
-        item.style.display = text.includes(query) ? "block" : "none";
-      });
-    }
-  </script>
-  <script>
-const libraryData = [
-  { title: "Pan-Africanismo: consciência, não slogan", text: "O Pan-Africanismo é um projeto político de união africana baseado na soberania africana." },
-  { title: "Colonialismo mental em África", text: "Mesmo após a independência política, estruturas mentais coloniais permanecem ativas." },
-  { title: "Geopolítica africana explicada", text: "África é central na disputa global por recursos estratégicos." },
-  { title: "Guerras africanas: causas reais", text: "Conflitos armados africanos são frequentemente alimentados por interesses externos." },
-  { title: "Educação como libertação africana", text: "Educação contextualizada é chave para autonomia intelectual africana." }
-];
-
-while (libraryData.length < 100) {
+// GERAR 1000 CONTEÚDOS
+for (let i = 1; i <= 1000; i++) {
   libraryData.push({
-    title: "Estudos Africanos – Tema " + (libraryData.length + 1),
-    text: "Conteúdo educativo sobre história, política ou cultura africana alinhado aos ideais do LUMBU."
+    title: "Estudos Africanos – Tema " + i,
+    text: "Análise crítica sobre história, política, cultura e ideologias africanas. Conteúdo do LUMBU dedicado à consciência e emancipação africana."
   });
 }
 
-const grid = document.getElementById("libraryGrid");
+// RENDERIZAR
+function renderLibrary(data) {
+  libraryGrid.innerHTML = "";
+  data.forEach(item => {
+    const card = document.createElement("div");
+    card.className = "library-card";
+    card.innerHTML = `<h3>${item.title}</h3><p>${item.text}</p>`;
+    card.onclick = () => {
+      const p = card.querySelector("p");
+      p.style.display = p.style.display === "block" ? "none" : "block";
+    };
+    libraryGrid.appendChild(card);
+  });
+}
 
-libraryData.forEach(item => {
-  const card = document.createElement("div");
-  card.className = "library-card";
-  card.innerHTML = `<h3>${item.title}</h3><p>${item.text}</p>`;
-  card.onclick = () => {
-    const p = card.querySelector("p");
-    p.style.display = p.style.display === "block" ? "none" : "block";
-  };
-  grid.appendChild(card);
-});
-
+// MOSTRAR / OCULTAR TODOS
 function toggleAll() {
   document.querySelectorAll(".library-card p").forEach(p => {
     p.style.display = p.style.display === "block" ? "none" : "block";
   });
 }
 
+// PESQUISA
 function searchContent() {
   const query = document.getElementById("searchInput").value.toLowerCase();
-  document.querySelectorAll(".library-card").forEach(card => {
-    card.style.display = card.innerText.toLowerCase().includes(query)
-      ? "block"
-      : "none";
-  });
-}
-  </script>
-  <script>
-const libraryData = [
-  { title: "Pan-Africanismo: consciência, não slogan", text: "O Pan-Africanismo é um projeto político de união africana baseado na soberania africana." },
-  { title: "Colonialismo mental em África", text: "Mesmo após a independência política, estruturas mentais coloniais permanecem ativas." },
-  { title: "Geopolítica africana explicada", text: "África é central na disputa global por recursos estratégicos." },
-  { title: "Guerras africanas: causas reais", text: "Conflitos armados africanos são frequentemente alimentados por interesses externos." },
-  { title: "Educação como libertação africana", text: "Educação contextualizada é chave para autonomia intelectual africana." }
-];
-
-while (libraryData.length < 100) {
-  libraryData.push({
-    title: "Estudos Africanos – Tema " + (libraryData.length + 1),
-    text: "Conteúdo educativo sobre história, política ou cultura africana alinhado aos ideais do LUMBU."
-  });
+  const filtered = libraryData.filter(item =>
+    item.title.toLowerCase().includes(query) ||
+    item.text.toLowerCase().includes(query)
+  );
+  renderLibrary(filtered);
 }
 
-const grid = document.getElementById("libraryGrid");
-
-libraryData.forEach(item => {
-  const card = document.createElement("div");
-  card.className = "library-card";
-  card.innerHTML = `<h3>${item.title}</h3><p>${item.text}</p>`;
-  card.onclick = () => {
-    const p = card.querySelector("p");
-    p.style.display = p.style.display === "block" ? "none" : "block";
-  };
-  grid.appendChild(card);
-});
-
-function toggleAll() {
-  document.querySelectorAll(".library-card p").forEach(p => {
-    p.style.display = p.style.display === "block" ? "none" : "block";
-  });
-}
-
-function searchContent() {
-  const query = document.getElementById("searchInput").value.toLowerCase();
-  document.querySelectorAll(".library-card").forEach(card => {
-    card.style.display = card.innerText.toLowerCase().includes(query)
-      ? "block"
-      : "none";
-  });
-}
+// CARREGAR AO ABRIR
+renderLibrary(libraryData);
 </script>
 
 </body>
