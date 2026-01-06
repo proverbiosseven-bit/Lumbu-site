@@ -1,166 +1,59 @@
-A<!DOCTYPE html>
-<html lang="pt">
-<head>
-  <meta charset="UTF-8">
-  <title>LUMBU – Centro Africano de Pensamento</title>
-
-  <!-- META SEO -->
-  <meta name="description" content="LUMBU é um centro africano de pensamento sobre história, política, cultura e consciência africana.">
-  <meta name="keywords" content="África, Pan-Africanismo, política africana, cultura africana, geopolítica africana">
-  <meta name="author" content="LUMBU">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- STYLE -->
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      color: #222;
-    }
-
-    header {
-      background: #063c2e;
-      color: #fff;
-      padding: 30px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 34px;
-    }
-
-    header p {
-      margin-top: 10px;
-      font-size: 16px;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 6px;
-    }
-
-    h2 {
-      border-left: 5px solid #cfae70;
-      padding-left: 10px;
-      color: #063c2e;
-    }
-
-    /* BIBLIOTECA */
-    .post {
-      border-bottom: 1px solid #ddd;
-      padding: 15px 0;
-    }
-
-    .post button {
-      background: none;
-      border: none;
-      font-size: 17px;
-      font-weight: bold;
-      cursor: pointer;
-      color: #063c2e;
-      text-align: left;
-      width: 100%;
-    }
-
-    .post-content {
-      display: none;
-      margin-top: 10px;
-      line-height: 1.6;
-      font-size: 15px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 13px;
-      color: #555;
-    }
-  </style>
-
-  <!-- SCRIPT -->
-  <script>
-    function togglePost(id) {
-      const content = document.getElementById(id);
-      content.style.display = content.style.display === "block" ? "none" : "block";
-    }
-  </script>
-</head>
-
-<body>
-
-<header>
-  <h1>LUMBU</h1>
-  <p>Centro de pensamento africano sobre história, política, cultura e consciência africana</p>
-</header>
-
-<div class="container">
-
-  <h2>Biblioteca LUMBU</h2>
-
-  <!-- POST 1 -->
-  <div class="post">
-    <button onclick="togglePost('p1')">Por que África continua dependente?</button>
-    <div class="post-content" id="p1">
-      África não é dependente por incapacidade, mas por estruturas históricas criadas durante o colonialismo e mantidas pelo neocolonialismo moderno.
-    </div>
+<!-- POST 1 -->
+<div class="content-item">
+  <strong>Pan-Africanismo: União e Consciência</strong>
+  <p>
+    O Pan-Africanismo nasce como movimento político e cultural visando unir os povos africanos... 
+    <a href="#post1" style="color:#cfae70; text-decoration: underline; font-weight:bold;">Leia mais</a>
+  </p>
+  <div id="post1" style="display:none; margin-top:5px; padding:10px; border-left:4px solid #cfae70;">
+    O Pan-Africanismo não é apenas um slogan, mas uma filosofia de emancipação. Ele promove o conhecimento da própria história, cultura e política, combatendo a influência externa e incentivando a cooperação entre as nações africanas. Líderes como Kwame Nkrumah, Julius Nyerere e Patrice Lumumba exemplificaram essa visão.
   </div>
+</div>
 
-  <!-- POST 2 -->
-  <div class="post">
-    <button onclick="togglePost('p2')">Pan-Africanismo: ideia ou necessidade?</button>
-    <div class="post-content" id="p2">
-      O Pan-Africanismo não é um slogan político, mas uma resposta histórica à fragmentação africana imposta artificialmente.
-    </div>
+<!-- POST 2 -->
+<div class="content-item">
+  <strong>África e a submissão a ideologias externas</strong>
+  <p>
+    Por que muitos países africanos ainda seguem modelos alheios, apesar da rica história própria... 
+    <a href="#post2" style="color:#cfae70; text-decoration: underline; font-weight:bold;">Leia mais</a>
+  </p>
+  <div id="post2" style="display:none; margin-top:5px; padding:10px; border-left:4px solid #cfae70;">
+    Esta submissão decorre de séculos de colonialismo, neocolonialismo e dependência econômica. Muitos líderes foram treinados em instituições estrangeiras e adotaram políticas externas sem adaptar à realidade local. A conscientização política é o primeiro passo para retomar a autonomia e decidir o futuro de cada nação.
   </div>
+</div>
 
-  <!-- POST 3 -->
-  <div class="post">
-    <button onclick="togglePost('p3')">Guerras africanas: causas internas ou externas?</button>
-    <div class="post-content" id="p3">
-      Muitos conflitos africanos têm raízes externas, mas são alimentados por elites locais desconectadas do interesse coletivo.
-    </div>
+<!-- POST 3 -->
+<div class="content-item">
+  <strong>As guerras africanas: causas internas e externas</strong>
+  <p>
+    Os conflitos no continente são frequentemente interpretados de forma simplista... 
+    <a href="#post3" style="color:#cfae70; text-decoration: underline; font-weight:bold;">Leia mais</a>
+  </p>
+  <div id="post3" style="display:none; margin-top:5px; padding:10px; border-left:4px solid #cfae70;">
+    Guerras africanas resultam de disputas territoriais, recursos naturais, legados coloniais e interesses externos. A fragmentação tribal e étnica foi explorada historicamente para manter divisões. Entender estas causas é essencial para buscar soluções duradouras, baseadas em diálogo e cooperação regional.
   </div>
+</div>
 
-  <!-- POST 4 -->
-  <div class="post">
-    <button onclick="togglePost('p4')">Identidade africana como poder político</button>
-    <div class="post-content" id="p4">
-      A identidade não é folclore. É base de organização social, política e resistência cultural.
-    </div>
+<!-- POST 4 -->
+<div class="content-item">
+  <strong>Identidade africana como força política</strong>
+  <p>
+    Resgatar a cultura e a história fortalece o papel do continente nas decisões globais... 
+    <a href="#post4" style="color:#cfae70; text-decoration: underline; font-weight:bold;">Leia mais</a>
+  </p>
+  <div id="post4" style="display:none; margin-top:5px; padding:10px; border-left:4px solid #cfae70;">
+    A valorização da identidade africana reforça a unidade e participação política. Ao conhecer suas origens, tradições e líderes históricos, a população pode reivindicar mais direitos, influenciar políticas e fortalecer laços entre países africanos. Cultura e política andam lado a lado na consolidação do poder africano.
   </div>
+</div>
 
-  <!-- POST 5 -->
-  <div class="post">
-    <button onclick="togglePost('p5')">Educação africana: libertação ou repetição?</button>
-    <div class="post-content" id="p5">
-      Sistemas educacionais africanos muitas vezes reproduzem modelos externos que não respondem às realidades locais.
-    </div>
+<!-- POST 5 -->
+<div class="content-item">
+  <strong>Educação africana e libertação</strong>
+  <p>
+    A educação é uma ferramenta central para emancipação e consciência crítica... 
+    <a href="#post5" style="color:#cfae70; text-decoration: underline; font-weight:bold;">Leia mais</a>
+  </p>
+  <div id="post5" style="display:none; margin-top:5px; padding:10px; border-left:4px solid #cfae70;">
+    Sistemas educacionais alinhados à realidade africana permitem desenvolver pensamento crítico, autonomia e liderança. A história do continente, ensinada de forma completa e verdadeira, forma cidadãos conscientes, capazes de interagir globalmente sem perder a identidade africana.
   </div>
-
-<div class="post">
-  <button onclick="togglePost('p6')">
-    África e o mito da incapacidade política
-  </button>
-
-  <div class="post-content" id="p6">
-    Durante décadas foi construída a narrativa de que África falha
-    politicamente por incapacidade interna. No entanto, essa ideia ignora
-    interferências externas, fronteiras artificiais, sabotagens económicas
-    e a imposição de modelos políticos alheios à realidade africana.
-    
-    Pensar África exige romper com essa narrativa e recuperar a autonomia
-    intelectual e estratégica do continente.
-  </div>
-    </div>
-
-<footer>
-  LUMBU © 2026 · Centro Africano de Pensamento · Fundado por Augusto Tona
-</footer>
-
-</body>
-</html>
+      </div>
