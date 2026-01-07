@@ -172,3 +172,24 @@ footer {
   font-size: 14px;
   line-height: 1.6;
 }
+.post-completo {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid #ddd;
+}
+
+.post-resumo {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed #ccc;
+}
+
+.post-resumo a {
+  font-weight: bold;
+  color: #3a2415;
+  text-decoration: none;
+}
+
+.post-resumo a:hover {
+  text-decoration: underline;
+}
