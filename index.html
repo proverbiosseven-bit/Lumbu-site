@@ -90,6 +90,19 @@
       text-decoration: none;
     }
 
+    .btn {
+      background: #063c2e;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
     footer {
       text-align: center;
       font-size: 12px;
@@ -130,7 +143,7 @@
 <section id="biblioteca">
   <h2>Biblioteca — Estudos Africanos</h2>
 
-  <!-- POST 1 -->
+  <!-- POST RESUMIDO -->
   <div class="post">
     <h3>UNITA, intervenção externa e a memória esquecida</h3>
     <p>
@@ -139,12 +152,59 @@
     </p>
     <a href="#post-unita">Leia mais</a>
   </div>
+</section>
 
+<!-- POST COMPLETO -->
+<section id="post-unita">
+  <h2>UNITA, intervenção externa e a memória esquecida</h2>
+
+  <p>
+    A UNITA aplaude hoje intervenção externa, mas esquece algo crucial:
+    seu próprio líder, Jonas Savimbi, foi usado pelos Estados Unidos
+    durante a Guerra Fria e, quando deixou de ser útil, foi abandonado
+    até à morte.
+  </p>
+
+  <p>
+    A política internacional não tem amigos, tem conveniências.
+    Quem já foi manipulado sabe que soluções externas nunca substituem
+    planeamento interno, soberania política e consciência histórica.
+  </p>
+
+  <p>
+    O povo observa. Pensa. Aprende. Sabe quando emoção vence reflexão.
+    Não se trata de defender ditadores. Se Maduro foi um, que responda.
+    Mas a história mostra: ninguém está acima dela — nem os que a escrevem
+    de fora.
+  </p>
+</section>
+
+<!-- FUNDO DE REMUNERAÇÃO -->
+<section>
+  <h2>Fundo de Solidariedade</h2>
+  <p>
+    O LUMBU é um projeto independente. As contribuições ajudam na manutenção
+    do espaço, produção de conteúdos e expansão do pensamento africano.
+  </p>
+
+  <button class="btn" onclick="toggleDoacao()">Mostrar dados</button>
+
+  <div id="doacao" class="hidden">
+    <p><strong>IBAN:</strong> 0040 0000 90984961102 20</p>
+    <p><strong>Multicaixa / Xpress:</strong> 946 903 366</p>
+  </div>
 </section>
 
 <footer>
   © LUMBU — Movimento Intelectual Africano
 </footer>
 
+<script>
+  function toggleDoacao() {
+    const d = document.getElementById("doacao");
+    d.classList.toggle("hidden");
+  }
+</script>
+
 </body>
-  </html>
+      </html>
