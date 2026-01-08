@@ -7,7 +7,6 @@
   <meta name="description" content="LUMBU é um centro africano de pensamento sobre história, política, cultura e consciência africana.">
   <meta name="keywords" content="África, Pan-Africanismo, política africana, cultura africana, geopolítica africana">
   <meta name="author" content="LUMBU">
-
   <style>
     body {
       margin: 0;
@@ -18,7 +17,7 @@
 
     /* HERO / CAPA */
     .hero {
-      background: linear-gradient(rgba(6,60,46,0.8), rgba(6,60,46,0.8)),
+      background: linear-gradient(rgba(6,60,46,0.9), rgba(6,60,46,0.9)),
                   url("images/africa-pattern.png");
       background-size: cover;
       background-position: center;
@@ -89,7 +88,6 @@
       margin-top: 0;
     }
 
-    /* POSTS / BIBLIOTECA */
     .content-item {
       margin-bottom: 15px;
       padding: 10px;
@@ -111,28 +109,10 @@
     .read-more {
       display: inline-block;
       margin-top: 5px;
-      font-weight: bold;
-      color: #00796b;
+      color: #00796B;
       text-decoration: none;
-    }
-
-    .read-more:hover {
-      text-decoration: underline;
-    }
-
-    /* BOTÃO MOSTRAR / OCULTAR */
-    .btn-toggle {
-      margin-top: 10px;
-      padding: 10px 15px;
-      background: #3a2415;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
+      font-weight: bold;
       cursor: pointer;
-    }
-
-    .btn-toggle:hover {
-      background: #2b1b0f;
     }
 
     footer {
@@ -142,30 +122,17 @@
       color: #555;
     }
 
-    /* Fundo de Solidariedade */
+    /* Solidariedade */
     #solidariedade button {
-      background: #00796b;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+      padding: 8px 15px;
+      background:#00796B;
+      color:#fff;
+      border:none;
+      border-radius:5px;
+      cursor:pointer;
     }
-
-    #solidariedade button:hover {
-      background: #004d40;
-    }
-
-    #dados-solidariedade {
-      display: none;
-      margin-top: 15px;
-      font-size: 14px;
-      color: #004d40;
-    }
-
   </style>
 </head>
-
 <body>
 
   <!-- CAPA -->
@@ -194,15 +161,14 @@
 
   <!-- BIBLIOTECA / POSTS -->
   <section id="biblioteca">
-<h2>Biblioteca LUMBU</h2>
-
-<div id="posts-container"></div>
+    <h2>Biblioteca LUMBU</h2>
+    <div id="posts-container"></div>
   </section>
 
   <!-- Fundo de Solidariedade -->
-  <section id="solidariedade" style="max-width: 900px; margin: 30px auto; padding: 15px; background: #e0f7fa; border-radius: 8px; text-align: center;">
+  <section id="solidariedade">
     <button onclick="toggleSolidariedade()">Mostrar Solidariedade</button>
-    <div id="dados-solidariedade">
+    <div id="dados-solidariedade" style="display:none; margin-top:10px;">
       Contribua com qualquer valor para apoiar a manutenção do LUMBU e a divulgação do pensamento africano.<br><br>
       <strong>IBAN:</strong> 0040 0000 90984961102 20 - BAI<br>
       <strong>Xpress:</strong> 946903366
@@ -214,32 +180,86 @@
   </footer>
 
   <script>
-    // Mostrar / Ocultar conteúdo da biblioteca
-    const items = document.querySelectorAll('.content-item');
-    items.forEach(item => {
-      item.addEventListener('click', () => {
-        const text = item.querySelector('.full-text');
-        if(text) text.style.display = text.style.display === 'none' ? 'block' : 'none';
-      });
+    // Array de posts
+    const posts = [
+      {
+        titulo: "Pan-Africanismo: consciência, não slogan",
+        resumo: "O Pan-Africanismo não é moda nem palavra bonita. É estratégia histórica.",
+        texto: `
+          <p>O Pan-Africanismo nasce como resposta direta à fragmentação imposta ao continente africano.</p>
+          <p>Mais do que união simbólica, ele propõe autonomia política, econômica e cultural.</p>
+          <p>Sem consciência, o slogan vira ruído. Com consciência, vira poder.</p>
+        `
+      },
+      {
+        titulo: "Colonialismo e neocolonialismo",
+        resumo: "A dominação não terminou com as independências.",
+        texto: `
+          <p>O colonialismo deixou marcas profundas: fronteiras artificiais e economias dependentes.</p>
+          <p>O neocolonialismo atua por dívidas, influência política e controle econômico.</p>
+          <p>Romper isso exige estratégia africana própria.</p>
+        `
+      },
+      {
+        titulo: "África nunca foi pobre",
+        resumo: "O continente sempre foi rico, mas explorado.",
+        texto: `
+          <p>África nunca foi pobre. O que existe é um continente historicamente explorado, fragmentado e impedido de decidir o próprio destino.</p>
+          <p>A política internacional não tem amigos, tem conveniências.</p>
+          <p>Intervenções externas reorganizam interesses, não libertam povos.</p>
+          <p>Construir autonomia é tarefa dos africanos, com consciência histórica e política própria.</p>
+        `
+      }
+      // Aqui você pode adicionar os próximos posts, mantendo vírgula entre cada objeto
+    ];
+
+    // Gerar posts na página
+    const container = document.getElementById("posts-container");
+    posts.forEach(post => {
+      const div = document.createElement("div");
+      div.className = "content-item";
+
+      div.innerHTML = `
+        <strong>${post.titulo}</strong>
+        <p>${post.resumo}</p>
+        <div class="full-text" style="display:none">
+          ${post.texto}
+        </div>
+        <a href="#" class="read-more">Ler mais</a>
+      `;
+
+      container.appendChild(div);
     });
 
-    function toggleAll() {
-      const allTexts = document.querySelectorAll('.full-text');
-      allTexts.forEach(t => t.style.display = t.style.display === 'none' ? 'block' : 'none');
-    }
+    // Ler mais / Mostrar menos
+    document.addEventListener("click", function(e) {
+      if(e.target.classList.contains("read-more")){
+        e.preventDefault();
+        const text = e.target.previousElementSibling;
+        if(text.style.display === "none"){
+          text.style.display = "block";
+          e.target.textContent = "Mostrar menos";
+        } else {
+          text.style.display = "none";
+          e.target.textContent = "Ler mais";
+        }
+      }
+    });
 
-    // Solidariedade
+    // Mostrar / ocultar solidariedade
     function toggleSolidariedade() {
-      const div = document.getElementById('dados-solidariedade');
+      const div = document.getElementById("dados-solidariedade");
       div.style.display = div.style.display === 'none' ? 'block' : 'none';
     }
 
     // Pesquisa
     function searchContent() {
       const query = document.getElementById('searchInput').value.toLowerCase();
+      const items = document.querySelectorAll('.content-item');
       items.forEach(item => {
         const text = item.querySelector('.full-text').innerText.toLowerCase();
-        if(text.includes(query) || item.querySelector('strong').innerText.toLowerCase().includes(query)) {
+        const title = item.querySelector('strong').innerText.toLowerCase();
+        if(title.includes(query) || text.includes(query)){
           item.style.display = 'block';
         } else {
           item.style.display = 'none';
@@ -247,189 +267,6 @@
       });
     }
   </script>
-  
-<script>
-const posts = [
-  {
-    titulo: "Pan-Africanismo: consciência, não slogan",
-    resumo: "O Pan-Africanismo não é moda nem palavra bonita. É estratégia histórica.",
-    texto: `
-      <p>O Pan-Africanismo nasce como resposta direta à fragmentação imposta ao continente africano.</p>
-      <p>Mais do que união simbólica, ele propõe autonomia política, econômica e cultural.</p>
-      <p>Sem consciência, o slogan vira ruído. Com consciência, vira poder.</p>
-    `
-  },
-  {
-    titulo: "Colonialismo e neocolonialismo",
-    resumo: "A dominação não terminou com as independências.",
-    texto: `
-      <p>O colonialismo deixou marcas profundas: fronteiras artificiais e economias dependentes.</p>
-      <p>O neocolonialismo atua por dívidas, influência política e controle econômico.</p>
-      <p>Romper isso exige estratégia africana própria.</p>
-    `
-  },
-  {
-    titulo: "Geopolítica africana: quem decide?",
-    resumo: "África é central no tabuleiro global.",
-    texto: `
-      <p>Recursos naturais e posição estratégica fazem da África alvo constante.</p>
-      <p>Decisões externas moldam conflitos internos.</p>
-      <p>Entender isso é defender soberania.</p>
-    `
-  }
-  {
-  titulo: "Pan-Africanismo não é slogan, é estratégia",
-  resumo: "O Pan-Africanismo foi reduzido a palavra bonita, mas nasceu como resposta concreta à dominação colonial.",
-  texto: `
-    <p>O Pan-Africanismo não surge como moda intelectual nem como discurso vazio. Ele nasce da experiência comum de opressão vivida pelos povos africanos e afrodescendentes, especialmente durante o colonialismo europeu.</p>
 
-    <p>Mais do que união simbólica, o Pan-Africanismo propõe coordenação política, económica e cultural entre os povos africanos. Ele questiona fronteiras artificiais, dependência externa e modelos importados sem adaptação à realidade africana.</p>
-
-    <p>Quando reduzido a slogan, perde sua força. Quando entendido como estratégia, torna-se ferramenta de sobrevivência, autonomia e futuro.</p>
-  `
-},
-{
-  titulo: "Por que África continua submissa a ideologias externas?",
-  resumo: "A dependência africana não é natural. Ela foi construída historicamente e mantida por interesses internos e externos.",
-  texto: `
-    <p>A submissão africana às ideologias externas não acontece por incapacidade intelectual ou cultural. Ela é resultado direto do colonialismo, do neocolonialismo e da fragilidade institucional herdada após as independências.</p>
-
-    <p>Muitos Estados africanos adotaram modelos políticos e económicos importados sem considerar suas realidades sociais, culturais e históricas. Isso gerou Estados frágeis, elites dependentes e populações afastadas do poder real.</p>
-
-    <p>Romper com essa submissão exige pensamento próprio, educação crítica e coragem política para errar com autonomia, em vez de acertar obedecendo.</p>
-  `
-},
-{
-  titulo: "Guerras africanas: conflitos internos ou projetos externos?",
-  resumo: "Nem todas as guerras africanas nascem dentro da África. Muitas são alimentadas de fora.",
-  texto: `
-    <p>As guerras em África são frequentemente explicadas como resultado de tribalismo ou ódio interno. Essa narrativa simplifica e distorce a realidade.</p>
-
-    <p>Conflitos armados no continente estão profundamente ligados à disputa por recursos naturais, influência geopolítica e interesses estratégicos de potências externas.</p>
-
-    <p>Divisões internas existem, mas são frequentemente manipuladas, financiadas e prolongadas por agentes externos. Entender isso é essencial para construir soluções africanas reais.</p>
-  `
-},
-{
-  titulo: "Democracia africana: cópia ou criação própria?",
-  resumo: "Importar sistemas políticos não garante liberdade nem estabilidade.",
-  texto: `
-    <p>Muitos países africanos adotaram modelos democráticos copiados da Europa sem adaptação ao seu contexto histórico e social.</p>
-
-    <p>O resultado são eleições formais, mas instituições frágeis, baixa participação popular e concentração real de poder.</p>
-
-    <p>A democracia africana precisa ser pensada a partir das estruturas comunitárias, da história local e das necessidades reais dos povos, e não apenas como réplica de sistemas externos.</p>
-  `
-},
-{
-  titulo: "Juventude africana: força demográfica sem poder político",
-  resumo: "A África é jovem, mas o poder continua velho.",
-  texto: `
-    <p>A juventude africana representa a maioria da população do continente, mas continua afastada dos centros reais de decisão.</p>
-
-    <p>Falta acesso à educação crítica, espaços de participação e autonomia económica. Em muitos casos, jovens são usados apenas como massa eleitoral ou força de protesto sem continuidade política.</p>
-
-    <p>Sem juventude consciente e organizada, não há transformação estrutural. O futuro africano passa, inevitavelmente, pelos jovens.</p>
-  `
-},
-{
-  titulo: "África não precisa de salvadores, precisa de consciência",
-  resumo: "A história prova que intervenções externas raramente libertam povos. Elas reorganizam interesses.",
-  texto: `
-    <p>A ideia de que África precisa ser salva de fora é uma narrativa antiga, repetida sempre que interesses externos entram em jogo. Ela ignora uma verdade fundamental: nenhum povo se liberta por procuração.</p>
-
-    <p>Intervenções estrangeiras, mesmo quando justificadas por discursos humanitários, quase nunca têm como objetivo central o bem-estar dos povos africanos. Elas reorganizam poder, recursos e influência.</p>
-
-    <p>A libertação africana exige consciência histórica, organização interna e projetos próprios. Não se trata de defender governos ou líderes, mas de entender que soluções importadas raramente constroem soberania.</p>
-
-    <p>África não precisa de salvadores. Precisa de africanos conscientes.</p>
-  `
-},
-{
-<!-- POST: África nunca foi pobre -->
-<article id="africa-nao-e-pobre" class="content-item">
-
-  <strong>África nunca foi pobre</strong>
-
-  <p>
-    África nunca foi pobre.<br>
-    O que existe é um continente historicamente explorado, fragmentado
-    e impedido de decidir o próprio destino.
-  </p>
-
-  <p>
-    A política internacional não tem amigos, tem conveniências.
-  </p>
-
-  <a href="https://teusite.github.io/#africa-nao-e-pobre" class="read-more">
-    Ler mais
-  </a>
-
-  <div class="full-text">
-    <p>
-      África nunca foi pobre. O que existe é um continente historicamente explorado,
-      fragmentado e impedido de decidir o próprio destino.
-    </p>
-
-    <p>
-      Desde o período colonial, as estruturas econômicas africanas foram moldadas
-      para servir interesses externos. Recursos saem, riqueza é acumulada fora,
-      e as consequências permanecem dentro.
-    </p>
-
-    <p>
-      A política internacional não funciona por amizade, mas por conveniência.
-      Países defendem interesses, não valores universais.
-    </p>
-
-    <p>
-      Quando líderes africanos acreditam em soluções externas como salvação,
-      esquecem que nenhum povo se libertou terceirizando sua soberania.
-    </p>
-
-    <p>
-      Pensar África exige romper com narrativas impostas,
-      recuperar autonomia intelectual e construir projetos próprios.
-    </p>
-  </div>
-
-</article>
-];
-
-// GERAR POSTS
-const container = document.getElementById("posts-container");
-
-posts.forEach((post, index) => {
-  const div = document.createElement("div");
-  div.className = "content-item";
-
-  div.innerHTML = `
-    <strong>${post.titulo}</strong>
-    <p>${post.resumo}</p>
-    <div class="full-text" style="display:none">
-      ${post.texto}
-    </div>
-    <a href="#" class="read-more">Ler mais</a>
-  `;
-
-  container.appendChild(div);
-});
-
-// LER MAIS / MOSTRAR MENOS
-document.addEventListener("click", function(e) {
-  if(e.target.classList.contains("read-more")){
-    e.preventDefault();
-    const text = e.target.previousElementSibling;
-    if(text.style.display === "none"){
-      text.style.display = "block";
-      e.target.textContent = "Mostrar menos";
-    } else {
-      text.style.display = "none";
-      e.target.textContent = "Ler mais";
-    }
-  }
-});
-</script>
-  
 </body>
-  </html>
+</html>
