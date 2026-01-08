@@ -159,114 +159,127 @@
     <p>Augusto Tona é educador e fundador do LUMBU, com a missão de disseminar conhecimento sobre história, política e cultura africana, promovendo debates, participação ativa e consciência coletiva.</p>
   </section>
 
-  <!-- BIBLIOTECA / POSTS -->
-  <section id="biblioteca">
-    <h2>Biblioteca LUMBU</h2>
-    <div id="posts-container"></div>
-  </section>
+<!-- BIBLIOTECA / POSTS -->
+<section id="biblioteca">
+  <h2>Biblioteca LUMBU</h2>
 
-  <!-- Fundo de Solidariedade -->
-  <section id="solidariedade">
-    <button onclick="toggleSolidariedade()">Mostrar Solidariedade</button>
-    <div id="dados-solidariedade" style="display:none; margin-top:10px;">
-      Contribua com qualquer valor para apoiar a manutenção do LUMBU e a divulgação do pensamento africano.<br><br>
-      <strong>IBAN:</strong> 0040 0000 90984961102 20 - BAI<br>
-      <strong>Xpress:</strong> 946903366
+  <!-- Botão mostrar todos -->
+  <button class="btn-toggle" onclick="toggleAll()">Mostrar / Ocultar Todos</button>
+
+  <div id="posts-container">
+
+    <!-- Post 1 -->
+    <div class="content-item">
+      <strong>Pan-Africanismo: consciência, não slogan</strong>
+      <div class="full-text" style="display:none;">
+        <p>O Pan-Africanismo surge como movimento de unidade africana, buscando fortalecer identidade, cultura e autonomia política diante de influências externas.</p>
+        <p>Não é apenas uma bandeira ou símbolo: é uma estratégia de emancipação e cooperação continental.</p>
+        <p>Mais do que união simbólica, ele propõe coordenação política, econômica e cultural entre os povos africanos. Questiona fronteiras artificiais e dependência externa.</p>
+      </div>
     </div>
-  </section>
 
-  <footer>
-    &copy; 2026 LUMBU – Centro de Pensamento Africano
-  </footer>
+    <!-- Post 2 -->
+    <div class="content-item">
+      <strong>Colonialismo e neocolonialismo</strong>
+      <div class="full-text" style="display:none;">
+        <p>As potências coloniais moldaram a África, deixando fronteiras artificiais, economias dependentes e divisões internas.</p>
+        <p>O neocolonialismo mantém muitas dessas estruturas, exigindo estratégias africanas próprias para a verdadeira autonomia.</p>
+      </div>
+    </div>
 
-  <script>
-    // Array de posts
-    const posts = [
-      {
-        titulo: "Pan-Africanismo: consciência, não slogan",
-        resumo: "O Pan-Africanismo não é moda nem palavra bonita. É estratégia histórica.",
-        texto: `
-          <p>O Pan-Africanismo nasce como resposta direta à fragmentação imposta ao continente africano.</p>
-          <p>Mais do que união simbólica, ele propõe autonomia política, econômica e cultural.</p>
-          <p>Sem consciência, o slogan vira ruído. Com consciência, vira poder.</p>
-        `
-      },
-      {
-        titulo: "Colonialismo e neocolonialismo",
-        resumo: "A dominação não terminou com as independências.",
-        texto: `
-          <p>O colonialismo deixou marcas profundas: fronteiras artificiais e economias dependentes.</p>
-          <p>O neocolonialismo atua por dívidas, influência política e controle econômico.</p>
-          <p>Romper isso exige estratégia africana própria.</p>
-        `
-      },
-      {
-        titulo: "África nunca foi pobre",
-        resumo: "O continente sempre foi rico, mas explorado.",
-        texto: `
-          <p>África nunca foi pobre. O que existe é um continente historicamente explorado, fragmentado e impedido de decidir o próprio destino.</p>
-          <p>A política internacional não tem amigos, tem conveniências.</p>
-          <p>Intervenções externas reorganizam interesses, não libertam povos.</p>
-          <p>Construir autonomia é tarefa dos africanos, com consciência histórica e política própria.</p>
-        `
-      }
-      // Aqui você pode adicionar os próximos posts, mantendo vírgula entre cada objeto
-    ];
+    <!-- Post 3 -->
+    <div class="content-item">
+      <strong>Geopolítica africana: quem decide?</strong>
+      <div class="full-text" style="display:none;">
+        <p>Riquezas naturais, localização estratégica e recursos humanos tornam África alvo de interesses internacionais.</p>
+        <p>É essencial entender como alianças, conflitos e políticas externas afetam diretamente o futuro dos povos africanos.</p>
+      </div>
+    </div>
 
-    // Gerar posts na página
-    const container = document.getElementById("posts-container");
-    posts.forEach(post => {
-      const div = document.createElement("div");
-      div.className = "content-item";
+    <!-- Post 4 -->
+    <div class="content-item">
+      <strong>Guerras africanas: causas e consequências</strong>
+      <div class="full-text" style="display:none;">
+        <p>Conflitos armados no continente têm raízes complexas: disputas internas, interesses externos e legado colonial.</p>
+        <p>Compreender essas causas ajuda a desenvolver soluções africanas sustentáveis e justas.</p>
+      </div>
+    </div>
 
-      div.innerHTML = `
-        <strong>${post.titulo}</strong>
-        <p>${post.resumo}</p>
-        <div class="full-text" style="display:none">
-          ${post.texto}
-        </div>
-        <a href="#" class="read-more">Ler mais</a>
-      `;
+    <!-- Post 5 -->
+    <div class="content-item">
+      <strong>Identidade africana como poder político</strong>
+      <div class="full-text" style="display:none;">
+        <p>Reconhecer e valorizar cultura, línguas e tradições fortalece a participação social e política no continente.</p>
+        <p>O poder da identidade africana é central para projetos de autonomia e desenvolvimento.</p>
+      </div>
+    </div>
 
-      container.appendChild(div);
+    <!-- Post 6 -->
+    <div class="content-item">
+      <strong>Educação africana: chave para emancipação</strong>
+      <div class="full-text" style="display:none;">
+        <p>Educação crítica e contextualizada promove consciência histórica, cultural e política.</p>
+        <p>Investir na formação de jovens é investir no futuro do continente.</p>
+      </div>
+    </div>
+
+    <!-- Post 7 -->
+    <div class="content-item">
+      <strong>Economia africana: desafios e oportunidades</strong>
+      <div class="full-text" style="display:none;">
+        <p>A África possui recursos abundantes, mas enfrenta obstáculos estruturais e dependência de mercados externos.</p>
+        <p>Estratégias próprias de desenvolvimento e integração continental são essenciais.</p>
+      </div>
+    </div>
+
+    <!-- Post 8 -->
+    <div class="content-item">
+      <strong>Juventude africana: protagonista da mudança</strong>
+      <div class="full-text" style="display:none;">
+        <p>Os jovens africanos são agentes de transformação. Educação, tecnologia e mobilização social são ferramentas de impacto real.</p>
+        <p>Estimular participação ativa fortalece movimentos de renascimento e conscientização.</p>
+      </div>
+    </div>
+
+    <!-- Post 9 -->
+    <div class="content-item">
+      <strong>Cultura e símbolos africanos</strong>
+      <div class="full-text" style="display:none;">
+        <p>Tradições, músicas, vestuário, línguas e rituais expressam valores e história de cada povo africano.</p>
+        <p>Preservar e valorizar esses elementos é um ato de resistência e afirmação identitária.</p>
+      </div>
+    </div>
+
+    <!-- Post 10 -->
+    <div class="content-item">
+      <strong>África nunca foi pobre</strong>
+      <div class="full-text" style="display:none;">
+        <p>África nunca foi pobre. O que existe é um continente historicamente explorado, fragmentado e impedido de decidir o próprio destino.</p>
+        <p>A política internacional não tem amigos, tem conveniências.</p>
+        <p>Intervenções externas quase nunca libertam povos; reorganizam interesses. A verdadeira libertação exige consciência histórica e organização interna.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // Expansão / colapso individual
+  const items = document.querySelectorAll('.content-item');
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      const text = item.querySelector('.full-text');
+      if(text) text.style.display = text.style.display === 'none' ? 'block' : 'none';
     });
+  });
 
-    // Ler mais / Mostrar menos
-    document.addEventListener("click", function(e) {
-      if(e.target.classList.contains("read-more")){
-        e.preventDefault();
-        const text = e.target.previousElementSibling;
-        if(text.style.display === "none"){
-          text.style.display = "block";
-          e.target.textContent = "Mostrar menos";
-        } else {
-          text.style.display = "none";
-          e.target.textContent = "Ler mais";
-        }
-      }
-    });
+  // Botão mostrar/ocultar todos
+  function toggleAll() {
+    const allTexts = document.querySelectorAll('.full-text');
+    allTexts.forEach(t => t.style.display = t.style.display === 'none' ? 'block' : 'none');
+  }
+</script> 
 
-    // Mostrar / ocultar solidariedade
-    function toggleSolidariedade() {
-      const div = document.getElementById("dados-solidariedade");
-      div.style.display = div.style.display === 'none' ? 'block' : 'none';
-    }
-
-    // Pesquisa
-    function searchContent() {
-      const query = document.getElementById('searchInput').value.toLowerCase();
-      const items = document.querySelectorAll('.content-item');
-      items.forEach(item => {
-        const text = item.querySelector('.full-text').innerText.toLowerCase();
-        const title = item.querySelector('strong').innerText.toLowerCase();
-        if(title.includes(query) || text.includes(query)){
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    }
-  </script>
 
 </body>
 </html>
