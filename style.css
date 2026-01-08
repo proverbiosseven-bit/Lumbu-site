@@ -13,16 +13,12 @@ body {
 }
 
 /* ===== HERO / CAPA ===== */
-.hero {
-  background: linear-gradient(
-    rgba(6, 60, 46, 0.9),
-    rgba(6, 60, 46, 0.9)
-  ),
-  url("images/africa-pattern.png");
+header.hero {
+  background: linear-gradient(rgba(6,60,46,0.9), rgba(6,60,46,0.9)),
+              url("images/africa-pattern.png");
   background-size: cover;
-  background-position: center;
-  padding: 50px 20px;
   text-align: center;
+  padding: 35px 20px; /* ERA 60px */
   color: #fff;
 }
 
