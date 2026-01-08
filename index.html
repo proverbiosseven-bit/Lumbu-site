@@ -17,8 +17,11 @@
 
     /* HERO / CAPA */
     .hero {
-      background: linear-gradient(rgba(6,60,46,0.85), rgba(6,60,46,0.85)),
-                  url("images/africa-pattern.png");
+      background: linear-gradient(
+        rgba(6, 60, 46, 0.9),
+        rgba(6, 60, 46, 0.9)
+      ),
+      url("images/africa-pattern.png");
       background-size: cover;
       background-position: center;
       padding: 40px 20px;
@@ -106,18 +109,6 @@
       line-height: 1.5;
     }
 
-    .read-more {
-      display: inline-block;
-      margin-top: 5px;
-      color: #cfae70;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .read-more:hover {
-      text-decoration: underline;
-    }
-
     .btn-toggle {
       margin-top: 10px;
       padding: 10px 15px;
@@ -132,22 +123,27 @@
       background: #2b1b0f;
     }
 
+    /* Botão Solidariedade */
+    .btn-solidariedade {
+      padding: 8px 16px;
+      background-color: #4CAF50; /* verde africano */
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .btn-solidariedade:hover {
+      background-color: #45a049;
+    }
+
     footer {
       text-align: center;
       font-size: 12px;
       margin: 40px 0 20px 0;
       color: #555;
-    }
-
-    /* Fundo de solidariedade */
-    .solidarity {
-      background: #3a2415;
-      color: #fff;
-      padding: 15px;
-      border-radius: 8px;
-      text-align: center;
-      margin: 20px auto;
-      max-width: 900px;
     }
   </style>
 </head>
@@ -168,47 +164,25 @@
   <!-- SOBRE O LUMBU -->
   <section id="sobre-lumbu">
     <h2>Sobre o LUMBU</h2>
-    <p>O LUMBU é um movimento intelectual africano que visa fortalecer a consciência histórica, política e cultural do continente africano. Aqui, buscamos compreender África a partir da própria perspectiva africana.</p>
+    <p>O LUMBU é um movimento intelectual africano que visa fortalecer a consciência histórica, política e cultural do continente africano.</p>
   </section>
 
   <!-- SOBRE O CRIADOR -->
   <section id="sobre-criador">
     <h2>Sobre o Criador</h2>
-    <p>Augusto Tona é educador e fundador do LUMBU, com a missão de disseminar conhecimento sobre história, política e cultura africana, promovendo debates, participação ativa e consciência coletiva.</p>
+    <p>Augusto Tona é educador e fundador do LUMBU, promovendo debates, participação ativa e consciência coletiva sobre África.</p>
   </section>
 
-  <!-- FUNDO DE SOLIDARIEDADE -->
-  <div class="solidarity">
-    <button class="btn-toggle" onclick="toggleSolidarity()">Mostrar Solidariedade</button>
-    <div id="solidarity-info" style="display:none; margin-top:10px;">
-      Contribuições e apoio para materiais e encontros do LUMBU são bem-vindos. Mais informações podem ser obtidas diretamente na página.
-    </div>
-  </div>
-
-  <!-- BIBLIOTECA -->
+  <!-- BIBLIOTECA / POSTS -->
   <section id="biblioteca">
     <h2>Biblioteca de Conteúdos</h2>
-
     <button class="btn-toggle" onclick="toggleAll()">Mostrar / Ocultar Todos</button>
 
-    <!-- Post existente UNITA -->
-    <div class="content-item">
-      <strong>UNITA e intervenção externa: reflexão histórica</strong>
-      <div class="full-text">
-        <p>A UNITA aplaude hoje intervenção externa, mas esquece algo crucial: seu próprio líder, Jonas Savimbi, foi usado pelos EUA e depois traído até a morte.</p>
-        <p>A política internacional não tem amigos, tem conveniências. Quem já foi manipulado sabe que soluções de fora nunca substituem planejamento interno.</p>
-        <p>O povo observa. Pensa. Sabe quando emoção vence reflexão.</p>
-        <p>Não se trata de defender ditadores. Se Maduro foi um, que responda. Mas a história mostra: ninguém está acima dela.</p>
-      </div>
-      <a href="#post-unita" class="read-more">Ler mais no LUMBU</a>
-    </div>
-
-    <!-- 9 POSTS NOVOS -->
     <!-- Post 1 -->
     <div class="content-item">
       <strong>Pan-Africanismo: consciência, não slogan</strong>
       <div class="full-text">
-        <p>O Pan-Africanismo surge como movimento de unidade africana, buscando fortalecer identidade, cultura e autonomia política diante de influências externas.</p>
+        <p>O Pan-Africanismo surge como movimento de unidade africana, fortalecendo identidade, cultura e autonomia política diante de influências externas.</p>
         <p>Não é apenas uma bandeira ou símbolo: é uma estratégia de emancipação e cooperação continental.</p>
       </div>
       <a href="#post-pan-africanismo" class="read-more">Ler mais no LUMBU</a>
@@ -234,114 +208,59 @@
       <a href="#post-geopolitica" class="read-more">Ler mais no LUMBU</a>
     </div>
 
-    <!-- Post 4 -->
-    <div class="content-item">
-      <strong>Guerras africanas: causas e consequências</strong>
-      <div class="full-text">
-        <p>Conflitos armados no continente têm raízes complexas: disputas internas, interesses externos e legado colonial.</p>
-        <p>Compreender essas causas ajuda a desenvolver soluções africanas sustentáveis e justas.</p>
-      </div>
-      <a href="#post-guerras" class="read-more">Ler mais no LUMBU</a>
-    </div>
+  </section>
 
-    <!-- Post 5 -->
-    <div class="content-item">
-      <strong>Identidade africana como poder político</strong>
-      <div class="full-text">
-        <p>Reconhecer e valorizar cultura, línguas e tradições fortalece a participação social e política no continente.</p>
-        <p>O poder da identidade africana é central para projetos de autonomia e desenvolvimento.</p>
-      </div>
-      <a href="#post-identidade" class="read-more">Ler mais no LUMBU</a>
+  <!-- BOTÃO SOLIDARIEDADE -->
+  <section id="solidariedade">
+    <button id="btn-solidariedade" class="btn-solidariedade">Mostrar Solidariedade</button>
+    <div id="msg-solidariedade" style="display:none; margin-top:10px; font-size:14px; color:#2b1b0f;">
+      Contribuições e apoio para materiais e encontros do LUMBU são bem-vindos. Mais informações podem ser obtidas diretamente na página.
     </div>
-
-    <!-- Post 6 -->
-    <div class="content-item">
-      <strong>Educação africana: chave para emancipação</strong>
-      <div class="full-text">
-        <p>Educação crítica e contextualizada promove consciência histórica, cultural e política.</p>
-        <p>Investir na formação de jovens é investir no futuro do continente.</p>
-      </div>
-      <a href="#post-educacao" class="read-more">Ler mais no LUMBU</a>
-    </div>
-
-    <!-- Post 7 -->
-    <div class="content-item">
-      <strong>Economia africana: desafios e oportunidades</strong>
-      <div class="full-text">
-        <p>A África possui recursos abundantes, mas enfrenta obstáculos estruturais e dependência de mercados externos.</p>
-        <p>Estratégias próprias de desenvolvimento e integração continental são essenciais.</p>
-      </div>
-      <a href="#post-economia" class="read-more">Ler mais no LUMBU</a>
-    </div>
-
-    <!-- Post 8 -->
-    <div class="content-item">
-      <strong>Juventude africana: protagonista da mudança</strong>
-      <div class="full-text">
-        <p>Os jovens africanos são agentes de transformação. Educação, tecnologia e mobilização social são ferramentas de impacto real.</p>
-        <p>Estimular participação ativa fortalece movimentos de renascimento e conscientização.</p>
-      </div>
-      <a href="#post-juventude" class="read-more">Ler mais no LUMBU</a>
-    </div>
-
-    <!-- Post 9 -->
-    <div class="content-item">
-      <strong>Cultura e símbolos africanos</strong>
-      <div class="full-text">
-        <p>Tradições, músicas, vestuário, línguas e rituais expressam valores e história de cada povo africano.</p>
-        <p>Preservar e valorizar esses elementos é um ato de resistência e afirmação identitária.</p>
-      </div>
-      <a href="#post-cultura" class="read-more">Ler mais no LUMBU</a>
-    </div>
-
   </section>
 
   <footer>
-    &copy; 2026 LUMBU - Todos os direitos reservados
+    &copy; 2026 LUMBU – Centro de Pensamento Africano
   </footer>
 
   <script>
-    // Mostrar / ocultar individual
-    document.querySelectorAll('.content-item').forEach(item => {
-      item.addEventListener('click', () => {
-        const text = item.querySelector('.full-text');
-        if (text.style.display === 'block') {
-          text.style.display = 'none';
-        } else {
-          text.style.display = 'block';
-        }
-      });
-    });
-
-    // Mostrar / ocultar todos
+    // Mostrar / Ocultar conteúdos
     function toggleAll() {
-      const texts = document.querySelectorAll('.full-text');
-      texts.forEach(text => {
-        text.style.display = text.style.display === 'block' ? 'none' : 'block';
+      const fullTexts = document.querySelectorAll('.full-text');
+      fullTexts.forEach(ft => {
+        ft.style.display = ft.style.display === 'block' ? 'none' : 'block';
       });
     }
 
-    // Mostrar / ocultar fundo de solidariedade
-    function toggleSolidarity() {
-      const info = document.getElementById('solidarity-info');
-      info.style.display = info.style.display === 'block' ? 'none' : 'block';
-    }
+    // Botão Solidariedade
+    const btnSolidariedade = document.getElementById("btn-solidariedade");
+    const msgSolidariedade = document.getElementById("msg-solidariedade");
+
+    btnSolidariedade.addEventListener("click", () => {
+      if (msgSolidariedade.style.display === "none") {
+        msgSolidariedade.style.display = "block";
+        btnSolidariedade.textContent = "Ocultar Solidariedade";
+      } else {
+        msgSolidariedade.style.display = "none";
+        btnSolidariedade.textContent = "Mostrar Solidariedade";
+      }
+    });
 
     // Pesquisa
     function searchContent() {
       const input = document.getElementById('searchInput').value.toLowerCase();
-      document.querySelectorAll('.content-item').forEach(item => {
-        const text = item.querySelector('strong').textContent.toLowerCase() +
-                     ' ' +
-                     item.querySelector('.full-text').textContent.toLowerCase();
+      const items = document.querySelectorAll('.content-item');
+      let found = false;
+      items.forEach(item => {
+        const text = item.innerText.toLowerCase();
         if (text.includes(input)) {
           item.style.display = 'block';
+          found = true;
         } else {
           item.style.display = 'none';
         }
       });
+      if (!found) alert("Nenhum resultado encontrado.");
     }
   </script>
-
 </body>
 </html>
