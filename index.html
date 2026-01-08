@@ -247,6 +247,72 @@
       });
     }
   </script>
+  
+<script>
+const posts = [
+  {
+    titulo: "Pan-Africanismo: consciência, não slogan",
+    resumo: "O Pan-Africanismo não é moda nem palavra bonita. É estratégia histórica.",
+    texto: `
+      <p>O Pan-Africanismo nasce como resposta direta à fragmentação imposta ao continente africano.</p>
+      <p>Mais do que união simbólica, ele propõe autonomia política, econômica e cultural.</p>
+      <p>Sem consciência, o slogan vira ruído. Com consciência, vira poder.</p>
+    `
+  },
+  {
+    titulo: "Colonialismo e neocolonialismo",
+    resumo: "A dominação não terminou com as independências.",
+    texto: `
+      <p>O colonialismo deixou marcas profundas: fronteiras artificiais e economias dependentes.</p>
+      <p>O neocolonialismo atua por dívidas, influência política e controle econômico.</p>
+      <p>Romper isso exige estratégia africana própria.</p>
+    `
+  },
+  {
+    titulo: "Geopolítica africana: quem decide?",
+    resumo: "África é central no tabuleiro global.",
+    texto: `
+      <p>Recursos naturais e posição estratégica fazem da África alvo constante.</p>
+      <p>Decisões externas moldam conflitos internos.</p>
+      <p>Entender isso é defender soberania.</p>
+    `
+  }
+];
 
+// GERAR POSTS
+const container = document.getElementById("posts-container");
+
+posts.forEach((post, index) => {
+  const div = document.createElement("div");
+  div.className = "content-item";
+
+  div.innerHTML = `
+    <strong>${post.titulo}</strong>
+    <p>${post.resumo}</p>
+    <div class="full-text" style="display:none">
+      ${post.texto}
+    </div>
+    <a href="#" class="read-more">Ler mais</a>
+  `;
+
+  container.appendChild(div);
+});
+
+// LER MAIS / MOSTRAR MENOS
+document.addEventListener("click", function(e) {
+  if(e.target.classList.contains("read-more")){
+    e.preventDefault();
+    const text = e.target.previousElementSibling;
+    if(text.style.display === "none"){
+      text.style.display = "block";
+      e.target.textContent = "Mostrar menos";
+    } else {
+      text.style.display = "none";
+      e.target.textContent = "Ler mais";
+    }
+  }
+});
+</script>
+  
 </body>
   </html>
