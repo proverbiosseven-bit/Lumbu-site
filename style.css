@@ -194,3 +194,21 @@ footer {
 .post-resumo a:hover {
   text-decoration: underline;
 }
+
+.categoria {
+  margin-bottom: 30px;
+}
+
+.categoria h3 {
+  color: #3a2415;
+  margin-bottom: 10px;
+}
+
+.categoria ul {
+  list-style: square;
+  padding-left: 20px;
+}
+
+.categoria li {
+  margin-bottom: 6px;
+  }
