@@ -241,22 +241,52 @@
   </p>
 
   <button class="btn" onclick="toggleDoacao()">Mostrar dados</button>
+<section id="biblioteca">
+  <h2>Biblioteca de Conteúdos</h2>
 
-  <div id="doacao" class="hidden">
-    <p><strong>IBAN:</strong> 0040 0000 90984961102 20</p>
-    <p><strong>Multicaixa / Xpress:</strong> 946 903 366</p>
+  <!-- Post 1 -->
+  <div class="content-item">
+    <strong>Pan-Africanismo: Consciência ou Slogan Político?</strong>
+    <div class="full-text" style="display:none;">
+      <p>O Pan-Africanismo nasceu da necessidade de que os povos africanos se reconheçam como irmãos e co-protagonistas da própria história. Durante décadas, ideologias externas, colonialismo e interesses estrangeiros influenciaram decisões políticas e sociais, deixando muitas nações dependentes de modelos que não nasceram daqui.</p>
+
+      <p>O LUMBU acredita que o verdadeiro Pan-Africanismo não está nas bandeiras, slogans ou discursos, mas na <strong>consciência coletiva</strong>, na <strong>educação crítica</strong>, e na <strong>ação consciente</strong>. Isso significa estudar a história, entender a geopolítica, valorizar a cultura, e apoiar iniciativas internas que fortaleçam nossa autonomia.</p>
+
+      <p>Não se trata de rejeitar influências externas ou estar contra o mundo. Trata-se de <strong>decidir por nós mesmos</strong>, priorizando a visão africana e preparando as próximas gerações para agir com conhecimento e responsabilidade.</p>
+
+      <p>Unir África não é apenas um sonho; é uma necessidade prática. É o que torna os encontros do LUMBU mais do que reuniões: são <strong>laboratórios de pensamento africano</strong>, onde aprendemos, debatemos e crescemos juntos.</p>
+    </div>
+
+    <button class="btn-toggle" onclick="toggleContent(this)">Ler mais no LUMBU</button>
+  </div>
+
+  <!-- Fundo de Remuneração / Doações -->
+  <div class="doacao" style="margin-top:30px;">
+    <h3>Contribua para o LUMBU</h3>
+    <p>As doações ajudam a manter encontros presenciais, materiais e utensílios. Use IBAN ou Multicaixa / Xpress:</p>
+    <p><strong>IBAN:</strong> 0040 0000 90984961102 20 - BAI<br>
+       <strong>Xpress:</strong> 946903366</p>
+  </div>
+
+  <!-- Sobre o Criador -->
+  <div class="sobre-criador" style="margin-top:30px;">
+    <h3>Sobre o Criador</h3>
+    <p>Augusto Tona é educador e fundador do LUMBU, com a missão de fortalecer a consciência histórica, política e cultural africana.</p>
   </div>
 </section>
 
-<footer>
-  © LUMBU — Movimento Intelectual Africano
-</footer>
-
 <script>
-  function toggleDoacao() {
-    const d = document.getElementById("doacao");
-    d.classList.toggle("hidden");
-  }
+  // Função para mostrar / ocultar conteúdo do post
+  function toggleContent(button) {
+    const fullText = button.previousElementSibling;
+    if (fullText.style.display === "none") {
+      fullText.style.display = "block";
+      button.textContent = "Mostrar menos";
+    } else {
+      fullText.style.display = "none";
+      button.textContent = "Ler mais no LUMBU";
+    }
+    
 </script>
 
 </body>
