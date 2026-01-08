@@ -7,6 +7,7 @@
   <meta name="description" content="LUMBU é um centro africano de pensamento sobre história, política, cultura e consciência africana.">
   <meta name="keywords" content="África, Pan-Africanismo, política africana, cultura africana, geopolítica africana">
   <meta name="author" content="LUMBU">
+
   <style>
     body {
       margin: 0;
@@ -17,11 +18,8 @@
 
     /* HERO / CAPA */
     .hero {
-      background: linear-gradient(
-        rgba(6, 60, 46, 0.9),
-        rgba(6, 60, 46, 0.9)
-      ),
-      url("images/africa-pattern.png");
+      background: linear-gradient(rgba(6,60,46,0.8), rgba(6,60,46,0.8)),
+                  url("images/africa-pattern.png");
       background-size: cover;
       background-position: center;
       padding: 40px 20px;
@@ -91,6 +89,7 @@
       margin-top: 0;
     }
 
+    /* POSTS / BIBLIOTECA */
     .content-item {
       margin-bottom: 15px;
       padding: 10px;
@@ -109,6 +108,19 @@
       line-height: 1.5;
     }
 
+    .read-more {
+      display: inline-block;
+      margin-top: 5px;
+      font-weight: bold;
+      color: #00796b;
+      text-decoration: none;
+    }
+
+    .read-more:hover {
+      text-decoration: underline;
+    }
+
+    /* BOTÃO MOSTRAR / OCULTAR */
     .btn-toggle {
       margin-top: 10px;
       padding: 10px 15px;
@@ -123,30 +135,37 @@
       background: #2b1b0f;
     }
 
-    /* Botão Solidariedade */
-    .btn-solidariedade {
-      padding: 8px 16px;
-      background-color: #4CAF50; /* verde africano */
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 14px;
-    }
-
-    .btn-solidariedade:hover {
-      background-color: #45a049;
-    }
-
     footer {
       text-align: center;
       font-size: 12px;
       margin: 40px 0 20px 0;
       color: #555;
     }
+
+    /* Fundo de Solidariedade */
+    #solidariedade button {
+      background: #00796b;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #solidariedade button:hover {
+      background: #004d40;
+    }
+
+    #dados-solidariedade {
+      display: none;
+      margin-top: 15px;
+      font-size: 14px;
+      color: #004d40;
+    }
+
   </style>
 </head>
+
 <body>
 
   <!-- CAPA -->
@@ -164,13 +183,13 @@
   <!-- SOBRE O LUMBU -->
   <section id="sobre-lumbu">
     <h2>Sobre o LUMBU</h2>
-    <p>O LUMBU é um movimento intelectual africano que visa fortalecer a consciência histórica, política e cultural do continente africano.</p>
+    <p>O LUMBU é um movimento intelectual africano que visa fortalecer a consciência histórica, política e cultural do continente africano. Aqui, buscamos compreender África a partir da própria perspectiva africana.</p>
   </section>
 
   <!-- SOBRE O CRIADOR -->
   <section id="sobre-criador">
     <h2>Sobre o Criador</h2>
-    <p>Augusto Tona é educador e fundador do LUMBU, promovendo debates, participação ativa e consciência coletiva sobre África.</p>
+    <p>Augusto Tona é educador e fundador do LUMBU, com a missão de disseminar conhecimento sobre história, política e cultura africana, promovendo debates, participação ativa e consciência coletiva.</p>
   </section>
 
   <!-- BIBLIOTECA / POSTS -->
@@ -182,7 +201,7 @@
     <div class="content-item">
       <strong>Pan-Africanismo: consciência, não slogan</strong>
       <div class="full-text">
-        <p>O Pan-Africanismo surge como movimento de unidade africana, fortalecendo identidade, cultura e autonomia política diante de influências externas.</p>
+        <p>O Pan-Africanismo surge como movimento de unidade africana, buscando fortalecer identidade, cultura e autonomia política diante de influências externas.</p>
         <p>Não é apenas uma bandeira ou símbolo: é uma estratégia de emancipação e cooperação continental.</p>
       </div>
       <a href="#post-pan-africanismo" class="read-more">Ler mais no LUMBU</a>
@@ -208,13 +227,75 @@
       <a href="#post-geopolitica" class="read-more">Ler mais no LUMBU</a>
     </div>
 
+    <!-- Post 4 -->
+    <div class="content-item">
+      <strong>Guerras africanas: causas e consequências</strong>
+      <div class="full-text">
+        <p>Conflitos armados no continente têm raízes complexas: disputas internas, interesses externos e legado colonial.</p>
+        <p>Compreender essas causas ajuda a desenvolver soluções africanas sustentáveis e justas.</p>
+      </div>
+      <a href="#post-guerras" class="read-more">Ler mais no LUMBU</a>
+    </div>
+
+    <!-- Post 5 -->
+    <div class="content-item">
+      <strong>Identidade africana como poder político</strong>
+      <div class="full-text">
+        <p>Reconhecer e valorizar cultura, línguas e tradições fortalece a participação social e política no continente.</p>
+        <p>O poder da identidade africana é central para projetos de autonomia e desenvolvimento.</p>
+      </div>
+      <a href="#post-identidade" class="read-more">Ler mais no LUMBU</a>
+    </div>
+
+    <!-- Post 6 -->
+    <div class="content-item">
+      <strong>Educação africana: chave para emancipação</strong>
+      <div class="full-text">
+        <p>Educação crítica e contextualizada promove consciência histórica, cultural e política.</p>
+        <p>Investir na formação de jovens é investir no futuro do continente.</p>
+      </div>
+      <a href="#post-educacao" class="read-more">Ler mais no LUMBU</a>
+    </div>
+
+    <!-- Post 7 -->
+    <div class="content-item">
+      <strong>Economia africana: desafios e oportunidades</strong>
+      <div class="full-text">
+        <p>A África possui recursos abundantes, mas enfrenta obstáculos estruturais e dependência de mercados externos.</p>
+        <p>Estratégias próprias de desenvolvimento e integração continental são essenciais.</p>
+      </div>
+      <a href="#post-economia" class="read-more">Ler mais no LUMBU</a>
+    </div>
+
+    <!-- Post 8 -->
+    <div class="content-item">
+      <strong>Juventude africana: protagonista da mudança</strong>
+      <div class="full-text">
+        <p>Os jovens africanos são agentes de transformação. Educação, tecnologia e mobilização social são ferramentas de impacto real.</p>
+        <p>Estimular participação ativa fortalece movimentos de renascimento e conscientização.</p>
+      </div>
+      <a href="#post-juventude" class="read-more">Ler mais no LUMBU</a>
+    </div>
+
+    <!-- Post 9 -->
+    <div class="content-item">
+      <strong>Cultura e símbolos africanos</strong>
+      <div class="full-text">
+        <p>Tradições, músicas, vestuário, línguas e rituais expressam valores e história de cada povo africano.</p>
+        <p>Preservar e valorizar esses elementos é um ato de resistência e afirmação identitária.</p>
+      </div>
+      <a href="#post-cultura" class="read-more">Ler mais no LUMBU</a>
+    </div>
+
   </section>
 
-  <!-- BOTÃO SOLIDARIEDADE -->
-  <section id="solidariedade">
-    <button id="btn-solidariedade" class="btn-solidariedade">Mostrar Solidariedade</button>
-    <div id="msg-solidariedade" style="display:none; margin-top:10px; font-size:14px; color:#2b1b0f;">
-      Contribuições e apoio para materiais e encontros do LUMBU são bem-vindos. Mais informações podem ser obtidas diretamente na página.
+  <!-- Fundo de Solidariedade -->
+  <section id="solidariedade" style="max-width: 900px; margin: 30px auto; padding: 15px; background: #e0f7fa; border-radius: 8px; text-align: center;">
+    <button onclick="toggleSolidariedade()">Mostrar Solidariedade</button>
+    <div id="dados-solidariedade">
+      Contribua com qualquer valor para apoiar a manutenção do LUMBU e a divulgação do pensamento africano.<br><br>
+      <strong>IBAN:</strong> 0040 0000 90984961102 20 - BAI<br>
+      <strong>Xpress:</strong> 946903366
     </div>
   </section>
 
@@ -223,44 +304,39 @@
   </footer>
 
   <script>
-    // Mostrar / Ocultar conteúdos
-    function toggleAll() {
-      const fullTexts = document.querySelectorAll('.full-text');
-      fullTexts.forEach(ft => {
-        ft.style.display = ft.style.display === 'block' ? 'none' : 'block';
+    // Mostrar / Ocultar conteúdo da biblioteca
+    const items = document.querySelectorAll('.content-item');
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        const text = item.querySelector('.full-text');
+        if(text) text.style.display = text.style.display === 'none' ? 'block' : 'none';
       });
+    });
+
+    function toggleAll() {
+      const allTexts = document.querySelectorAll('.full-text');
+      allTexts.forEach(t => t.style.display = t.style.display === 'none' ? 'block' : 'none');
     }
 
-    // Botão Solidariedade
-    const btnSolidariedade = document.getElementById("btn-solidariedade");
-    const msgSolidariedade = document.getElementById("msg-solidariedade");
-
-    btnSolidariedade.addEventListener("click", () => {
-      if (msgSolidariedade.style.display === "none") {
-        msgSolidariedade.style.display = "block";
-        btnSolidariedade.textContent = "Ocultar Solidariedade";
-      } else {
-        msgSolidariedade.style.display = "none";
-        btnSolidariedade.textContent = "Mostrar Solidariedade";
-      }
-    });
+    // Solidariedade
+    function toggleSolidariedade() {
+      const div = document.getElementById('dados-solidariedade');
+      div.style.display = div.style.display === 'none' ? 'block' : 'none';
+    }
 
     // Pesquisa
     function searchContent() {
-      const input = document.getElementById('searchInput').value.toLowerCase();
-      const items = document.querySelectorAll('.content-item');
-      let found = false;
+      const query = document.getElementById('searchInput').value.toLowerCase();
       items.forEach(item => {
-        const text = item.innerText.toLowerCase();
-        if (text.includes(input)) {
+        const text = item.querySelector('.full-text').innerText.toLowerCase();
+        if(text.includes(query) || item.querySelector('strong').innerText.toLowerCase().includes(query)) {
           item.style.display = 'block';
-          found = true;
         } else {
           item.style.display = 'none';
         }
       });
-      if (!found) alert("Nenhum resultado encontrado.");
     }
   </script>
+
 </body>
-</html>
+  </html>
