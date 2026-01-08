@@ -3,22 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <title>LUMBU – Centro de Pensamento Africano</title>
+
+  <meta name="description" content="LUMBU é um centro africano de pensamento sobre história, política, cultura e consciência africana.">
+  <meta name="keywords" content="África, Pan-Africanismo, política africana, cultura africana">
+  <meta name="author" content="LUMBU">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f5f5f5;
+      background: #f4f4f4;
       color: #222;
     }
 
-    header {
-      background: #000;
-      color: #fff;
-      padding: 30px 15px;
+    header.hero {
+      background: linear-gradient(rgba(6,60,46,0.9), rgba(6,60,46,0.9)),
+                  url("images/africa-pattern.png");
+      background-size: cover;
       text-align: center;
+      padding: 60px 20px;
+      color: #fff;
+    }
+
+    .hero img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #cfae70;
+      margin-bottom: 15px;
     }
 
     section {
@@ -28,49 +42,51 @@
     }
 
     h2 {
-      border-bottom: 2px solid #000;
+      border-bottom: 2px solid #063c2e;
       padding-bottom: 5px;
     }
 
     .content-item {
       background: #fff;
       padding: 15px;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
     .content-item strong {
+      cursor: pointer;
+      display: block;
       font-size: 18px;
+      color: #063c2e;
     }
 
     .full-text {
       display: none;
       margin-top: 10px;
+      line-height: 1.6;
     }
 
-    .read-more {
-      display: inline-block;
-      margin-top: 10px;
-      text-decoration: none;
-      color: #00695c;
-      font-weight: bold;
-      cursor: pointer;
+    #solidariedade {
+      background: #e0f2f1;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
     }
 
-    .btn-solidariedade {
-      background: #00695c;
+    #solidariedade button {
+      background: #063c2e;
       color: #fff;
       border: none;
-      padding: 8px 14px;
-      border-radius: 5px;
+      padding: 8px 18px;
+      border-radius: 20px;
       cursor: pointer;
-      font-size: 14px;
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      background: #000;
+      background: #063c2e;
       color: #fff;
       margin-top: 40px;
     }
@@ -79,36 +95,57 @@
 
 <body>
 
-<header>
+<header class="hero">
+  <img src="images/augusto-tona.jpg" alt="LUMBU">
   <h1>LUMBU</h1>
-  <p>Centro de Pensamento Africano</p>
+  <p>Centro de pensamento africano. História, política e consciência africana.</p>
 </header>
 
-<!-- BIBLIOTECA -->
 <section id="biblioteca">
   <h2>Biblioteca LUMBU</h2>
-  <div id="posts-container"></div>
+
+  <div class="content-item">
+    <strong>África nunca foi pobre</strong>
+    <div class="full-text">
+      <p>África nunca foi pobre. O que existe é um continente historicamente explorado, fragmentado e impedido de decidir o próprio destino.</p>
+      <p>Desde o período colonial, suas estruturas econômicas foram moldadas para servir interesses externos.</p>
+      <p>A política internacional não tem amigos, tem conveniências. Nenhum povo se liberta terceirizando soberania.</p>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <strong>Pan-Africanismo não é slogan, é estratégia</strong>
+    <div class="full-text">
+      <p>O Pan-Africanismo nasce como resposta à fragmentação africana imposta pelo colonialismo.</p>
+      <p>Não é discurso vazio, é projeto político, econômico e cultural de autonomia continental.</p>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <strong>Guerras africanas: conflitos internos ou projetos externos?</strong>
+    <div class="full-text">
+      <p>As guerras africanas são frequentemente explicadas de forma simplista.</p>
+      <p>Interesses externos, recursos naturais e disputas geopolíticas estão no centro de muitos conflitos.</p>
+    </div>
+  </div>
+
+  <div class="content-item">
+    <strong>UNITA, Savimbi e a lição da política internacional</strong>
+    <div class="full-text">
+      <p>A UNITA aplaude hoje intervenções externas, esquecendo que seu próprio líder foi usado e descartado.</p>
+      <p>A política internacional não tem memória nem lealdade.</p>
+    </div>
+  </div>
+
 </section>
 
-<!-- FUNDO DE SOLIDARIEDADE -->
 <section id="solidariedade">
-  <button class="btn-solidariedade" onclick="toggleSolidariedade()">
-    Mostrar solidariedade
-  </button>
+  <button onclick="toggleSolidariedade()">Mostrar solidariedade</button>
 
-  <div id="dados-solidariedade" style="display:none; margin-top:15px;">
-    <p>
-      Este fundo apoia a manutenção do LUMBU
-      e a divulgação do pensamento africano independente.
-    </p>
-
-    <p><strong>IBAN:</strong> AO06 XXXX XXXX XXXX XXXX XXXX X</p>
-    <p><strong>Xpress:</strong> 9XX XXX XXX</p>
-
-    <p>
-      Mostrar solidariedade é um ato político.
-      Nenhum valor é pequeno quando a causa é grande.
-    </p>
+  <div id="dados-solidariedade" style="display:none; margin-top:10px;">
+    Contribua para manter o LUMBU ativo e independente.<br><br>
+    <strong>IBAN:</strong> 0040 0000 90984961102 20<br>
+    <strong>Xpress:</strong> 946903366
   </div>
 </section>
 
@@ -117,84 +154,16 @@
 </footer>
 
 <script>
-/* POSTS */
-const posts = [
-  {
-    titulo: "África nunca foi pobre",
-    texto: `
-      <p>África nunca foi pobre. O que existe é um continente historicamente explorado,
-      fragmentado e impedido de decidir o próprio destino.</p>
-
-      <p>A política internacional não tem amigos, tem conveniências.</p>
-
-      <p>Desde o período colonial, as estruturas africanas foram moldadas
-      para servir interesses externos.</p>
-
-      <p>Recuperar África começa pela recuperação da consciência.</p>
-    `
-  },
-  {
-    titulo: "Pan-Africanismo: consciência, não slogan",
-    texto: `
-      <p>O Pan-Africanismo não é moda nem palavra bonita.</p>
-
-      <p>Ele nasce como resposta direta à fragmentação imposta ao continente africano.</p>
-
-      <p>Sem consciência, o slogan vira ruído. Com consciência, vira poder.</p>
-    `
-  },
-  {
-    titulo: "África não precisa de salvadores",
-    texto: `
-      <p>Nenhum povo se libertou por intervenção externa.</p>
-
-      <p>Intervenções reorganizam interesses, não libertam consciências.</p>
-
-      <p>África precisa de pensamento próprio, não de tutores.</p>
-    `
-  }
-];
-
-/* GERAR POSTS */
-const container = document.getElementById("posts-container");
-
-posts.forEach(post => {
-  const div = document.createElement("div");
-  div.className = "content-item";
-
-  div.innerHTML = `
-    <strong>${post.titulo}</strong>
-
-    <div class="full-text">
-      ${post.texto}
-    </div>
-
-    <a href="#" class="read-more">Ler mais</a>
-  `;
-
-  container.appendChild(div);
+document.querySelectorAll(".content-item strong").forEach(titulo => {
+  titulo.addEventListener("click", () => {
+    const texto = titulo.nextElementSibling;
+    texto.style.display = texto.style.display === "block" ? "none" : "block";
+  });
 });
 
-/* LER MAIS */
-document.addEventListener("click", function(e) {
-  if (e.target.classList.contains("read-more")) {
-    e.preventDefault();
-    const text = e.target.previousElementSibling;
-
-    if (text.style.display === "none" || text.style.display === "") {
-      text.style.display = "block";
-      e.target.textContent = "Mostrar menos";
-    } else {
-      text.style.display = "none";
-      e.target.textContent = "Ler mais";
-    }
-  }
-});
-
-/* SOLIDARIEDADE */
 function toggleSolidariedade() {
   const div = document.getElementById("dados-solidariedade");
-  div.style.display = div.style.display === "none" ? "block" : "none";
+  div.style.display = div.style.display === "block" ? "none" : "block";
 }
 </script>
 
