@@ -2,284 +2,201 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
+  <title>LUMBU – Centro de Pensamento Africano</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LUMBU - Centro de Pensamento Africano</title>
-  <meta name="description" content="LUMBU é um centro africano de pensamento sobre história, política, cultura e consciência africana.">
-  <meta name="keywords" content="África, Pan-Africanismo, política africana, cultura africana, geopolítica africana">
-  <meta name="author" content="LUMBU">
+
   <style>
     body {
+      font-family: Arial, sans-serif;
       margin: 0;
-      font-family: 'Arial', sans-serif;
+      padding: 0;
       background: #f5f5f5;
-      color: #2b1b0f;
+      color: #222;
     }
 
-    /* HERO / CAPA */
-    .hero {
-      background: linear-gradient(rgba(6,60,46,0.9), rgba(6,60,46,0.9)),
-                  url("images/africa-pattern.png");
-      background-size: cover;
-      background-position: center;
-      padding: 40px 20px;
-      text-align: center;
+    header {
+      background: #000;
       color: #fff;
+      padding: 30px 15px;
+      text-align: center;
     }
 
-    .hero-photo {
-      width: 130px;
-      height: 130px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid #cfae70;
-      margin-bottom: 15px;
-    }
-
-    .hero h1 {
-      margin: 0;
-      font-size: 36px;
-    }
-
-    .hero p {
-      margin: 10px 0 20px 0;
-      font-size: 16px;
-    }
-
-    .search-box {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .search-box input {
-      padding: 10px;
-      font-size: 16px;
-      width: 250px;
-      border-radius: 5px;
-      border: none;
-    }
-
-    .search-box button {
-      padding: 10px 20px;
-      background: #cfae70;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .search-box button:hover {
-      background: #b6924f;
-    }
-
-    /* SEÇÕES */
     section {
       max-width: 900px;
       margin: 30px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      padding: 0 15px;
     }
 
     h2 {
-      color: #3a2415;
-      margin-top: 0;
+      border-bottom: 2px solid #000;
+      padding-bottom: 5px;
     }
 
     .content-item {
-      margin-bottom: 15px;
-      padding: 10px;
-      border-left: 4px solid #cfae70;
-      cursor: pointer;
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 6px;
     }
 
-    .content-item:hover {
-      background: #f0f0f0;
+    .content-item strong {
+      font-size: 18px;
     }
 
     .full-text {
       display: none;
-      margin-top: 5px;
-      font-size: 14px;
-      line-height: 1.5;
+      margin-top: 10px;
     }
 
     .read-more {
       display: inline-block;
-      margin-top: 5px;
-      color: #00796B;
+      margin-top: 10px;
       text-decoration: none;
+      color: #00695c;
       font-weight: bold;
       cursor: pointer;
     }
 
-    footer {
-      text-align: center;
-      font-size: 12px;
-      margin: 40px 0 20px 0;
-      color: #555;
+    .btn-solidariedade {
+      background: #00695c;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
     }
 
-    /* Solidariedade */
-    #solidariedade button {
-      padding: 8px 15px;
-      background:#00796B;
-      color:#fff;
-      border:none;
-      border-radius:5px;
-      cursor:pointer;
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #000;
+      color: #fff;
+      margin-top: 40px;
     }
   </style>
 </head>
+
 <body>
 
-  <!-- CAPA -->
-  <header class="hero">
-    <img src="images/augusto-tona.jpg" alt="Augusto Tona" class="hero-photo">
-    <h1>LUMBU</h1>
-    <p>Centro de pensamento africano. História, política, cultura e consciência africana.</p>
+<header>
+  <h1>LUMBU</h1>
+  <p>Centro de Pensamento Africano</p>
+</header>
 
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Pesquisar África, política, história...">
-      <button onclick="searchContent()">Pesquisar</button>
-    </div>
-  </header>
-
-  <!-- SOBRE O LUMBU -->
-  <section id="sobre-lumbu">
-    <h2>Sobre o LUMBU</h2>
-    <p>O LUMBU é um movimento intelectual africano que visa fortalecer a consciência histórica, política e cultural do continente africano. Aqui, buscamos compreender África a partir da própria perspectiva africana.</p>
-  </section>
-
-  <!-- SOBRE O CRIADOR -->
-  <section id="sobre-criador">
-    <h2>Sobre o Criador</h2>
-    <p>Augusto Tona é educador e fundador do LUMBU, com a missão de disseminar conhecimento sobre história, política e cultura africana, promovendo debates, participação ativa e consciência coletiva.</p>
-  </section>
-
-<!-- BIBLIOTECA / POSTS -->
+<!-- BIBLIOTECA -->
 <section id="biblioteca">
   <h2>Biblioteca LUMBU</h2>
+  <div id="posts-container"></div>
+</section>
 
-  <!-- Botão mostrar todos -->
-  <button class="btn-toggle" onclick="toggleAll()">Mostrar / Ocultar Todos</button>
+<!-- FUNDO DE SOLIDARIEDADE -->
+<section id="solidariedade">
+  <button class="btn-solidariedade" onclick="toggleSolidariedade()">
+    Mostrar solidariedade
+  </button>
 
-  <div id="posts-container">
+  <div id="dados-solidariedade" style="display:none; margin-top:15px;">
+    <p>
+      Este fundo apoia a manutenção do LUMBU
+      e a divulgação do pensamento africano independente.
+    </p>
 
-    <!-- Post 1 -->
-    <div class="content-item">
-      <strong>Pan-Africanismo: consciência, não slogan</strong>
-      <div class="full-text" style="display:none;">
-        <p>O Pan-Africanismo surge como movimento de unidade africana, buscando fortalecer identidade, cultura e autonomia política diante de influências externas.</p>
-        <p>Não é apenas uma bandeira ou símbolo: é uma estratégia de emancipação e cooperação continental.</p>
-        <p>Mais do que união simbólica, ele propõe coordenação política, econômica e cultural entre os povos africanos. Questiona fronteiras artificiais e dependência externa.</p>
-      </div>
-    </div>
+    <p><strong>IBAN:</strong> AO06 XXXX XXXX XXXX XXXX XXXX X</p>
+    <p><strong>Xpress:</strong> 9XX XXX XXX</p>
 
-    <!-- Post 2 -->
-    <div class="content-item">
-      <strong>Colonialismo e neocolonialismo</strong>
-      <div class="full-text" style="display:none;">
-        <p>As potências coloniais moldaram a África, deixando fronteiras artificiais, economias dependentes e divisões internas.</p>
-        <p>O neocolonialismo mantém muitas dessas estruturas, exigindo estratégias africanas próprias para a verdadeira autonomia.</p>
-      </div>
-    </div>
-
-    <!-- Post 3 -->
-    <div class="content-item">
-      <strong>Geopolítica africana: quem decide?</strong>
-      <div class="full-text" style="display:none;">
-        <p>Riquezas naturais, localização estratégica e recursos humanos tornam África alvo de interesses internacionais.</p>
-        <p>É essencial entender como alianças, conflitos e políticas externas afetam diretamente o futuro dos povos africanos.</p>
-      </div>
-    </div>
-
-    <!-- Post 4 -->
-    <div class="content-item">
-      <strong>Guerras africanas: causas e consequências</strong>
-      <div class="full-text" style="display:none;">
-        <p>Conflitos armados no continente têm raízes complexas: disputas internas, interesses externos e legado colonial.</p>
-        <p>Compreender essas causas ajuda a desenvolver soluções africanas sustentáveis e justas.</p>
-      </div>
-    </div>
-
-    <!-- Post 5 -->
-    <div class="content-item">
-      <strong>Identidade africana como poder político</strong>
-      <div class="full-text" style="display:none;">
-        <p>Reconhecer e valorizar cultura, línguas e tradições fortalece a participação social e política no continente.</p>
-        <p>O poder da identidade africana é central para projetos de autonomia e desenvolvimento.</p>
-      </div>
-    </div>
-
-    <!-- Post 6 -->
-    <div class="content-item">
-      <strong>Educação africana: chave para emancipação</strong>
-      <div class="full-text" style="display:none;">
-        <p>Educação crítica e contextualizada promove consciência histórica, cultural e política.</p>
-        <p>Investir na formação de jovens é investir no futuro do continente.</p>
-      </div>
-    </div>
-
-    <!-- Post 7 -->
-    <div class="content-item">
-      <strong>Economia africana: desafios e oportunidades</strong>
-      <div class="full-text" style="display:none;">
-        <p>A África possui recursos abundantes, mas enfrenta obstáculos estruturais e dependência de mercados externos.</p>
-        <p>Estratégias próprias de desenvolvimento e integração continental são essenciais.</p>
-      </div>
-    </div>
-
-    <!-- Post 8 -->
-    <div class="content-item">
-      <strong>Juventude africana: protagonista da mudança</strong>
-      <div class="full-text" style="display:none;">
-        <p>Os jovens africanos são agentes de transformação. Educação, tecnologia e mobilização social são ferramentas de impacto real.</p>
-        <p>Estimular participação ativa fortalece movimentos de renascimento e conscientização.</p>
-      </div>
-    </div>
-
-    <!-- Post 9 -->
-    <div class="content-item">
-      <strong>Cultura e símbolos africanos</strong>
-      <div class="full-text" style="display:none;">
-        <p>Tradições, músicas, vestuário, línguas e rituais expressam valores e história de cada povo africano.</p>
-        <p>Preservar e valorizar esses elementos é um ato de resistência e afirmação identitária.</p>
-      </div>
-    </div>
-
-    <!-- Post 10 -->
-    <div class="content-item">
-      <strong>África nunca foi pobre</strong>
-      <div class="full-text" style="display:none;">
-        <p>África nunca foi pobre. O que existe é um continente historicamente explorado, fragmentado e impedido de decidir o próprio destino.</p>
-        <p>A política internacional não tem amigos, tem conveniências.</p>
-        <p>Intervenções externas quase nunca libertam povos; reorganizam interesses. A verdadeira libertação exige consciência histórica e organização interna.</p>
-      </div>
-    </div>
-
+    <p>
+      Mostrar solidariedade é um ato político.
+      Nenhum valor é pequeno quando a causa é grande.
+    </p>
   </div>
 </section>
 
+<footer>
+  &copy; 2026 LUMBU – Centro de Pensamento Africano
+</footer>
+
 <script>
-  // Expansão / colapso individual
-  const items = document.querySelectorAll('.content-item');
-  items.forEach(item => {
-    item.addEventListener('click', () => {
-      const text = item.querySelector('.full-text');
-      if(text) text.style.display = text.style.display === 'none' ? 'block' : 'none';
-    });
-  });
+/* POSTS */
+const posts = [
+  {
+    titulo: "África nunca foi pobre",
+    texto: `
+      <p>África nunca foi pobre. O que existe é um continente historicamente explorado,
+      fragmentado e impedido de decidir o próprio destino.</p>
 
-  // Botão mostrar/ocultar todos
-  function toggleAll() {
-    const allTexts = document.querySelectorAll('.full-text');
-    allTexts.forEach(t => t.style.display = t.style.display === 'none' ? 'block' : 'none');
+      <p>A política internacional não tem amigos, tem conveniências.</p>
+
+      <p>Desde o período colonial, as estruturas africanas foram moldadas
+      para servir interesses externos.</p>
+
+      <p>Recuperar África começa pela recuperação da consciência.</p>
+    `
+  },
+  {
+    titulo: "Pan-Africanismo: consciência, não slogan",
+    texto: `
+      <p>O Pan-Africanismo não é moda nem palavra bonita.</p>
+
+      <p>Ele nasce como resposta direta à fragmentação imposta ao continente africano.</p>
+
+      <p>Sem consciência, o slogan vira ruído. Com consciência, vira poder.</p>
+    `
+  },
+  {
+    titulo: "África não precisa de salvadores",
+    texto: `
+      <p>Nenhum povo se libertou por intervenção externa.</p>
+
+      <p>Intervenções reorganizam interesses, não libertam consciências.</p>
+
+      <p>África precisa de pensamento próprio, não de tutores.</p>
+    `
   }
-</script> 
+];
 
+/* GERAR POSTS */
+const container = document.getElementById("posts-container");
+
+posts.forEach(post => {
+  const div = document.createElement("div");
+  div.className = "content-item";
+
+  div.innerHTML = `
+    <strong>${post.titulo}</strong>
+
+    <div class="full-text">
+      ${post.texto}
+    </div>
+
+    <a href="#" class="read-more">Ler mais</a>
+  `;
+
+  container.appendChild(div);
+});
+
+/* LER MAIS */
+document.addEventListener("click", function(e) {
+  if (e.target.classList.contains("read-more")) {
+    e.preventDefault();
+    const text = e.target.previousElementSibling;
+
+    if (text.style.display === "none" || text.style.display === "") {
+      text.style.display = "block";
+      e.target.textContent = "Mostrar menos";
+    } else {
+      text.style.display = "none";
+      e.target.textContent = "Ler mais";
+    }
+  }
+});
+
+/* SOLIDARIEDADE */
+function toggleSolidariedade() {
+  const div = document.getElementById("dados-solidariedade");
+  div.style.display = div.style.display === "none" ? "block" : "none";
+}
+</script>
 
 </body>
-</html>
+  </html>
