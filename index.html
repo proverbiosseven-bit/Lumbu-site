@@ -1,247 +1,190 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LUMBU - Centro de Pensamento Africano</title>
-  <meta name="description" content="LUMBU é um centro africano de pensamento sobre história, política, cultura e consciência africana.">
-  <meta name="keywords" content="África, Pan-Africanismo, política africana, cultura africana, geopolítica africana">
-  <meta name="author" content="LUMBU">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUMBU – Centro Africano do Renascimento</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: #f5f5f5;
-      color: #2b1b0f;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f5f5;
+  color: #111;
+}
 
-    /* HERO / CAPA */
-    .hero {
-      background: linear-gradient(
-        rgba(6, 60, 46, 0.8),
-        rgba(6, 60, 46, 0.8)
-      );
-      background-size: cover;
-      background-position: center;
-      padding: 40px 20px;
-      text-align: center;
-      color: #fff;
-    }
+/* CAPA */
+.capa {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+}
 
-    .hero-photo {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid #cfae70;
-      margin-bottom: 15px;
-    }
+.capa img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-    .hero h1 {
-      margin: 10px 0;
-      font-size: 48px;
-    }
+.capa-legenda {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #fff;
+  background: rgba(0,0,0,0.5);
+  padding: 20px 30px;
+  border-radius: 10px;
+}
 
-    .hero p {
-      margin: 10px 0 20px 0;
-      font-size: 20px;
-      font-weight: bold;
-    }
+.capa-legenda h1 {
+  margin: 0;
+  font-size: 42px;
+  letter-spacing: 4px;
+}
 
-    .search-box {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
+.capa-legenda p {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.4;
+}
 
-    .search-box input {
-      padding: 10px;
-      font-size: 16px;
-      width: 250px;
-      border-radius: 5px;
-      border: none;
-    }
+/* SEÇÕES */
+section {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 15px;
+}
 
-    .search-box button {
-      padding: 10px 20px;
-      background: #cfae70;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-    }
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
 
-    .search-box button:hover {
-      background: #b6924f;
-    }
+/* BIBLIOTECA */
+.content-item {
+  background: #fff;
+  padding: 18px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
-    /* SEÇÕES */
-    section {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    }
+.content-item strong {
+  display: block;
+  font-size: 18px;
+}
 
-    h2 {
-      color: #3a2415;
-      margin-top: 0;
-    }
+.full-text {
+  display: none;
+  margin-top: 12px;
+  line-height: 1.6;
+}
 
-    /* BIBLIOTECA */
-    .content-item {
-      margin-bottom: 15px;
-      padding: 10px;
-      border-left: 4px solid #cfae70;
-      cursor: pointer;
-    }
+/* SOLIDARIEDADE */
+#solidariedade {
+  text-align: center;
+  background: #0b2c3d;
+  color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+}
 
-    .content-item:hover {
-      background: #f0f0f0;
-    }
+#dados-solidariedade {
+  margin-top: 15px;
+}
 
-    .full-text {
-      display: none;
-      margin-top: 5px;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    /* BOTÃO MOSTRAR SOLIDARIEDADE */
-    #solidariedade button {
-      padding: 10px 20px;
-      background: #26a69a;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      color: #fff;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    #solidariedade button:hover {
-      background: #00796b;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 12px;
-      margin: 40px 0 20px 0;
-      color: #555;
-    }
-
-  </style>
+/* RODAPÉ */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  background: #111;
+  color: #fff;
+}
+</style>
 </head>
+
 <body>
 
-  <!-- CAPA -->
-  <header class="hero">
-    <img src="images/lumb-3d-africa.png" alt="Capa LUMBU" class="hero-photo">
+<!-- CAPA -->
+<header class="capa">
+  <img src="imagem/lumb-3d-africa.png" alt="LUMBU">
+  <div class="capa-legenda">
     <h1>LUMBU</h1>
-    <p>Renascimento. Consciência. Pensamento Africano.</p>
+    <p>
+      Pensamento africano em movimento.<br>
+      Consciência, renascimento e libertação intelectual.
+    </p>
+  </div>
+</header>
 
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Pesquisar África, política, história...">
-      <button onclick="searchContent()">Pesquisar</button>
-    </div>
-  </header>
+<!-- BIBLIOTECA -->
+<section id="biblioteca">
+<h2>Biblioteca LUMBU</h2>
 
-  <!-- SOBRE O LUMBU -->
-  <section id="sobre-lumbu">
-    <h2>Sobre o LUMBU</h2>
-    <p>O LUMBU é um movimento intelectual africano dedicado a fortalecer consciência histórica, política e cultural do continente, promovendo reflexão, debate e ação consciente.</p>
-  </section>
+<div id="posts-container"></div>
+</section>
 
-  <!-- SOBRE O CRIADOR -->
-  <section id="sobre-criador">
-    <h2>Sobre o Criador</h2>
-    <p>Augusto Tona é educador e fundador do LUMBU, com a missão de disseminar conhecimento africano e inspirar participação ativa.</p>
-  </section>
+<!-- SOLIDARIEDADE -->
+<section id="solidariedade">
+<h2>Mostrar Solidariedade</h2>
 
-  <!-- BIBLIOTECA / POSTS -->
-  <section id="biblioteca">
-    <h2>Biblioteca LUMBU</h2>
-    <div id="posts-container"></div>
-  </section>
+<div id="dados-solidariedade">
+  Contribua com qualquer valor para apoiar a manutenção do LUMBU
+  e a difusão do pensamento africano.<br><br>
 
-  <!-- Fundo de Solidariedade -->
-  <section id="solidariedade">
-    <button onclick="toggleSolidariedade()">Mostrar Solidariedade</button>
-    <div id="dados-solidariedade" style="display:none">
-      Contribua com qualquer valor para apoiar a manutenção do LUMBU e a divulgação do pensamento africano.<br><br>
-      <strong>IBAN:</strong> 0040 0000 90984961102 20 - BAI<br>
-      <strong>Xpress:</strong> 946903366
-    </div>
-  </section>
+  <strong>IBAN:</strong> 0040 0000 90984961102 20 – BAI<br>
+  <strong>Xpress:</strong> 946903366
+</div>
+</section>
 
-  <footer>
-    Criado por Augusto Tona &copy; 2026 LUMBU
-  </footer>
+<!-- RODAPÉ -->
+<footer>
+@LUMBU – Centro africano do renascimento – Criado por Augusto Tona
+</footer>
 
-  <script>
-    // Mostrar / ocultar solidariedade
-    function toggleSolidariedade() {
-      const div = document.getElementById('dados-solidariedade');
-      div.style.display = div.style.display === 'none' ? 'block' : 'none';
-    }
+<script>
+const posts = [
+{
+  titulo: "O que é pensar como africano?",
+  texto: `
+  <p>Pensar como africano é romper com narrativas impostas e compreender a própria história a partir do olhar africano.</p>
+  <p>Não se trata de rejeitar o mundo, mas de existir nele com consciência, identidade e autonomia intelectual.</p>
+  `
+},
+{
+  titulo: "África nunca foi pobre",
+  texto: `
+  <p>África nunca foi pobre. O que existe é um continente explorado, fragmentado e impedido de decidir o próprio destino.</p>
+  <p>A política internacional não tem amigos, tem conveniências.</p>
+  <p>Nenhum povo se libertou terceirizando a sua soberania.</p>
+  `
+}
+];
 
-    // Biblioteca: posts
-    const posts = [
-      {
-        titulo: "Pan-Africanismo: consciência, não slogan",
-        texto: `
-          <p>O Pan-Africanismo nasce como resposta direta à fragmentação imposta ao continente africano.</p>
-          <p>Mais do que união simbólica, ele propõe autonomia política, econômica e cultural.</p>
-          <p>Sem consciência, o slogan vira ruído. Com consciência, vira poder.</p>
-        `
-      },
-      {
-        titulo: "Colonialismo e neocolonialismo",
-        texto: `
-          <p>O colonialismo deixou marcas profundas: fronteiras artificiais e economias dependentes.</p>
-          <p>O neocolonialismo atua por dívidas, influência política e controle econômico.</p>
-          <p>Romper isso exige estratégia africana própria.</p>
-        `
-      },
-      {
-        titulo: "África nunca foi pobre",
-        texto: `
-          <p>África nunca foi pobre. O que existe é um continente historicamente explorado, fragmentado e impedido de decidir o próprio destino.</p>
-          <p>A política internacional não tem amigos, tem conveniências.</p>
-          <p>O povo africano precisa de consciência própria e de planejamento interno.</p>
-        `
-      }
-    ];
+const container = document.getElementById("posts-container");
 
-    const container = document.getElementById("posts-container");
-    posts.forEach(post => {
-      const div = document.createElement("div");
-      div.className = "content-item";
-      div.innerHTML = `
-        <strong>${post.titulo}</strong>
-        <div class="full-text">${post.texto}</div>
-      `;
-      div.addEventListener('click', () => {
-        const text = div.querySelector('.full-text');
-        text.style.display = text.style.display === 'none' ? 'block' : 'none';
-      });
-      container.appendChild(div);
-    });
+posts.forEach(post => {
+  const div = document.createElement("div");
+  div.className = "content-item";
 
-    // Pesquisa
-    function searchContent() {
-      const query = document.getElementById('searchInput').value.toLowerCase();
-      const items = document.querySelectorAll('.content-item');
-      items.forEach(item => {
-        const text = item.querySelector('.full-text').innerText.toLowerCase();
-        const title = item.querySelector('strong').innerText.toLowerCase();
-        item.style.display = (text.includes(query) || title.includes(query)) ? 'block' : 'none';
-      });
-    }
-  </script>
+  div.innerHTML = `
+    <strong>${post.titulo}</strong>
+    <div class="full-text">${post.texto}</div>
+  `;
+
+  div.addEventListener("click", () => {
+    const text = div.querySelector(".full-text");
+    text.style.display = text.style.display === "block" ? "none" : "block";
+  });
+
+  container.appendChild(div);
+});
+</script>
+
 </body>
-</html>
+    </html>
