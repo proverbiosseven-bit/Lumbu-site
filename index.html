@@ -1,211 +1,295 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LUMBU - Centro de Pensamento Africano</title>
-  <meta name="description" content="LUMBU é um centro africano de pensamento sobre história, política, cultura e consciência africana.">
-  <meta name="keywords" content="África, Pan-Africanismo, política africana, cultura africana, geopolítica africana">
-  <meta name="author" content="LUMBU">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="LUMBU é um centro africano de pensamento sobre história, política, cultura e consciência africana.">
+<meta name="keywords" content="África, Pan-Africanismo, política africana, cultura africana, geopolítica africana">
+<meta name="author" content="LUMBU">
+<title>LUMBU - Centro de Pensamento Africano</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #f5f5f5;
+    color: #2b1b0f;
+    text-align: center;
+  }
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: #f5f5f5;
-      color: #2b1b0f;
-    }
+  /* HERO / CAPA */
+  .hero {
+    background: linear-gradient(rgba(6,60,46,0.85), rgba(6,60,46,0.85)),
+                url("images/lumbu-3d-africa.png") center/cover no-repeat;
+    padding: 60px 20px;
+    color: #fff;
+  }
 
-    /* HERO / CAPA */
-    .hero {
-      background: url("images/lumbu-3d-final.png") center/cover no-repeat;
-      padding: 50px 20px;
-      text-align: center;
-      color: #fff;
-      position: relative;
-    }
+  .hero-photo {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #cfae70;
+    margin-bottom: 15px;
+  }
 
-    .hero h1 {
-      font-size: 48px;
-      margin: 10px 0;
-      text-shadow: 2px 2px 4px #000;
-    }
+  .hero h1 {
+    font-size: 42px;
+    margin: 10px 0;
+  }
 
-    .hero p {
-      font-size: 20px;
-      margin: 10px 0 30px 0;
-      text-shadow: 1px 1px 2px #000;
-    }
+  .hero p {
+    font-size: 18px;
+    margin: 10px 0 25px 0;
+  }
 
-    /* BOTÃO SOLIDARIEDADE */
-    #solidariedade button {
-      padding: 10px 20px;
-      background: #00bcd4;
-      border: none;
-      border-radius: 5px;
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
-      margin-bottom: 10px;
-    }
+  .search-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
 
-    #solidariedade button:hover {
-      background: #0097a7;
-    }
+  .search-box input {
+    padding: 10px;
+    font-size: 16px;
+    width: 280px;
+    border-radius: 5px;
+    border: none;
+  }
 
-    #dados-solidariedade {
-      display: none;
-      background: #e0f7fa;
-      padding: 15px;
-      border-radius: 5px;
-      margin-top: 5px;
-      font-size: 14px;
-      text-align: center;
-    }
+  .search-box button {
+    padding: 10px 20px;
+    background: #cfae70;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
 
-    /* SEÇÕES */
-    section {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    }
+  .search-box button:hover {
+    background: #b6924f;
+  }
 
-    h2 {
-      color: #3a2415;
-      margin-top: 0;
-    }
+  /* SEÇÕES */
+  section {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  }
 
-    /* BIBLIOTECA / POSTS */
-    .content-item {
-      margin-bottom: 15px;
-      padding: 10px;
-      border-left: 4px solid #cfae70;
-      cursor: pointer;
-    }
+  h2 {
+    color: #3a2415;
+    margin-top: 0;
+  }
 
-    .content-item:hover {
-      background: #f0f0f0;
-    }
+  /* BIBLIOTECA */
+  #posts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    justify-items: center;
+    margin-top: 20px;
+  }
 
-    .full-text {
-      display: none;
-      margin-top: 5px;
-      font-size: 14px;
-      line-height: 1.5;
-    }
+  .content-item {
+    width: 100%;
+    background: #fefefe;
+    border-radius: 6px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: left;
+    cursor: pointer;
+  }
 
-    footer {
-      text-align: center;
-      font-size: 12px;
-      margin: 40px 0 20px 0;
-      color: #555;
-    }
+  .content-item strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #2b1b0f;
+  }
 
-    footer .autor {
-      margin-top: 5px;
-      font-weight: bold;
-    }
-  </style>
+  .full-text {
+    display: none;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 10px;
+  }
+
+  .read-more {
+    display: block;
+    margin-top: 10px;
+    color: #cfae70;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  /* SOLIDARIEDADE */
+  #solidariedade {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 15px;
+    background: #00bcd4;
+    border-radius: 8px;
+    color: #fff;
+    text-align: center;
+  }
+
+  #solidariedade button {
+    padding: 10px 20px;
+    background: #007c91;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  #dados-solidariedade {
+    margin-top: 10px;
+    display: none;
+  }
+
+  footer {
+    text-align: center;
+    font-size: 12px;
+    margin: 40px 0 20px 0;
+    color: #555;
+  }
+
+  /* SOBRE CRIADOR */
+  #sobre-criador p {
+    margin-top: 30px;
+    font-style: italic;
+  }
+
+</style>
 </head>
 <body>
 
-  <!-- CAPA -->
-  <header class="hero">
-    <h1>LUMBU</h1>
-    <p>Consciência, liberdade e pensamento africano em ação</p>
-  </header>
+<!-- CAPA -->
+<header class="hero">
+  <img src="images/lumbu-3d-africa.png" alt="LUMBU" class="hero-photo">
+  <h1>Centro Africano de Pensamento</h1>
+  <p>História, política, cultura e consciência africana.</p>
 
-  <!-- SOBRE O LUMBU -->
-  <section id="sobre-lumbu">
-    <h2>Sobre o LUMBU</h2>
-    <p>O LUMBU é um movimento intelectual africano que visa fortalecer a consciência histórica, política e cultural do continente africano. Aqui, buscamos compreender África a partir da própria perspectiva africana, formando pensadores críticos e cidadãos conscientes.</p>
-  </section>
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Pesquisar África, política, história...">
+    <button onclick="searchContent()">Pesquisar</button>
+  </div>
+</header>
 
-  <!-- SOBRE O CRIADOR -->
-  <section id="sobre-criador">
-    <h2>Sobre o Criador</h2>
-    <p>Augusto Tona é educador e fundador do LUMBU, com a missão de disseminar conhecimento sobre história, política e cultura africana, promovendo debates, participação ativa e consciência coletiva.</p>
-  </section>
+<!-- SOBRE O LUMBU -->
+<section id="sobre-lumbu">
+  <h2>Sobre o LUMBU</h2>
+  <p>O LUMBU é um movimento intelectual africano que visa fortalecer a consciência histórica, política e cultural do continente africano. Aqui, buscamos compreender África a partir da própria perspectiva africana.</p>
+</section>
 
-  <!-- BIBLIOTECA / POSTS -->
-  <section id="biblioteca">
-    <h2>Biblioteca LUMBU</h2>
+<!-- BIBLIOTECA / POSTS -->
+<section id="biblioteca">
+  <h2>Biblioteca LUMBU</h2>
+  <div id="posts-container"></div>
+</section>
 
-    <div id="posts-container">
-      <!-- Os posts serão gerados pelo script -->
-    </div>
-  </section>
+<!-- Mostrar Solidariedade -->
+<section id="solidariedade">
+  <button onclick="toggleSolidariedade()">Mostrar Solidariedade</button>
+  <div id="dados-solidariedade">
+    Contribua com qualquer valor para apoiar a manutenção do LUMBU e a divulgação do pensamento africano.<br><br>
+    <strong>IBAN:</strong> 0040 0000 90984961102 20 - BAI<br>
+    <strong>Xpress:</strong> 946903366
+  </div>
+</section>
 
-  <!-- Fundo de Solidariedade -->
-  <section id="solidariedade">
-    <button onclick="toggleSolidariedade()">Mostrar Solidariedade</button>
-    <div id="dados-solidariedade">
-      Contribua com qualquer valor para apoiar a manutenção do LUMBU e a divulgação do pensamento africano.<br><br>
-      <strong>IBAN:</strong> 0040 0000 90984961102 20 - BAI<br>
-      <strong>Xpress:</strong> 946903366
-    </div>
-  </section>
+<!-- SOBRE O CRIADOR -->
+<section id="sobre-criador">
+  <p>Criado por Augusto Tona</p>
+</section>
 
-  <footer>
-    &copy; 2026 LUMBU – Centro de Pensamento Africano
-    <div class="autor">Criado por Augusto Tona</div>
-  </footer>
+<footer>
+  &copy; 2026 LUMBU – Centro de Pensamento Africano
+</footer>
 
-  <script>
-    // Mostrar / Ocultar solidariedade
-    function toggleSolidariedade() {
-      const div = document.getElementById('dados-solidariedade');
-      div.style.display = div.style.display === 'none' ? 'block' : 'none';
+<script>
+  // POSTS
+  const posts = [
+    {
+      titulo: "Pan-Africanismo: consciência, não slogan",
+      texto: `
+        <p>O Pan-Africanismo nasce como resposta direta à fragmentação imposta ao continente africano.</p>
+        <p>Mais do que união simbólica, ele propõe autonomia política, econômica e cultural.</p>
+        <p>Sem consciência, o slogan vira ruído. Com consciência, vira poder.</p>
+      `
+    },
+    {
+      titulo: "Colonialismo e neocolonialismo",
+      texto: `
+        <p>As potências coloniais moldaram a África, deixando fronteiras artificiais e economias dependentes.</p>
+        <p>O neocolonialismo mantém muitas dessas estruturas, exigindo estratégias africanas próprias para a verdadeira autonomia.</p>
+      `
+    },
+    {
+      titulo: "Geopolítica africana: quem decide?",
+      texto: `
+        <p>Recursos naturais e posição estratégica fazem da África alvo constante.</p>
+        <p>Decisões externas moldam conflitos internos.</p>
+        <p>Entender isso é defender soberania.</p>
+      `
     }
+    // ... você pode adicionar mais posts aqui seguindo o mesmo formato
+  ];
 
-    // Biblioteca de Posts
-    const posts = [
-      {
-        titulo: "África nunca foi pobre",
-        texto: `
-          <p>África nunca foi pobre. O que existe é um continente historicamente explorado, fragmentado e impedido de decidir o próprio destino.</p>
-          <p>A política internacional não tem amigos, tem conveniências. Países defendem interesses, não valores universais.</p>
-          <p>Quando líderes africanos acreditam em soluções externas como salvação, esquecem que nenhum povo se libertou terceirizando sua soberania.</p>
-          <p>Pensar África exige romper com narrativas impostas, recuperar autonomia intelectual e construir projetos próprios.</p>
-        `
-      },
-      {
-        titulo: "Pan-Africanismo: consciência e estratégia",
-        texto: `
-          <p>O Pan-Africanismo nasce como resposta à fragmentação imposta ao continente africano.</p>
-          <p>Mais do que união simbólica, ele propõe autonomia política, econômica e cultural.</p>
-          <p>Sem consciência, o slogan vira ruído. Com consciência, vira poder.</p>
-        `
-      },
-      {
-        titulo: "Colonialismo e neocolonialismo",
-        texto: `
-          <p>O colonialismo deixou marcas profundas: fronteiras artificiais e economias dependentes.</p>
-          <p>O neocolonialismo mantém muitas dessas estruturas, exigindo estratégias africanas próprias para a verdadeira autonomia.</p>
-        `
+  const container = document.getElementById("posts-container");
+  posts.forEach(post => {
+    const div = document.createElement("div");
+    div.className = "content-item";
+    div.innerHTML = `
+      <strong>${post.titulo}</strong>
+      <div class="full-text">${post.texto}</div>
+      <a href="#" class="read-more">Mostrar conteúdo</a>
+    `;
+    container.appendChild(div);
+  });
+
+  // Ler mais / Mostrar conteúdo
+  document.addEventListener("click", function(e){
+    if(e.target.classList.contains("read-more")){
+      e.preventDefault();
+      const text = e.target.previousElementSibling;
+      if(text.style.display === "none" || text.style.display === ""){
+        text.style.display = "block";
+        e.target.textContent = "Ocultar conteúdo";
+      } else {
+        text.style.display = "none";
+        e.target.textContent = "Mostrar conteúdo";
       }
-      // Adicione mais posts aqui seguindo o mesmo padrão
-    ];
+    }
+  });
 
-    const container = document.getElementById("posts-container");
+  // Mostrar Solidariedade
+  function toggleSolidariedade(){
+    const div = document.getElementById("dados-solidariedade");
+    div.style.display = div.style.display === "none" || div.style.display === "" ? "block" : "none";
+  }
 
-    posts.forEach(post => {
-      const div = document.createElement("div");
-      div.className = "content-item";
-      div.innerHTML = `
-        <strong>${post.titulo}</strong>
-        <div class="full-text">${post.texto}</div>
-      `;
-      div.addEventListener("click", () => {
-        const text = div.querySelector(".full-text");
-        text.style.display = text.style.display === "none" ? "block" : "none";
-      });
-      container.appendChild(div);
+  // Pesquisa
+  function searchContent(){
+    const query = document.getElementById("searchInput").value.toLowerCase();
+    document.querySelectorAll(".content-item").forEach(item => {
+      const text = item.querySelector(".full-text").innerText.toLowerCase();
+      const title = item.querySelector("strong").innerText.toLowerCase();
+      if(text.includes(query) || title.includes(query)){
+        item.style.display = "block";
+      } else {
+        item.style.display = "none";
+      }
     });
-  </script>
-
+  }
+</script>
 </body>
   </html>
