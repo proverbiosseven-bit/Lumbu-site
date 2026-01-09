@@ -18,11 +18,26 @@
       line-height: 1.6;
     }
 
+    /* CAPA */
     header {
-      background: #0b3d2e;
+      background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url("images/africa-capa.jpg") center/cover no-repeat;
       color: #fff;
-      padding: 40px 20px;
+      padding: 90px 20px;
       text-align: center;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.1em;
+      opacity: 0.95;
     }
 
     section {
@@ -34,6 +49,7 @@
     h2 {
       border-bottom: 2px solid #0b3d2e;
       padding-bottom: 5px;
+      color: #0b3d2e;
     }
 
     .content-item {
@@ -55,7 +71,7 @@
       margin-top: 10px;
     }
 
-    /* Solidariedade */
+    /* SOLIDARIEDADE */
     #solidariedade {
       background: #e0f7fa;
       border-radius: 8px;
@@ -67,7 +83,7 @@
       background: #0b3d2e;
       color: #fff;
       border: none;
-      padding: 10px 20px;
+      padding: 10px 22px;
       border-radius: 20px;
       cursor: pointer;
       font-size: 1em;
@@ -84,15 +100,20 @@
       text-align: center;
       padding: 15px;
       margin-top: 50px;
+      font-size: 0.9em;
     }
   </style>
 </head>
 
 <body>
 
+<!-- CAPA -->
 <header>
   <h1>LUMBU</h1>
-  <p>Centro de Pensamento Africano</p>
+  <p>
+    Pensamento africano, consciência histórica e autonomia intelectual.
+    África explicada a partir de si mesma.
+  </p>
 </header>
 
 <!-- SOBRE O LUMBU -->
@@ -100,43 +121,21 @@
   <h2>Sobre o LUMBU</h2>
 
   <p>
-    O LUMBU é um espaço de pensamento africano dedicado à consciência histórica,
-    política e cultural do continente africano.
+    O LUMBU é um espaço africano de reflexão crítica sobre história,
+    política, cultura e poder.
   </p>
 
   <p>
-    Não nasce para defender líderes, partidos ou ideologias importadas.
-    Nasce para estimular pensamento próprio, autonomia intelectual
-    e responsabilidade africana sobre o próprio destino.
-  </p>
-
-  <p>
-    África não precisa de salvadores.
-    Precisa de africanos conscientes.
-  </p>
-</section>
-
-<!-- SOBRE MIM -->
-<section id="sobre-mim">
-  <h2>Sobre mim</h2>
-
-  <p>
-    Sou africano. Escrevo a partir da observação crítica,
-    da inquietação e da recusa em aceitar explicações fáceis
-    para problemas complexos.
-  </p>
-
-  <p>
-    Não falo em nome de partidos nem de governos.
-    Escrevo para provocar reflexão,
-    não para oferecer conforto intelectual.
+    Existe para romper narrativas impostas,
+    estimular consciência africana
+    e defender a ideia de que nenhum povo se liberta
+    sem pensamento próprio.
   </p>
 </section>
 
 <!-- BIBLIOTECA -->
 <section id="biblioteca">
   <h2>Biblioteca LUMBU</h2>
-
   <div id="posts-container"></div>
 </section>
 
@@ -147,7 +146,7 @@
   <div id="dados-solidariedade">
     <p>
       Contribua com qualquer valor para apoiar a manutenção do LUMBU
-      e a divulgação do pensamento africano.
+      e a difusão do pensamento africano independente.
     </p>
 
     <p>
@@ -158,7 +157,8 @@
 </section>
 
 <footer>
-  &copy; 2026 LUMBU – Centro de Pensamento Africano
+  © 2026 LUMBU – Centro de Pensamento Africano<br>
+  Criado por Augusto Tona
 </footer>
 
 <script>
@@ -169,35 +169,18 @@ const posts = [
       <p>África nunca foi pobre. O que existe é um continente historicamente explorado,
       fragmentado e impedido de decidir o próprio destino.</p>
 
-      <p>Desde o colonialismo, as estruturas africanas foram moldadas
-      para servir interesses externos.</p>
-
       <p>A política internacional não tem amigos, tem conveniências.</p>
 
-      <p>Nenhum povo se libertou terceirizando sua soberania.</p>
+      <p>Nenhum povo se liberta terceirizando sua soberania.</p>
     `
   },
   {
     titulo: "Pan-Africanismo: consciência, não slogan",
     texto: `
-      <p>O Pan-Africanismo não surge como moda intelectual,
-      mas como resposta direta à dominação colonial.</p>
+      <p>O Pan-Africanismo nasce da experiência comum de opressão colonial.</p>
 
-      <p>Ele propõe autonomia política, económica e cultural.</p>
-
-      <p>Sem consciência, o slogan vira ruído.
-      Com consciência, vira poder.</p>
-    `
-  },
-  {
-    titulo: "África não precisa de salvadores",
-    texto: `
-      <p>A narrativa do salvador externo acompanha a África há séculos.</p>
-
-      <p>Intervenções estrangeiras reorganizam interesses,
-      raramente libertam povos.</p>
-
-      <p>A libertação começa pela consciência africana.</p>
+      <p>Não é estética nem moda intelectual.
+      É estratégia de sobrevivência e autonomia.</p>
     `
   }
 ];
@@ -228,4 +211,4 @@ function toggleSolidariedade() {
 </script>
 
 </body>
-</html>
+             </html>
