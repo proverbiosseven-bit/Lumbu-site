@@ -16,30 +16,51 @@
       color: #2b1b0f;
     }
 
-    /* CAPA */
+    /* HERO / CAPA */
     .hero {
-      background: linear-gradient(
-        rgba(0,0,0,0.6),
-        rgba(0,0,0,0.6)
-      ),
-      url("images/lumbu-3d-final.png"); /* Última imagem gerada */
-      background-size: cover;
-      background-position: center;
-      padding: 40px 20px;
+      background: url("images/lumbu-3d-final.png") center/cover no-repeat;
+      padding: 50px 20px;
       text-align: center;
       color: #fff;
+      position: relative;
     }
 
     .hero h1 {
-      font-size: 56px;
-      margin: 0;
-      letter-spacing: 2px;
+      font-size: 48px;
+      margin: 10px 0;
+      text-shadow: 2px 2px 4px #000;
     }
 
     .hero p {
       font-size: 20px;
-      margin-top: 15px;
+      margin: 10px 0 30px 0;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+    /* BOTÃO SOLIDARIEDADE */
+    #solidariedade button {
+      padding: 10px 20px;
+      background: #00bcd4;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
       font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    #solidariedade button:hover {
+      background: #0097a7;
+    }
+
+    #dados-solidariedade {
+      display: none;
+      background: #e0f7fa;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 5px;
+      font-size: 14px;
+      text-align: center;
     }
 
     /* SEÇÕES */
@@ -57,7 +78,7 @@
       margin-top: 0;
     }
 
-    /* BIBLIOTECA */
+    /* BIBLIOTECA / POSTS */
     .content-item {
       margin-bottom: 15px;
       padding: 10px;
@@ -76,86 +97,52 @@
       line-height: 1.5;
     }
 
-    /* BOTÃO MOSTRAR SOLIDARIEDADE */
-    #solidariedade button {
-      padding: 10px 20px;
-      background: #1a7f63;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    #solidariedade button:hover {
-      background: #145a45;
-    }
-
     footer {
       text-align: center;
       font-size: 12px;
       margin: 40px 0 20px 0;
       color: #555;
     }
+
+    footer .autor {
+      margin-top: 5px;
+      font-weight: bold;
+    }
   </style>
 </head>
-
 <body>
 
   <!-- CAPA -->
   <header class="hero">
     <h1>LUMBU</h1>
-    <p>Liberdade, consciência e revolução africana</p>
+    <p>Consciência, liberdade e pensamento africano em ação</p>
   </header>
 
   <!-- SOBRE O LUMBU -->
   <section id="sobre-lumbu">
     <h2>Sobre o LUMBU</h2>
-    <p>O LUMBU é um centro de pensamento africano dedicado a fortalecer a consciência histórica, política e cultural do continente, oferecendo análises e debates sobre os desafios e oportunidades da África.</p>
+    <p>O LUMBU é um movimento intelectual africano que visa fortalecer a consciência histórica, política e cultural do continente africano. Aqui, buscamos compreender África a partir da própria perspectiva africana, formando pensadores críticos e cidadãos conscientes.</p>
   </section>
 
   <!-- SOBRE O CRIADOR -->
   <section id="sobre-criador">
     <h2>Sobre o Criador</h2>
-    <p>Criado por Augusto Tona</p>
+    <p>Augusto Tona é educador e fundador do LUMBU, com a missão de disseminar conhecimento sobre história, política e cultura africana, promovendo debates, participação ativa e consciência coletiva.</p>
   </section>
 
   <!-- BIBLIOTECA / POSTS -->
   <section id="biblioteca">
     <h2>Biblioteca LUMBU</h2>
 
-    <div class="content-item">
-      <strong>Pan-Africanismo: consciência, não slogan</strong>
-      <div class="full-text">
-        <p>O Pan-Africanismo nasce como resposta direta à fragmentação imposta ao continente africano.</p>
-        <p>Mais do que união simbólica, ele propõe autonomia política, econômica e cultural.</p>
-        <p>Sem consciência, o slogan vira ruído. Com consciência, vira poder.</p>
-      </div>
+    <div id="posts-container">
+      <!-- Os posts serão gerados pelo script -->
     </div>
-
-    <div class="content-item">
-      <strong>Colonialismo e neocolonialismo</strong>
-      <div class="full-text">
-        <p>As potências coloniais moldaram a África, deixando fronteiras artificiais, economias dependentes e divisões internas.</p>
-        <p>O neocolonialismo mantém muitas dessas estruturas, exigindo estratégias africanas próprias para a verdadeira autonomia.</p>
-      </div>
-    </div>
-
-    <div class="content-item">
-      <strong>Geopolítica africana: quem decide?</strong>
-      <div class="full-text">
-        <p>Recursos naturais e posição estratégica fazem da África alvo constante de interesses internacionais.</p>
-        <p>Decisões externas moldam conflitos internos e impactam diretamente a soberania dos povos africanos.</p>
-      </div>
-    </div>
-
-    <!-- Aqui você pode continuar adicionando os próximos posts completos -->
   </section>
 
   <!-- Fundo de Solidariedade -->
   <section id="solidariedade">
     <button onclick="toggleSolidariedade()">Mostrar Solidariedade</button>
-    <div id="dados-solidariedade" style="display:none; margin-top:10px;">
+    <div id="dados-solidariedade">
       Contribua com qualquer valor para apoiar a manutenção do LUMBU e a divulgação do pensamento africano.<br><br>
       <strong>IBAN:</strong> 0040 0000 90984961102 20 - BAI<br>
       <strong>Xpress:</strong> 946903366
@@ -164,24 +151,61 @@
 
   <footer>
     &copy; 2026 LUMBU – Centro de Pensamento Africano
+    <div class="autor">Criado por Augusto Tona</div>
   </footer>
 
   <script>
-    // Mostrar/ocultar posts
-    const contentItems = document.querySelectorAll('.content-item');
-    contentItems.forEach(item => {
-      item.addEventListener('click', () => {
-        const text = item.querySelector('.full-text');
-        text.style.display = text.style.display === 'block' ? 'none' : 'block';
-      });
-    });
-
-    // Mostrar solidariedade
+    // Mostrar / Ocultar solidariedade
     function toggleSolidariedade() {
       const div = document.getElementById('dados-solidariedade');
       div.style.display = div.style.display === 'none' ? 'block' : 'none';
     }
+
+    // Biblioteca de Posts
+    const posts = [
+      {
+        titulo: "África nunca foi pobre",
+        texto: `
+          <p>África nunca foi pobre. O que existe é um continente historicamente explorado, fragmentado e impedido de decidir o próprio destino.</p>
+          <p>A política internacional não tem amigos, tem conveniências. Países defendem interesses, não valores universais.</p>
+          <p>Quando líderes africanos acreditam em soluções externas como salvação, esquecem que nenhum povo se libertou terceirizando sua soberania.</p>
+          <p>Pensar África exige romper com narrativas impostas, recuperar autonomia intelectual e construir projetos próprios.</p>
+        `
+      },
+      {
+        titulo: "Pan-Africanismo: consciência e estratégia",
+        texto: `
+          <p>O Pan-Africanismo nasce como resposta à fragmentação imposta ao continente africano.</p>
+          <p>Mais do que união simbólica, ele propõe autonomia política, econômica e cultural.</p>
+          <p>Sem consciência, o slogan vira ruído. Com consciência, vira poder.</p>
+        `
+      },
+      {
+        titulo: "Colonialismo e neocolonialismo",
+        texto: `
+          <p>O colonialismo deixou marcas profundas: fronteiras artificiais e economias dependentes.</p>
+          <p>O neocolonialismo mantém muitas dessas estruturas, exigindo estratégias africanas próprias para a verdadeira autonomia.</p>
+        `
+      }
+      // Adicione mais posts aqui seguindo o mesmo padrão
+    ];
+
+    const container = document.getElementById("posts-container");
+
+    posts.forEach(post => {
+      const div = document.createElement("div");
+      div.className = "content-item";
+      div.innerHTML = `
+        <strong>${post.titulo}</strong>
+        <div class="full-text">${post.texto}</div>
+      `;
+      div.addEventListener("click", () => {
+        const text = div.querySelector(".full-text");
+        text.style.display = text.style.display === "none" ? "block" : "none";
+      });
+      container.appendChild(div);
+    });
   </script>
 
 </body>
-</html>
+  </html>
