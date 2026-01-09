@@ -1,4 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>LUMBU – Centro de Pensamento Africano</title>
+
+  <meta name="description" content="LUMBU é um centro africano de pensamento sobre história, política, cultura e consciência africana.">
+  <meta name="keywords" content="África, Pan-Africanismo, política africana, cultura africana, geopolítica africana">
+  <meta name="author" content="LUMBU">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f7f7f7;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #0b3d2e;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      border-bottom: 2px solid #0b3d2e;
+      padding-bottom: 5px;
+    }
+
+    .content-item {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .content-item strong {
+      display: block;
+      font-size: 1.1em;
+      color: #0b3d2e;
+    }
+
+    .full-text {
+      display: none;
+      margin-top: 10px;
+    }
+
+    /* Solidariedade */
+    #solidariedade {
+      background: #e0f7fa;
+      border-radius: 8px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    #solidariedade button {
+      background: #0b3d2e;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+
+    #dados-solidariedade {
+      display: none;
+      margin-top: 15px;
+    }
+
+    footer {
+      background: #0b3d2e;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>LUMBU</h1>
+  <p>Centro de Pensamento Africano</p>
+</header>
+
+<!-- SOBRE O LUMBU -->
+<section id="sobre-lumbu">
+  <h2>Sobre o LUMBU</h2>
+
+  <p>
+    O LUMBU é um espaço de pensamento africano dedicado à consciência histórica,
+    política e cultural do continente africano.
+  </p>
+
+  <p>
+    Não nasce para defender líderes, partidos ou ideologias importadas.
+    Nasce para estimular pensamento próprio, autonomia intelectual
+    e responsabilidade africana sobre o próprio destino.
+  </p>
+
+  <p>
+    África não precisa de salvadores.
+    Precisa de africanos conscientes.
+  </p>
+</section>
+
+<!-- SOBRE MIM -->
+<section id="sobre-mim">
+  <h2>Sobre mim</h2>
+
+  <p>
+    Sou africano. Escrevo a partir da observação crítica,
+    da inquietação e da recusa em aceitar explicações fáceis
+    para problemas complexos.
+  </p>
+
+  <p>
+    Não falo em nome de partidos nem de governos.
+    Escrevo para provocar reflexão,
+    não para oferecer conforto intelectual.
+  </p>
+</section>
+
+<!-- BIBLIOTECA -->
 <section id="biblioteca">
   <h2>Biblioteca LUMBU</h2>
 
-  <div class="content-item">
+  <div id="posts-container"></div>
+</section>
+
+<!-- SOLIDARIEDADE -->
+<section id="solidariedade">
+  <button onclick="toggleSolidariedade()">Mostrar solidariedade</button>
+
+  <div id="dados-solidariedade">
+    <p>
+      Contribua com qualquer valor para apoiar a manutenção do LUMBU
+      e a divulgação do pensamento africano.
+    </p>
+
+    <p>
+      <strong>IBAN:</strong> 0040 0000 90984961102 20 – BAI<br>
+      <strong>Xpress:</strong> 946903366
+    </p>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 LUMBU – Centro de Pensamento Africano
+</footer>
+
+<script>
+const posts = [
+  {
+    titulo: "África nunca foi pobre",
+    texto: `
+      <p>África nunca foi pobre. O que existe é um continente historicamente explorado,
+      fragmentado e impedido de decidir o próprio destino.</p>
+
+      <p>Desde o colonialismo, as estruturas africanas foram moldadas
+      para servir interesses externos.</p>
+
+      <p>A política internacional não tem amigos, tem conveniências.</p>
+
+      <p>Nenhum povo se libertou terceirizando sua soberania.</p>
+    `
+  },
+  {
+    titulo: "Pan-Africanismo: consciência, não slogan",
+    texto: `
+      <p>O Pan-Africanismo não surge como moda intelectual,
+      mas como resposta direta à dominação colonial.</p>
+
+      <p>Ele propõe autonomia política, económica e cultural.</p>
+
+      <p>Sem consciência, o slogan vira ruído.
+      Com consciência, vira poder.</p>
+    `
+  },
+  {
+    titulo: "África não precisa de salvadores",
+    texto: `
+      <p>A narrativa do salvador externo acompanha a África há séculos.</p>
+
+      <p>Intervenções estrangeiras reorganizam interesses,
+      raramente libertam povos.</p>
+
+      <p>A libertação começa pela consciência africana.</p>
+    `
+  }
+];
+
+const container = document.getElementById("posts-container");
+
+posts.forEach(post => {
+  const div = document.createElement("div");
+  div.className = "content-item";
+
+  div.innerHTML = `
+    <strong>${post.titulo}</strong>
+    <div class="full-text">${post.texto}</div>
+  `;
+
+  div.addEventListener("click", () => {
+    const text = div.querySelector(".full-text");
+    text.style.display = text.style.display === "block" ? "none" : "block";
+  });
+
+  container.appendChild(div);
+});
+
+function toggleSolidariedade() {
+  const div = document.getElementById("dados-solidariedade");
+  div.style.display = div.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>
