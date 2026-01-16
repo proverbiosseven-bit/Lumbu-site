@@ -1,4 +1,3 @@
-/* ===== BODY E HEAD ===== */
 body {
   margin: 0;
   font-family: Georgia, serif;
@@ -6,7 +5,6 @@ body {
   color: #f2f2f2;
 }
 
-/* ===== HEADER ===== */
 header {
   background: #0b3d2e;
   text-align: center;
@@ -32,10 +30,9 @@ header p {
   color: #cfae70;
 }
 
-/* ===== SECTIONS ===== */
 section {
   max-width: 1000px;
-  margin: 40px auto;
+  margin: 30px auto;
   padding: 0 15px;
 }
 
@@ -45,16 +42,10 @@ h2 {
   margin-bottom: 20px;
 }
 
-/* ===== BIBLIOTECA ===== */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 15px 20px; /* vertical e horizontal */
-}
-
 .post {
   background: #162823;
-  padding: 20px;
+  padding: 18px;
+  margin-bottom: 15px;
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s;
@@ -71,14 +62,13 @@ h2 {
 
 .post-content {
   display: none;
-  margin-top: 15px;
+  margin-top: 12px;
   line-height: 1.7;
 }
 
-/* ===== SOLIDARIEDADE ===== */
 #solidariedade {
-  background: #001f3f;
-  padding: 30px;
+  background: #003366; /* azul marinho */
+  padding: 20px;
   text-align: center;
   border-radius: 6px;
   margin: 40px auto;
@@ -86,10 +76,10 @@ h2 {
 }
 
 #solidariedade button {
-  background: #004080;
+  background: #004466;
   border: none;
-  padding: 14px 28px;
-  font-size: 18px;
+  padding: 12px 25px;
+  font-size: 16px;
   cursor: pointer;
   border-radius: 6px;
   color: #fff;
@@ -98,16 +88,20 @@ h2 {
 
 #dados {
   display: none;
-  margin-top: 18px;
-  line-height: 1.8;
-  font-size: 18px;
-  color: #f2f2f2;
+  margin-top: 15px;
+  line-height: 1.6;
 }
 
-/* ===== MANIFESTO ===== */
+footer {
+  text-align: center;
+  font-size: 14px;
+  margin: 40px 0 20px;
+  color: #aaa;
+}
+
 #manifesto {
   max-width: 900px;
-  margin: 60px auto;
+  margin: 50px auto;
   padding: 0 15px;
 }
 
@@ -115,7 +109,7 @@ h2 {
   background: #142421;
   padding: 25px;
   border-radius: 6px;
-  line-height: 1.8;
+  line-height: 1.7;
 }
 
 .manifesto-texto p {
@@ -124,7 +118,7 @@ h2 {
 
 .manifesto-assinatura {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
   font-size: 18px;
   color: #c9a24d;
 }
@@ -134,12 +128,4 @@ h2 {
   font-size: 14px;
   color: #aaa;
   margin-top: 5px;
-}
-
-/* ===== FOOTER ===== */
-footer {
-  text-align: center;
-  font-size: 14px;
-  margin: 40px 0 20px;
-  color: #aaa;
-}
+    }
