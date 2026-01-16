@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>LUMBU – Centro Africano do Renascimento</title>
-
+  
   <meta name="description" content="LUMBU é um centro africano de pensamento, consciência e renascimento. Pensar África a partir de África.">
   <meta name="keywords" content="África, Pan-Africanismo, consciência africana, pensamento africano, renascimento africano">
   <meta name="author" content="LUMBU">
@@ -17,7 +17,7 @@
     }
 
     header {
-      background: #0b3d2e;
+      background: #1a392d;
       text-align: center;
       padding: 20px;
     }
@@ -32,21 +32,164 @@
       margin-top: 15px;
       font-size: 42px;
       letter-spacing: 2px;
+      color: #cfae70;
     }
 
     header p {
       font-size: 20px;
       font-weight: bold;
       margin-top: 5px;
-      color: #cfae70;
+      color: #f2f2f2;
     }
 
     section {
-      max-width: 1000px;
+      max-width: 950px;
       margin: 40px auto;
       padding: 0 15px;
     }
 
     h2 {
-      border-bottom: 2px solid #c9a24d;
+      border-bottom: 2px solid #cfae70;
       padding-bottom: 5px;
+      margin-bottom: 20px;
+    }
+
+    .post {
+      background: #162823;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .post:hover {
+      background: #1f3b30;
+    }
+
+    .post h3 {
+      margin: 0;
+      color: #cfae70;
+    }
+
+    .post-content {
+      display: none;
+      margin-top: 10px;
+      line-height: 1.6;
+    }
+
+    #solidariedade {
+      background: #0b2f3a;
+      padding: 20px;
+      text-align: center;
+      border-radius: 6px;
+      max-width: 900px;
+      margin: 30px auto;
+    }
+
+    #solidariedade button {
+      background: #003366;
+      color: #f2f2f2;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    #dados {
+      display: none;
+      margin-top: 15px;
+      color: #f2f2f2;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      margin: 40px 0 20px;
+      color: #aaa;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="images/lumbu-3d-africa.png" alt="LUMBU - África em consciência">
+  <h1>LUMBU</h1>
+  <p>@LUMBU – Centro africano do renascimento</p>
+</header>
+
+<section>
+  <h2>Biblioteca LUMBU</h2>
+
+  <!-- Posts existentes e novos integrados -->
+  <div class="post" onclick="togglePost(this)">
+    <h3>África não precisa de salvadores</h3>
+    <div class="post-content">
+      <p>África nunca foi pobre. O que existe é um continente historicamente explorado, fragmentado e impedido de decidir o próprio destino.</p>
+      <p>A política internacional não tem amigos, tem conveniências.</p>
+      <p>Nenhum povo se liberta por procuração. A libertação começa na consciência e no pensamento próprio.</p>
+    </div>
+  </div>
+
+  <div class="post" onclick="togglePost(this)">
+    <h3>Pan-Africanismo: consciência, não slogan</h3>
+    <div class="post-content">
+      <p>O Pan-Africanismo nasce como resposta direta à fragmentação imposta ao continente africano.</p>
+      <p>Mais do que união simbólica, ele propõe autonomia política, econômica e cultural.</p>
+      <p>Sem consciência, o slogan vira ruído. Com consciência, vira poder.</p>
+    </div>
+  </div>
+
+  <div class="post" onclick="togglePost(this)">
+    <h3>Colonialismo e neocolonialismo</h3>
+    <div class="post-content">
+      <p>O colonialismo deixou marcas profundas: fronteiras artificiais e economias dependentes.</p>
+      <p>O neocolonialismo atua por dívidas, influência política e controle econômico.</p>
+      <p>Romper isso exige estratégia africana própria.</p>
+    </div>
+  </div>
+
+  <!-- Manifesto resumido -->
+  <div class="post" onclick="togglePost(this)">
+    <h3>Manifesto do LUMBU</h3>
+    <div class="post-content">
+      <p>O LUMBU é um espaço de renascimento africano. Nossa missão é despertar consciência, promover pensamento crítico e fortalecer a autonomia do continente.</p>
+      <p>Educamos para a ação, reflexão e organização, criando cidadãos africanos conscientes e protagonistas do seu destino.</p>
+      <p>Liberdade, identidade, cultura, Pan-Africanismo e renascimento são a essência do LUMBU.</p>
+    </div>
+  </div>
+
+</section>
+
+<section id="solidariedade">
+  <button onclick="toggleSolidariedade()">Mostrar solidariedade</button>
+  <div id="dados">
+    <p>Apoie a manutenção do LUMBU e a divulgação do pensamento africano.</p>
+    <p><strong>IBAN:</strong> 0040 0000 90984961102 20 – BAI</p>
+    <p><strong>Xpress:</strong> 946903366</p>
+  </div>
+</section>
+
+<footer>
+  © LUMBU – Centro africano do renascimento · Criado por Augusto Tona
+</footer>
+
+<script>
+  function togglePost(post) {
+    const content = post.querySelector('.post-content');
+    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function toggleSolidariedade() {
+    const dados = document.getElementById('dados');
+    dados.style.display = dados.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+
+</body>
+  </html>
