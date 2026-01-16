@@ -14,12 +14,14 @@
       font-family: Georgia, serif;
       background: #0f1a17;
       color: #f2f2f2;
+      line-height: 1.8;
     }
 
     header {
       background: #0b3d2e;
       text-align: center;
-      padding: 20px;
+      padding: 25px 15px;
+      position: relative;
     }
 
     header img {
@@ -29,37 +31,74 @@
     }
 
     header h1 {
-      margin-top: 15px;
-      font-size: 42px;
+      margin-top: 20px;
+      font-size: 52px;
       letter-spacing: 2px;
     }
 
     header p {
-      font-size: 20px;
+      font-size: 24px;
       font-weight: bold;
-      margin-top: 5px;
+      margin-top: 10px;
       color: #cfae70;
+    }
+
+    header .legend {
+      font-size: 22px;
+      font-weight: bold;
+      color: #f2d500;
+      margin-top: 15px;
+      letter-spacing: 1px;
     }
 
     section {
       max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 15px;
+      margin: 50px auto;
+      padding: 0 20px;
     }
 
     h2 {
-      border-bottom: 2px solid #c9a24d;
-      padding-bottom: 5px;
-      margin-bottom: 20px;
+      font-size: 28px;
+      border-bottom: 3px solid #c9a24d;
+      padding-bottom: 8px;
+      margin-bottom: 25px;
+    }
+
+    .manifesto-texto {
+      background: #142421;
+      padding: 30px;
+      border-radius: 6px;
+      line-height: 1.9;
+      font-size: 18px;
+      color: #f2f2f2;
+    }
+
+    .manifesto-texto p {
+      margin-bottom: 18px;
+    }
+
+    .manifesto-assinatura {
+      text-align: center;
+      margin-top: 35px;
+      font-size: 20px;
+      color: #c9a24d;
+    }
+
+    .manifesto-autor {
+      text-align: center;
+      font-size: 16px;
+      color: #aaa;
+      margin-top: 8px;
     }
 
     .post {
       background: #162823;
-      padding: 20px;
-      margin-bottom: 20px;
+      padding: 25px;
+      margin-bottom: 25px;
       border-radius: 6px;
       cursor: pointer;
       transition: background 0.3s;
+      font-size: 18px;
     }
 
     .post:hover {
@@ -69,125 +108,154 @@
     .post h3 {
       margin: 0;
       color: #c9a24d;
+      font-size: 22px;
     }
 
     .post-content {
       display: none;
-      margin-top: 15px;
-      line-height: 1.7;
+      margin-top: 18px;
     }
 
     #solidariedade {
-      background: #0b2f3a;
-      padding: 20px;
+      background: #001f3f;
+      padding: 30px;
       text-align: center;
       border-radius: 6px;
-      margin: 40px auto;
-      max-width: 500px;
+      margin: 60px auto;
+      max-width: 520px;
     }
 
     #solidariedade button {
-      background: #004466;
+      background: #cfae70;
       border: none;
-      padding: 12px 25px;
-      font-size: 16px;
+      padding: 14px 28px;
+      font-size: 18px;
       cursor: pointer;
       border-radius: 6px;
-      color: #fff;
+      color: #001f3f;
       font-weight: bold;
     }
 
     #dados {
       display: none;
-      margin-top: 15px;
-      line-height: 1.6;
+      margin-top: 18px;
+      line-height: 1.8;
+      font-size: 18px;
+      color: #f2f2f2;
     }
 
     footer {
       text-align: center;
-      font-size: 14px;
-      margin: 40px 0 20px;
+      font-size: 16px;
+      margin: 50px 0 30px;
       color: #aaa;
     }
 
-    #manifesto {
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 0 15px;
-}
-
-.manifesto-texto {
-  background: #142421;
-  padding: 25px;
-  border-radius: 6px;
-  line-height: 1.8;
-}
-
-.manifesto-texto p {
-  margin-bottom: 15px;
-}
-
-.manifesto-assinatura {
-  text-align: center;
-  margin-top: 30px;
-  font-size: 18px;
-  color: #c9a24d;
-}
-
-.manifesto-autor {
-  text-align: center;
-  font-size: 14px;
-  color: #aaa;
-  margin-top: 5px;
-}
-    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
   </style>
 </head>
 
 <body>
 
 <header>
-  <img src="images/lumbu-3d-africa.png" alt="LUMBU - África em consciência">
+  <img src="images/limbu-3d-africa.png" alt="LUMBU - África em consciência">
   <h1>LUMBU</h1>
   <p>Renascimento, Consciência e Ação Africana</p>
+  <div class="legend">Consciência – Renascimento – União – Ação</div>
 </header>
 
-  <section id="manifesto">
+<section id="manifesto">
   <h2>Manifesto LUMBU</h2>
-
   <div class="manifesto-texto">
     <p><strong>O LUMBU nasce da necessidade de pensar África com mente livre, voz própria e responsabilidade histórica.</strong></p>
-
     <p>África não é um erro do mundo. África é um projeto interrompido.</p>
-
     <p>Recusamos a narrativa da inferioridade africana, da dependência permanente e da espera por salvadores externos. Não somos um continente carente de caridade, mas um território rico em história, inteligência, cultura e capacidade de realização.</p>
-
     <p>O problema africano não é a falta de recursos. É a ausência de consciência organizada.</p>
-
     <p>O LUMBU existe para restaurar o pensamento africano como instrumento de libertação, estratégia e construção. Pensar África não como objeto de estudo estrangeiro, mas como sujeito ativo da própria história.</p>
-
-    <p>Rejeitamos o pensamento importado que nos ensina a admirar modelos que não nos servem. A verdadeira modernidade africana não será uma cópia do Ocidente nem uma nostalgia vazia do passado, mas uma síntese consciente entre memória, identidade e futuro.</p>
-
     <p>Ser africano consciente é assumir responsabilidade. Responsabilidade pelo território, pela cultura, pela economia, pela política e pelo destino coletivo.</p>
-
-    <p>O LUMBU não é um espaço de entretenimento intelectual. É um centro de formação de pensamento, caráter e ação.</p>
-
-    <p>Acreditamos que não há soberania sem pensamento próprio. Não há desenvolvimento sem identidade. Não há libertação sem consciência.</p>
-
-    <p>Pensamos África a partir de África. Para África. Com africanos.</p>
-
     <p class="manifesto-assinatura">
       <strong>LUMBU – Centro Africano do Renascimento</strong><br>
       <span>Pensar África a partir de África</span>
     </p>
-
     <p class="manifesto-autor">
       Criado por Augusto Tona
     </p>
   </div>
-  </section>
+</section>
 
 <section>
   <h2>Biblioteca LUMBU</h2>
+  <div class="grid">
+    <!-- Módulo 1 -->
+    <div class="post" onclick="togglePost(this)">
+      <h3>Módulo 1: Introdução ao Pensamento Africano</h3>
+      <div class="post-content">
+        <p>O pensamento africano surge como resposta à fragmentação e dominação externa, propondo autonomia intelectual, cultural e política. Aprender a história e fundamentos é essencial para o despertar da consciência africana.</p>
+      </div>
+    </div>
 
+    <!-- Módulo 2 -->
+    <div class="post" onclick="togglePost(this)">
+      <h3>Módulo 2: Pan-Africanismo e Unidade</h3>
+      <div class="post-content">
+        <p>O Pan-Africanismo não é apenas um slogan; é uma estratégia concreta de cooperação e emancipação. O continente precisa de coordenação política, econômica e cultural para superar dependências históricas.</p>
+      </div>
+    </div>
 
+    <!-- Módulo 3 -->
+    <div class="post" onclick="togglePost(this)">
+      <h3>Módulo 3: Identidade e Cultura</h3>
+      <div class="post-content">
+        <p>Valorização de línguas, tradições e símbolos africanos fortalece a participação social e política. A identidade africana é central para projetos de autonomia e desenvolvimento.</p>
+      </div>
+    </div>
+
+    <!-- Módulo 4 -->
+    <div class="post" onclick="togglePost(this)">
+      <h3>Módulo 4: Juventude Africana</h3>
+      <div class="post-content">
+        <p>Os jovens africanos são agentes de transformação. Educação, tecnologia e mobilização social são ferramentas de impacto real para fortalecer movimentos de renascimento e conscientização.</p>
+      </div>
+    </div>
+
+    <!-- Módulo 5 -->
+    <div class="post" onclick="togglePost(this)">
+      <h3>Módulo 5: Economia e Recursos</h3>
+      <div class="post-content">
+        <p>A África possui recursos abundantes, mas enfrenta obstáculos estruturais e dependência de mercados externos. Estratégias próprias de desenvolvimento e integração continental são essenciais.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="solidariedade">
+  <button onclick="toggleSolidariedade()">Mostrar Solidariedade</button>
+  <div id="dados">
+    <p>Contribua com qualquer valor para apoiar a manutenção do LUMBU e a divulgação do pensamento africano.</p>
+    <p><strong>IBAN:</strong> 0040 0000 90984961102 20 – BAI</p>
+    <p><strong>Xpress:</strong> 946903366</p>
+  </div>
+</section>
+
+<footer>
+  © LUMBU – Centro Africano do Renascimento · Criado por Augusto Tona
+</footer>
+
+<script>
+  function togglePost(post) {
+    const content = post.querySelector('.post-content');
+    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function toggleSolidariedade() {
+    const dados = document.getElementById('dados');
+    dados.style.display = dados.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+
+</body>
+  </html>
