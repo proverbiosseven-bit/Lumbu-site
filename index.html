@@ -1,98 +1,204 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <title>LUMBU – Centro Africano do Renascimento</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUMBU – Centro Africano do Renascimento</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Georgia", serif;
+  background: #f4f2ec;
+  color: #1e1e1e;
+  line-height: 1.7;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #12372a, #1b5e20);
+  color: #fff;
+  text-align: center;
+  padding: 90px 20px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  letter-spacing: 3px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-top: 10px;
+  color: #e6c97a;
+}
+
+/* MANIFESTO */
+.manifesto {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px;
+  background: #ffffff;
+  border-top: 4px solid #c9a24d;
+  border-bottom: 4px solid #c9a24d;
+  text-align: center;
+}
+
+.manifesto h2 {
+  margin-bottom: 20px;
+  color: #1b5e20;
+}
+
+.manifesto p {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.manifesto strong {
+  color: #000;
+}
+
+/* CONTAINER */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* MODULES */
+.module {
+  background: #ffffff;
+  margin-bottom: 30px;
+  padding: 30px;
+  border-radius: 6px;
+  border-left: 6px solid #c9a24d;
+}
+
+.module h2 {
+  color: #1b5e20;
+  margin-bottom: 15px;
+}
+
+.module h3 {
+  margin-top: 20px;
+  color: #333;
+}
+
+.module p {
+  margin-top: 10px;
+}
+
+/* BUTTONS */
+.btn-gold {
+  display: inline-block;
+  margin-top: 20px;
+  background: #c9a24d;
+  color: #000;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-gold:hover {
+  background: #b8963c;
+}
+
+/* SOLIDARITY */
+.solidarity {
+  background: #0a2a43;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+#ibanBox {
+  display: none;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  background: #0f1a17;
+  color: #ccc;
+}
+</style>
 </head>
+
 <body>
 
-<header class="hero">
+<!-- HERO -->
+<section class="hero">
   <h1>LUMBU</h1>
-  <p class="subtitle">Centro Africano do Renascimento</p>
-  <p class="slogan">Pensar África a partir de África</p>
-</header>
+  <p>Centro Africano do Renascimento</p>
+  <p>Pensar África a partir de África</p>
+</section>
 
-<main class="container">
+<!-- MANIFESTO -->
+<section class="manifesto">
+  <h2>Manifesto LUMBU</h2>
+  <p><strong>O LUMBU existe para restaurar a consciência africana.</strong></p>
+  <p>África não é um continente falido, mas um projeto interrompido pela violência, pela dominação e pelo roubo do pensamento.</p>
+  <p>Rejeitamos a inferiorização, a dependência intelectual e a cópia cega de modelos externos.</p>
+  <p>Acreditamos que não há libertação sem pensamento próprio, nem desenvolvimento sem identidade.</p>
+  <p><strong>LUMBU é pensamento, formação e ação africana consciente.</strong></p>
+</section>
 
-  <!-- MÓDULO 1 -->
-  <section class="module">
+<!-- MODULES -->
+<section class="container">
+
+  <div class="module">
     <h2>Módulo 1 — Introdução à Consciência Africana</h2>
 
-    <article class="lesson">
-      <h3>Aula 1 — Por que o africano precisa reaprender a pensar</h3>
-      <p>
-        O maior roubo feito à África não foi de terras nem de recursos.  
-        Foi o roubo da forma de pensar.
-      </p>
-      <p>
-        Durante séculos, sistemas externos definiram o que é conhecimento,
-        progresso e sucesso. O africano foi ensinado a repetir, não a questionar.
-        A obedecer, não a compreender.
-      </p>
-      <p>
-        Reaprender a pensar é questionar o que parece normal, analisar quem criou
-        as ideias que seguimos e decidir conscientemente o que serve ou não à
-        realidade africana.
-      </p>
-      <p>
-        A libertação começa na mente. Este módulo é o primeiro passo.
-      </p>
-    </article>
+    <h3>1.1 O que é consciência</h3>
+    <p>Consciência é a capacidade de perceber a própria condição histórica, social e mental. Um povo sem consciência repete narrativas alheias.</p>
 
-  </section>
+    <h3>1.2 Como o pensamento africano foi desestruturado</h3>
+    <p>O colonialismo não atuou apenas no território, mas na mente, substituindo sistemas de pensamento africanos por lógicas externas.</p>
 
-  <!-- MANIFESTO (RESUMIDO E FORTE) -->
-  <section class="manifesto">
-    <h2>Manifesto LUMBU</h2>
-    <p>
-      O LUMBU nasce para restaurar o pensamento africano.
-      Não para copiar modelos externos, mas para reconstruir
-      consciência, dignidade e autonomia.
-    </p>
-    <p>
-      Acreditamos que a África só se transformará quando os africanos
-      pensarem por si mesmos, organizarem-se com lucidez e agirem
-      com responsabilidade histórica.
-    </p>
-    <p class="signature">
-      LUMBU — Pensar. Reconstruir. Realizar.
-    </p>
-  </section>
+    <h3>1.3 Por que pensar é um ato político</h3>
+    <p>Quem define como pensamos controla como agimos. Pensar por si é o primeiro ato de soberania.</p>
+  </div>
 
-  <!-- MÓDULO 2 (ESTRUTURA PRONTA) -->
-  <section class="module">
+  <div class="module">
     <h2>Módulo 2 — Colonialismo Mental</h2>
-    <p class="coming">Conteúdo em desenvolvimento</p>
-  </section>
+    <p>Em desenvolvimento</p>
+  </div>
 
-  <!-- MÓDULO 3 -->
-  <section class="module">
-    <h2>Módulo 3 — Identidade e Memória</h2>
-    <p class="coming">Conteúdo em desenvolvimento</p>
-  </section>
+  <div class="module">
+    <h2>Módulo 3 — Identidade, Memória e Ruptura</h2>
+    <p>Em desenvolvimento</p>
+  </div>
 
-  <!-- MÓDULO 4 -->
-  <section class="module">
-    <h2>Módulo 4 — Economia do Saque</h2>
-    <p class="coming">Conteúdo em desenvolvimento</p>
-  </section>
+</section>
 
-  <!-- MÓDULO 5 -->
-  <section class="module">
-    <h2>Módulo 5 — Renascimento Africano</h2>
-    <p class="coming">Conteúdo em desenvolvimento</p>
-  </section>
+<!-- SOLIDARITY -->
+<section class="solidarity">
+  <h2>Apoie o LUMBU</h2>
+  <button class="btn-gold" onclick="toggleIban()">Solidariedade</button>
 
-</main>
+  <div id="ibanBox">
+    <p><strong>IBAN:</strong></p>
+    <p>AO06 0040 0000 1234 5678 9012 3</p>
+    <p>Xpress disponível</p>
+  </div>
+</section>
 
-<!-- SOLIDARIEDADE -->
-<footer class="solidarity">
-  <h3>Apoie o LUMBU</h3>
-  <p class="iban">AO06 0040 0000 1234 5678 9012 3</p>
+<footer>
+  © 2026 LUMBU — Centro Africano do Renascimento. Todos os direitos reservados.
 </footer>
 
-<script src="script.js"></script>
+<script>
+function toggleIban() {
+  const box = document.getElementById("ibanBox");
+  box.style.display = box.style.display === "block" ? "none" : "block";
+}
+</script>
+
 </body>
-  </html>
+</html>
