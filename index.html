@@ -8,16 +8,19 @@
   <meta name="author" content="LUMBU">
 
   <style>
+    /* ===== Reset e corpo ===== */
     body {
       margin: 0;
       font-family: Georgia, serif;
-      background: #121f1a;
+      background: #0f1a17;
       color: #f2f2f2;
     }
 
+    /* ===== Cabeçalho e capa ===== */
     header {
       position: relative;
       text-align: center;
+      color: #fff;
     }
 
     header img {
@@ -28,50 +31,41 @@
 
     header h1 {
       position: absolute;
-      top: 30%;
+      top: 40%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 48px;
-      color: #f2f2f2;
-      letter-spacing: 3px;
+      font-size: 56px;
+      color: #fff;
       margin: 0;
-      text-shadow: 2px 2px 6px #000;
+      letter-spacing: 3px;
+      text-shadow: 2px 2px 8px #000;
     }
 
     header p {
       position: absolute;
-      top: 40%;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      font-size: 22px;
-      font-weight: bold;
-      color: #cfae70;
-      margin: 0;
-      text-shadow: 1px 1px 4px #000;
-    }
-
-    section {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 15px;
-    }
-
-    h2 {
-      text-align: center;
       font-size: 28px;
-      margin-bottom: 20px;
-      color: #cfae70;
-      border-bottom: 2px solid #c9a24d;
-      display: inline-block;
-      padding-bottom: 5px;
+      font-weight: bold;
+      color: #7fff00; /* verde vibrante */
+      text-shadow: 1px 1px 6px #000;
+      margin: 0;
     }
 
-    /* Manifesto */
+    /* ===== Manifesto ===== */
     #manifesto {
-      background: #1e322b;
-      padding: 30px 20px;
-      border-radius: 8px;
+      max-width: 900px;
       margin: 40px auto;
+      background: #142421;
+      padding: 25px;
+      border-radius: 8px;
+    }
+
+    #manifesto h2 {
+      color: #7fff00;
+      text-align: center;
+      margin-bottom: 20px;
     }
 
     .manifesto-texto p {
@@ -82,8 +76,7 @@
     .manifesto-assinatura {
       text-align: center;
       font-size: 18px;
-      font-weight: bold;
-      color: #c9a24d;
+      color: #7fff00;
       margin-top: 20px;
     }
 
@@ -94,57 +87,67 @@
       margin-top: 5px;
     }
 
-    /* Biblioteca */
-    .modules-grid {
+    /* ===== Biblioteca / Módulos ===== */
+    section#biblioteca {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 15px;
+    }
+
+    section#biblioteca h2 {
+      color: #7fff00;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .grid-modulos {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
       gap: 20px;
     }
 
-    .post {
+    .modulo {
       background: #162823;
-      padding: 20px;
       border-radius: 8px;
       cursor: pointer;
-      transition: transform 0.2s, background 0.3s;
+      transition: background 0.3s;
+      padding: 20px;
     }
 
-    .post:hover {
-      background: #1f3b2e;
-      transform: translateY(-3px);
+    .modulo:hover {
+      background: #1d3c2e;
     }
 
-    .post h3 {
-      margin: 0 0 10px 0;
-      color: #c9a24d;
-      font-size: 22px;
+    .modulo h3 {
+      margin-top: 0;
+      color: #7fff00;
     }
 
-    .post-content {
+    .modulo-content {
       display: none;
-      margin-top: 10px;
+      margin-top: 15px;
       line-height: 1.7;
     }
 
-    /* Solidariedade */
+    /* ===== Botão Solidariedade ===== */
     #solidariedade {
-      background: #004466;
-      padding: 20px;
-      text-align: center;
-      border-radius: 6px;
-      margin: 40px auto;
       max-width: 500px;
+      margin: 50px auto;
+      background: #0b2f3a;
+      text-align: center;
+      padding: 20px;
+      border-radius: 8px;
     }
 
     #solidariedade button {
-      background: #c9a24d;
+      background: #003366;
       border: none;
       padding: 12px 25px;
       font-size: 16px;
-      cursor: pointer;
-      border-radius: 6px;
-      color: #004466;
       font-weight: bold;
+      color: #fff;
+      border-radius: 6px;
+      cursor: pointer;
     }
 
     #dados {
@@ -176,70 +179,65 @@
   <div class="manifesto-texto">
     <p><strong>O LUMBU nasce da necessidade de pensar África com mente livre, voz própria e responsabilidade histórica.</strong></p>
     <p>África não é um erro do mundo. África é um projeto interrompido.</p>
-    <p>Recusamos a narrativa da inferioridade africana, da dependência e da espera por salvadores externos.</p>
+    <p>Recusamos a narrativa da inferioridade africana e da espera por salvadores externos. Não somos carentes de caridade, mas ricos em história, cultura e capacidade de realização.</p>
     <p>O LUMBU existe para restaurar o pensamento africano como instrumento de libertação, estratégia e construção.</p>
-    <p>Pensar África não como objeto, mas como sujeito ativo da própria história.</p>
-    <p class="manifesto-assinatura">LUMBU – Centro Africano do Renascimento</p>
+    <p>Pensamos África a partir de África. Para África. Com africanos.</p>
+    <p class="manifesto-assinatura"><strong>LUMBU – Centro Africano do Renascimento</strong></p>
     <p class="manifesto-autor">Criado por Augusto Tona</p>
   </div>
 </section>
 
-<section>
-  <h2>Biblioteca LUMBU</h2>
-  <div class="modules-grid">
+<section id="biblioteca">
+  <h2>Módulos LUMBU</h2>
+  <div class="grid-modulos">
 
     <!-- Módulo 1 -->
-    <div class="post" onclick="togglePost(this)">
-      <h3>Módulo 1: Introdução à Consciência Africana</h3>
-      <div class="post-content">
-        <p>Conteúdo longo explicando a consciência africana, desde a história até a formação de pensamento crítico.</p>
-        <p>Subtema 1: História e identidade</p>
-        <p>Subtema 2: Cultura e tradições</p>
-        <p>Subtema 3: Influências externas e autonomia</p>
+    <div class="modulo" onclick="toggleModulo(this)">
+      <h3>Introdução à Consciência Africana</h3>
+      <div class="modulo-content">
+        <p>O continente africano tem uma história rica que precisa ser entendida em profundidade...</p>
+        <p>Subtema 1: Identidade africana e herança histórica.</p>
+        <p>Subtema 2: Reconhecimento da autonomia intelectual.</p>
       </div>
     </div>
 
     <!-- Módulo 2 -->
-    <div class="post" onclick="togglePost(this)">
-      <h3>Módulo 2: Estrutura social e política africana</h3>
-      <div class="post-content">
-        <p>Conteúdo longo sobre organização social, liderança e políticas locais.</p>
-        <p>Subtema 1: Sistemas tradicionais</p>
-        <p>Subtema 2: Colonização e impactos</p>
-        <p>Subtema 3: Caminhos de reconstrução</p>
+    <div class="modulo" onclick="toggleModulo(this)">
+      <h3>Pan-Africanismo e Unidade</h3>
+      <div class="modulo-content">
+        <p>O Pan-Africanismo não é apenas um slogan. É uma estratégia de unidade continental...</p>
+        <p>Subtema 1: Cooperação política e econômica entre países africanos.</p>
+        <p>Subtema 2: Valorização da cultura comum e do pensamento africano.</p>
       </div>
     </div>
 
     <!-- Módulo 3 -->
-    <div class="post" onclick="togglePost(this)">
-      <h3>Módulo 3: Economia africana e autonomia</h3>
-      <div class="post-content">
-        <p>Conteúdo longo explicando os recursos, desafios e estratégias de independência econômica.</p>
-        <p>Subtema 1: Recursos naturais</p>
-        <p>Subtema 2: Dependência econômica</p>
-        <p>Subtema 3: Projetos de integração continental</p>
+    <div class="modulo" onclick="toggleModulo(this)">
+      <h3>Colonialismo e Neocolonialismo</h3>
+      <div class="modulo-content">
+        <p>As potências coloniais deixaram marcas profundas no continente...</p>
+        <p>Subtema 1: Fronteiras artificiais e economia dependente.</p>
+        <p>Subtema 2: Estruturas de dominação contemporânea.</p>
       </div>
     </div>
 
     <!-- Módulo 4 -->
-    <div class="post" onclick="togglePost(this)">
-      <h3>Módulo 4: Juventude e educação crítica</h3>
-      <div class="post-content">
-        <p>Conteúdo longo sobre formação de jovens conscientes, educação histórica e participação ativa.</p>
-        <p>Subtema 1: Educação contextualizada</p>
-        <p>Subtema 2: Liderança juvenil</p>
-        <p>Subtema 3: Movimentos de transformação</p>
+    <div class="modulo" onclick="toggleModulo(this)">
+      <h3>Geopolítica Africana</h3>
+      <div class="modulo-content">
+        <p>África é estratégica no tabuleiro internacional...</p>
+        <p>Subtema 1: Interesses externos e recursos naturais.</p>
+        <p>Subtema 2: Soberania e decisões locais.</p>
       </div>
     </div>
 
     <!-- Módulo 5 -->
-    <div class="post" onclick="togglePost(this)">
-      <h3>Módulo 5: Cultura, arte e símbolos africanos</h3>
-      <div class="post-content">
-        <p>Conteúdo longo sobre tradições, símbolos, música, rituais e preservação da identidade.</p>
-        <p>Subtema 1: Músicas e danças</p>
-        <p>Subtema 2: Símbolos e linguagens</p>
-        <p>Subtema 3: Patrimônio e memória</p>
+    <div class="modulo" onclick="toggleModulo(this)">
+      <h3>Juventude e Liderança Africana</h3>
+      <div class="modulo-content">
+        <p>Os jovens africanos são protagonistas da mudança e precisam de ferramentas e educação crítica...</p>
+        <p>Subtema 1: Participação política e social.</p>
+        <p>Subtema 2: Formação de líderes conscientes.</p>
       </div>
     </div>
 
@@ -260,16 +258,16 @@
 </footer>
 
 <script>
-function togglePost(post) {
-  const content = post.querySelector('.post-content');
-  content.style.display = content.style.display === 'block' ? 'none' : 'block';
-}
+  function toggleModulo(modulo) {
+    const content = modulo.querySelector('.modulo-content');
+    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+  }
 
-function toggleSolidariedade() {
-  const dados = document.getElementById('dados');
-  dados.style.display = dados.style.display === 'block' ? 'none' : 'block';
-}
+  function toggleSolidariedade() {
+    const dados = document.getElementById('dados');
+    dados.style.display = dados.style.display === 'block' ? 'none' : 'block';
+  }
 </script>
 
 </body>
-    </html>
+  </html>
