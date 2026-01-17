@@ -8,10 +8,9 @@
 <style>
 body {
   margin: 0;
-  font-family: "Georgia", serif;
-  background: #f4f2ec;
+  font-family: Georgia, serif;
+  background: #f3f1eb;
   color: #1e1e1e;
-  line-height: 1.7;
 }
 
 /* HERO */
@@ -19,113 +18,115 @@ body {
   background: linear-gradient(135deg, #12372a, #1b5e20);
   color: #fff;
   text-align: center;
-  padding: 90px 20px;
+  padding: 70px 20px;
 }
 
 .hero h1 {
-  font-size: 48px;
+  font-size: 46px;
   letter-spacing: 3px;
 }
 
 .hero p {
-  font-size: 20px;
-  margin-top: 10px;
+  font-size: 18px;
   color: #e6c97a;
 }
 
 /* MANIFESTO */
 .manifesto {
-  max-width: 900px;
-  margin: 60px auto;
-  padding: 40px;
-  background: #ffffff;
-  border-top: 4px solid #c9a24d;
-  border-bottom: 4px solid #c9a24d;
-  text-align: center;
+  max-width: 850px;
+  margin: 50px auto;
+  padding: 35px;
+  background: #fff;
+  border-left: 6px solid #c9a24d;
 }
 
 .manifesto h2 {
-  margin-bottom: 20px;
+  text-align: center;
   color: #1b5e20;
 }
 
 .manifesto p {
-  margin-bottom: 15px;
-  font-size: 18px;
-}
-
-.manifesto strong {
-  color: #000;
+  margin-top: 15px;
+  font-size: 17px;
 }
 
 /* CONTAINER */
 .container {
-  max-width: 1000px;
+  max-width: 900px;
   margin: auto;
   padding: 20px;
 }
 
-/* MODULES */
+/* MODULE BOX */
 .module {
-  background: #ffffff;
-  margin-bottom: 30px;
-  padding: 30px;
+  background: #fff;
   border-radius: 6px;
+  margin-bottom: 18px;
   border-left: 6px solid #c9a24d;
+  overflow: hidden;
 }
 
-.module h2 {
-  color: #1b5e20;
-  margin-bottom: 15px;
-}
-
-.module h3 {
-  margin-top: 20px;
-  color: #333;
-}
-
-.module p {
-  margin-top: 10px;
-}
-
-/* BUTTONS */
-.btn-gold {
-  display: inline-block;
-  margin-top: 20px;
-  background: #c9a24d;
-  color: #000;
-  padding: 12px 25px;
-  border: none;
-  border-radius: 4px;
-  font-weight: bold;
+/* MODULE HEADER */
+.module-header {
+  padding: 20px;
   cursor: pointer;
+  background: #faf8f3;
 }
 
-.btn-gold:hover {
-  background: #b8963c;
+.module-header h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #1b5e20;
+}
+
+/* MODULE CONTENT */
+.module-content {
+  display: none;
+  padding: 25px;
+  border-top: 1px solid #eee;
+}
+
+.module-content h3 {
+  margin-top: 20px;
+}
+
+.module-content p {
+  margin-top: 10px;
+  font-size: 16px;
 }
 
 /* SOLIDARITY */
 .solidarity {
-  background: #0a2a43;
+  background: #0b3556;
   color: #fff;
   text-align: center;
-  padding: 40px 20px;
+  padding: 35px 20px;
+  margin-top: 50px;
 }
 
 #ibanBox {
   display: none;
-  margin-top: 20px;
-  font-size: 18px;
+  margin-top: 15px;
+  font-size: 17px;
+}
+
+/* BUTTON */
+.btn-gold {
+  background: #c9a24d;
+  border: none;
+  padding: 12px 24px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
 /* FOOTER */
 footer {
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
   background: #0f1a17;
   color: #ccc;
+  text-align: center;
+  padding: 18px;
+  font-size: 14px;
 }
 </style>
 </head>
@@ -142,58 +143,61 @@ footer {
 <!-- MANIFESTO -->
 <section class="manifesto">
   <h2>Manifesto LUMBU</h2>
-  <p><strong>O LUMBU existe para restaurar a consciência africana.</strong></p>
-  <p>África não é um continente falido, mas um projeto interrompido pela violência, pela dominação e pelo roubo do pensamento.</p>
-  <p>Rejeitamos a inferiorização, a dependência intelectual e a cópia cega de modelos externos.</p>
-  <p>Acreditamos que não há libertação sem pensamento próprio, nem desenvolvimento sem identidade.</p>
-  <p><strong>LUMBU é pensamento, formação e ação africana consciente.</strong></p>
+  <p><strong>O LUMBU nasce para restaurar o pensamento africano.</strong></p>
+  <p>África não precisa ser explicada por outros. Precisa voltar a pensar com voz própria.</p>
+  <p>Não há libertação política sem libertação mental.</p>
 </section>
 
 <!-- MODULES -->
 <section class="container">
 
-  <div class="module">
+<div class="module">
+  <div class="module-header" onclick="toggleModule(this)">
     <h2>Módulo 1 — Introdução à Consciência Africana</h2>
-
-    <h3>1.1 O que é consciência</h3>
-    <p>Consciência é a capacidade de perceber a própria condição histórica, social e mental. Um povo sem consciência repete narrativas alheias.</p>
-
-    <h3>1.2 Como o pensamento africano foi desestruturado</h3>
-    <p>O colonialismo não atuou apenas no território, mas na mente, substituindo sistemas de pensamento africanos por lógicas externas.</p>
-
-    <h3>1.3 Por que pensar é um ato político</h3>
-    <p>Quem define como pensamos controla como agimos. Pensar por si é o primeiro ato de soberania.</p>
   </div>
+  <div class="module-content">
+    <h3>O que é consciência</h3>
+    <p>Consciência é a capacidade de perceber a própria posição histórica e mental. Um povo sem consciência vive projetos que não escolheu.</p>
 
-  <div class="module">
+    <h3>O impacto do colonialismo mental</h3>
+    <p>O colonialismo destruiu sistemas africanos de pensamento e impôs modelos externos como universais.</p>
+
+    <h3>Pensar como ato revolucionário</h3>
+    <p>Pensar por si mesmo é o primeiro gesto de soberania.</p>
+  </div>
+</div>
+
+<div class="module">
+  <div class="module-header" onclick="toggleModule(this)">
     <h2>Módulo 2 — Colonialismo Mental</h2>
-    <p>Em desenvolvimento</p>
   </div>
-
-  <div class="module">
-    <h2>Módulo 3 — Identidade, Memória e Ruptura</h2>
-    <p>Em desenvolvimento</p>
+  <div class="module-content">
+    <p>Em desenvolvimento.</p>
   </div>
+</div>
 
 </section>
 
 <!-- SOLIDARITY -->
 <section class="solidarity">
-  <h2>Apoie o LUMBU</h2>
+  <h2>Apoiar o LUMBU</h2>
   <button class="btn-gold" onclick="toggleIban()">Solidariedade</button>
-
   <div id="ibanBox">
-    <p><strong>IBAN:</strong></p>
-    <p>AO06 0040 0000 1234 5678 9012 3</p>
+    <p>IBAN: AO06 0040 0000 1234 5678 9012 3</p>
     <p>Xpress disponível</p>
   </div>
 </section>
 
 <footer>
-  © 2026 LUMBU — Centro Africano do Renascimento. Todos os direitos reservados.
+  © LUMBU – Centro Africano do Renascimento · Criado por Augusto Tona
 </footer>
 
 <script>
+function toggleModule(header) {
+  const content = header.nextElementSibling;
+  content.style.display = content.style.display === "block" ? "none" : "block";
+}
+
 function toggleIban() {
   const box = document.getElementById("ibanBox");
   box.style.display = box.style.display === "block" ? "none" : "block";
