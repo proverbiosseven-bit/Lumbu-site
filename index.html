@@ -57,42 +57,33 @@ body {
   padding: 20px;
 }
 
-/* MODULE BOX */
-.module {
-  background: #fff;
-  border-radius: 6px;
-  margin-bottom: 18px;
-  border-left: 6px solid #c9a24d;
-  overflow: hidden;
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 25px;
 }
 
-/* MODULE HEADER */
+.module {
+  background: #162823;
+  border-radius: 8px;
+  padding: 18px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
 .module-header {
-  padding: 20px;
   cursor: pointer;
-  background: #faf8f3;
 }
 
 .module-header h2 {
   margin: 0;
+  color: #c9a24d;
   font-size: 20px;
-  color: #1b5e20;
 }
 
-/* MODULE CONTENT */
 .module-content {
   display: none;
-  padding: 25px;
-  border-top: 1px solid #eee;
-}
-
-.module-content h3 {
-  margin-top: 20px;
-}
-
-.module-content p {
-  margin-top: 10px;
-  font-size: 16px;
+  margin-top: 15px;
+  line-height: 1.7;
 }
 
 /* SOLIDARITY */
