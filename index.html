@@ -2,79 +2,105 @@
 <html lang="pt">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LUMBU – Centro Africano do Renascimento</title>
 
+<meta name="description" content="LUMBU é um centro africano de pensamento, consciência e renascimento. Pensar África a partir de África.">
+<meta name="keywords" content="África, Pan-Africanismo, consciência africana, pensamento africano">
+<meta name="author" content="LUMBU">
+
 <style>
+/* ===== BASE ===== */
 body {
   margin: 0;
   font-family: Georgia, serif;
-  background: #f3f1eb;
-  color: #1e1e1e;
+  background: linear-gradient(180deg, #0f1a17, #132b23);
+  color: #f2f2f2;
 }
 
-/* HERO */
-.hero {
-  background: linear-gradient(135deg, #12372a, #1b5e20);
-  color: #fff;
+section {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h2 {
+  color: #c9a24d;
+  border-bottom: 2px solid #c9a24d;
+  padding-bottom: 6px;
+  margin-bottom: 25px;
+}
+
+/* ===== CAPA ===== */
+header {
+  background: radial-gradient(circle at top, #1b5a44, #0b3d2e);
   text-align: center;
-  padding: 70px 20px;
+  padding: 50px 20px 40px;
 }
 
-.hero h1 {
-  font-size: 46px;
+header img {
+  max-width: 700px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+header h1 {
+  margin: 25px 0 5px;
+  font-size: 44px;
   letter-spacing: 3px;
 }
 
-.hero p {
-  font-size: 18px;
-  color: #e6c97a;
+header p {
+  font-size: 20px;
+  color: #e0c27a;
+  font-weight: bold;
 }
 
-/* MANIFESTO */
-.manifesto {
-  max-width: 850px;
-  margin: 50px auto;
+/* ===== MANIFESTO ===== */
+#manifesto {
+  background: #142421;
+  border-radius: 10px;
   padding: 35px;
-  background: #fff;
-  border-left: 6px solid #c9a24d;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
 }
 
-.manifesto h2 {
+#manifesto p {
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+
+.manifesto-assinatura {
   text-align: center;
-  color: #1b5e20;
+  margin-top: 30px;
+  color: #c9a24d;
+  font-size: 18px;
 }
 
-.manifesto p {
-  margin-top: 15px;
-  font-size: 17px;
-}
-
-/* CONTAINER */
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
-}
-
+/* ===== GRID DOS MÓDULOS ===== */
 .modules-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 22px;
 }
 
+/* ===== CAIXA DO MÓDULO ===== */
 .module {
   background: #162823;
-  border-radius: 8px;
-  padding: 18px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.45);
+  transition: transform 0.2s ease;
+}
+
+.module:hover {
+  transform: translateY(-4px);
 }
 
 .module-header {
   cursor: pointer;
 }
 
-.module-header h2 {
+.module-header h3 {
   margin: 0;
   color: #c9a24d;
   font-size: 20px;
@@ -84,165 +110,125 @@ body {
   display: none;
   margin-top: 15px;
   line-height: 1.7;
+  font-size: 16px;
 }
 
-/* SOLIDARITY */
-.solidarity {
-  background: #0b3556;
-  color: #fff;
+/* ===== SOLIDARIEDADE ===== */
+#solidariedade {
+  background: #0b2f4a;
+  max-width: 520px;
+  margin: 60px auto;
+  padding: 25px;
   text-align: center;
-  padding: 35px 20px;
-  margin-top: 50px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
 }
 
-#ibanBox {
-  display: none;
-  margin-top: 15px;
-  font-size: 17px;
-}
-
-/* BUTTON */
-.btn-gold {
+#solidariedade button {
   background: #c9a24d;
   border: none;
-  padding: 12px 24px;
-  font-weight: bold;
+  padding: 12px 28px;
+  font-size: 16px;
+  border-radius: 6px;
   cursor: pointer;
-  border-radius: 4px;
+  font-weight: bold;
 }
 
-/* FOOTER */
+#dados {
+  display: none;
+  margin-top: 18px;
+  line-height: 1.6;
+}
+
+/* ===== RODAPÉ ===== */
 footer {
-  background: #0f1a17;
-  color: #ccc;
   text-align: center;
-  padding: 18px;
   font-size: 14px;
+  color: #aaa;
+  margin: 50px 0 25px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<section class="hero">
+<header>
+  <img src="images/lumbu-3d-africa.png" alt="LUMBU – Renascimento Africano">
   <h1>LUMBU</h1>
-  <p>Centro Africano do Renascimento</p>
-  <p>Pensar África a partir de África</p>
-</section>
+  <p>Renascimento · Consciência · Ação Africana</p>
+</header>
 
-<!-- MANIFESTO -->
-<section class="manifesto">
+<section id="manifesto">
   <h2>Manifesto LUMBU</h2>
-  <p><strong>O LUMBU nasce para restaurar o pensamento africano.</strong></p>
-  <p>África não precisa ser explicada por outros. Precisa voltar a pensar com voz própria.</p>
-  <p>Não há libertação política sem libertação mental.</p>
+  <p><strong>O LUMBU nasce para restaurar o pensamento africano como força de libertação.</strong></p>
+  <p>África não é pobre. Foi interrompida, fragmentada e ensinada a duvidar de si mesma.</p>
+  <p>Não esperamos salvadores. Construímos consciência. Pensar é o primeiro ato revolucionário.</p>
+  <p>Sem pensamento próprio não há soberania. Sem identidade não há futuro.</p>
+  <div class="manifesto-assinatura">
+    LUMBU – Pensar África a partir de África
+  </div>
 </section>
 
-<!-- MODULES -->
-<section class="container">
+<section>
+  <h2>Módulos de Formação</h2>
 
-<div class="module">
-  <div class="module-header" onclick="toggleModule(this)">
-    <h2>Módulo 1 — Introdução à Consciência Africana</h2>
-  </div>
+  <div class="modules-grid">
 
-  <div class="module-content">
+    <div class="module">
+      <div class="module-header" onclick="toggleModule(this)">
+        <h3>Módulo 1 – Introdução à Consciência Africana</h3>
+      </div>
+      <div class="module-content">
+        <p>Este módulo estabelece as bases do pensamento africano consciente. Questiona a narrativa da inferioridade, analisa o impacto psicológico do colonialismo e introduz a necessidade de reconstrução intelectual.</p>
+        <p>O aluno aprende a identificar condicionamentos mentais e a importância de pensar África a partir da sua própria realidade histórica.</p>
+      </div>
+    </div>
 
-    <h3>1. O que significa consciência</h3>
-    <p>
-      Consciência não é apenas saber que se existe. Consciência é a capacidade de um indivíduo ou de um povo compreender
-      a sua posição no mundo, a sua história, as forças que o influenciam e as escolhas que faz.
-    </p>
-    <p>
-      Um povo consciente entende quem é, de onde vem, por que vive como vive e para onde deseja ir.
-      Um povo inconsciente vive projetos que não escolheu e defende interesses que não são os seus.
-    </p>
+    <div class="module">
+      <div class="module-header" onclick="toggleModule(this)">
+        <h3>Módulo 2 – História como Ferramenta de Libertação</h3>
+      </div>
+      <div class="module-content">
+        <p>A história africana não é passado morto. É arma política. Este módulo ensina a ler a história fora da ótica colonial e a recuperar referências africanas.</p>
+      </div>
+    </div>
 
-    <h3>2. Consciência individual e consciência coletiva</h3>
-    <p>
-      A consciência começa no indivíduo, mas só se torna libertadora quando se transforma em consciência coletiva.
-      Um africano consciente isolado é apenas um pensador solitário. Um povo consciente é uma força histórica.
-    </p>
-    <p>
-      A África sofreu não apenas exploração econômica, mas fragmentação mental. Divididos, pensamos pouco.
-      Unidos em consciência, tornamo-nos perigosos para qualquer sistema de dominação.
-    </p>
+    <div class="module">
+      <div class="module-header" onclick="toggleModule(this)">
+        <h3>Módulo 3 – Pan-Africanismo Estratégico</h3>
+      </div>
+      <div class="module-content">
+        <p>Pan-Africanismo não é slogan. É estratégia. O módulo analisa suas origens, erros, acertos e aplicação prática no século XXI.</p>
+      </div>
+    </div>
 
-    <h3>3. A ruptura da consciência africana</h3>
-    <p>
-      Antes da colonização, África possuía sistemas próprios de organização política, filosófica,
-      espiritual e econômica. A colonização não veio apenas ocupar territórios; veio desorganizar consciências.
-    </p>
-    <p>
-      A educação colonial ensinou o africano a admirar o outro e a duvidar de si.
-      Criou-se a ideia de que o progresso só existe fora de África e que pensar bem é pensar como o Ocidente.
-    </p>
+    <div class="module">
+      <div class="module-header" onclick="toggleModule(this)">
+        <h3>Módulo 4 – Descolonização Mental</h3>
+      </div>
+      <div class="module-content">
+        <p>Explora como o pensamento colonizado se manifesta no consumo, política, cultura e identidade. Ensina métodos de ruptura.</p>
+      </div>
+    </div>
 
-    <h3>4. O colonialismo mental</h3>
-    <p>
-      O colonialismo mental é mais duradouro do que o colonialismo territorial.
-      Um território pode ser libertado com armas; uma mente colonizada pode passar gerações sem perceber que está presa.
-    </p>
-    <p>
-      Ele manifesta-se quando o africano rejeita a sua história, despreza a sua cultura,
-      desconfia das suas capacidades e acredita que a solução sempre vem de fora.
-    </p>
-
-    <h3>5. Pensar como ato revolucionário</h3>
-    <p>
-      Pensar não é um ato neutro. Pensar de forma autônoma é um ato revolucionário.
-      Todo sistema de dominação teme um povo que pensa por si mesmo.
-    </p>
-    <p>
-      O LUMBU nasce para restaurar o pensamento africano como ferramenta de libertação,
-      estratégia e construção. Pensar África não como problema, mas como projeto.
-    </p>
-
-    <h3>6. O papel do africano consciente</h3>
-    <p>
-      O africano consciente não é aquele que repete slogans.
-      É aquele que estuda, questiona, organiza e age com responsabilidade histórica.
-    </p>
-    <p>
-      Consciência sem ação é vaidade intelectual. A consciência africana deve levar à
-      transformação concreta da sociedade, da economia, da política e da cultura.
-    </p>
-
-    <h3>7. Objetivo deste curso LUMBU</h3>
-    <p>
-      Este curso não existe para agradar, entreter ou confirmar ilusões.
-      Ele existe para formar pensadores, construtores e realizadores africanos.
-    </p>
-    <p>
-      Aqui começa um processo de reconstrução do pensamento africano,
-      passo a passo, do básico ao estratégico.
-    </p>
-
-    <p><strong>Este módulo é a base de tudo o que virá.</strong></p>
+    <div class="module">
+      <div class="module-header" onclick="toggleModule(this)">
+        <h3>Módulo 5 – Consciência para Ação</h3>
+      </div>
+      <div class="module-content">
+        <p>Transformar pensamento em prática. Organização, ética africana e responsabilidade coletiva.</p>
+      </div>
+    </div>
 
   </div>
-</div>
-
-<div class="module">
-  <div class="module-header" onclick="toggleModule(this)">
-    <h2>Módulo 2 — Colonialismo Mental</h2>
-  </div>
-  <div class="module-content">
-    <p>Em desenvolvimento.</p>
-  </div>
-</div>
-
 </section>
 
-<!-- SOLIDARITY -->
 <section id="solidariedade">
   <button onclick="toggleSolidariedade()">Mostrar solidariedade</button>
-
   <div id="dados">
-    <p>Apoie a construção do pensamento africano independente.</p>
-    <p><strong>IBAN:</strong> 0040 0000 90984961102 20</p>
-    <p><strong>XPRESS:</strong> 946 903 366</p>
+    <p>Apoie a construção do LUMBU.</p>
+    <p><strong>IBAN:</strong><br>0040 0000 90984961102 20</p>
+    <p><strong>Xpress:</strong><br>946903366</p>
   </div>
 </section>
 
@@ -251,16 +237,16 @@ footer {
 </footer>
 
 <script>
-function toggleModule(header) {
-  const content = header.nextElementSibling;
+function toggleModule(el) {
+  const content = el.nextElementSibling;
   content.style.display = content.style.display === "block" ? "none" : "block";
 }
 
-function toggleIban() {
-  const box = document.getElementById("ibanBox");
-  box.style.display = box.style.display === "block" ? "none" : "block";
+function toggleSolidariedade() {
+  const dados = document.getElementById("dados");
+  dados.style.display = dados.style.display === "block" ? "none" : "block";
 }
 </script>
 
 </body>
-</html>
+  </html>
