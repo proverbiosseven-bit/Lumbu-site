@@ -1,248 +1,143 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <title>LUMBU – Centro Africano do Renascimento</title>
-  <meta name="description" content="LUMBU é um centro africano de pensamento, consciência e renascimento. Pensar África a partir de África.">
-  <meta name="keywords" content="África, Pan-Africanismo, consciência africana, pensamento africano, renascimento africano">
-  <meta name="author" content="LUMBU">
+<meta charset="UTF-8">
+<title>LUMBU – Centro Africano do Renascimento</title>
+<meta name="description" content="LUMBU é um centro africano de pensamento, consciência e renascimento. Pensar África a partir de África.">
+<meta name="keywords" content="África, Pan-Africanismo, consciência africana, pensamento africano, renascimento africano">
+<meta name="author" content="LUMBU">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    /* Reset e corpo */
-    body {
-      margin: 0;
-      font-family: Georgia, serif;
-      background: #fdfdfd;
-      color: #0f1a17;
-    }
+<style>
+  /* Reset e tipografia */
+  body {margin:0; font-family: Georgia, serif; background: #fdfdfd; color: #111;}
+  h1,h2,h3,p {margin:0;padding:0;}
+  a {color:#004466;text-decoration:none;}
 
-    /* Capa */
-    header {
-      position: relative;
-      text-align: center;
-      width: 100%;
-      height: 500px;
-      background: url('images/lumbu-3d-africa.png') center/cover no-repeat;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-    }
+  /* Capa */
+  header {
+    background: url('images/lumbu-3d-africa.png') no-repeat center/cover;
+    text-align: center;
+    padding: 120px 15px 60px 15px;
+    position: relative;
+    color:#fff;
+  }
+  header h1 {font-size: 60px; letter-spacing:3px; text-shadow: 2px 2px 4px #000;}
+  header p {font-size:22px; margin-top:10px; font-weight:bold; text-shadow:1px 1px 3px #000;}
 
-    header h1 {
-      font-size: 64px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      text-shadow: 2px 2px 8px #000;
-      margin: 0;
-    }
+  /* Manifesto */
+  #manifesto {max-width:900px; margin:40px auto; padding:20px; background:#f0e8d0; border-radius:10px; text-align:center;}
+  #manifesto p {margin-bottom:12px; font-size:16px; line-height:1.7; color:#111;}
+  #manifesto .assinatura {margin-top:20px; font-weight:bold; color:#004466;}
+  #manifesto .autor {font-size:14px; color:#333; margin-top:5px;}
 
-    header p {
-      font-size: 24px;
-      font-weight: bold;
-      margin-top: 10px;
-      text-shadow: 1px 1px 6px #000;
-    }
+  /* Grid de módulos */
+  .grid {display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:20px; max-width:1000px; margin:40px auto;}
+  .modulo {background:#fff6e0; border:2px solid #d4af37; border-radius:10px; padding:20px; cursor:pointer; transition:0.3s; box-shadow:0 4px 6px rgba(0,0,0,0.1);}
+  .modulo:hover {background:#fff2cc;}
+  .modulo h3 {color:#d4af37; margin-bottom:10px;}
+  .modulo-content {display:none; margin-top:10px; line-height:1.7; color:#111;}
 
-    /* Manifesto */
-    #manifesto {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 25px;
-      background: #e6f3ea;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    }
+  /* Solidariedade */
+  #solidariedade {background:#004466; padding:20px; text-align:center; border-radius:8px; max-width:500px; margin:40px auto;}
+  #solidariedade button {background:#d4af37; border:none; padding:12px 25px; font-size:16px; font-weight:bold; cursor:pointer; border-radius:6px; color:#111;}
+  #dados {display:none; margin-top:15px; line-height:1.6; color:#fff;}
 
-    #manifesto h2 {
-      text-align: center;
-      font-size: 28px;
-      margin-bottom: 15px;
-      color: #0b3d2e;
-    }
+  /* Formulário de contato */
+  #contato {max-width:600px; margin:50px auto; padding:20px; background:#fdf6e0; border-radius:10px;}
+  #contato h2 {margin-bottom:15px; color:#004466;}
+  #contato input, #contato textarea {width:100%; padding:10px; margin:5px 0 15px 0; border:1px solid #ccc; border-radius:5px; font-size:14px;}
+  #contato button {background:#d4af37; border:none; padding:12px 20px; font-weight:bold; cursor:pointer; border-radius:6px; color:#111;}
 
-    #manifesto p {
-      font-size: 18px;
-      line-height: 1.7;
-      text-align: center;
-    }
+  /* Rodapé */
+  footer {text-align:center; font-size:14px; margin:40px 0 20px; color:#333;}
+  footer a {margin:0 5px; font-weight:bold; color:#004466;}
 
-    #manifesto .assinatura {
-      text-align: center;
-      margin-top: 20px;
-      font-weight: bold;
-      color: #0b3d2e;
-      font-size: 18px;
-    }
-
-    #manifesto .autor {
-      text-align: center;
-      margin-top: 5px;
-      font-size: 14px;
-      color: #555;
-    }
-
-    /* Biblioteca / Módulos */
-    #biblioteca {
-      max-width: 1100px;
-      margin: 50px auto;
-      padding: 0 15px;
-    }
-
-    #biblioteca h2 {
-      border-bottom: 3px solid #cfae70;
-      padding-bottom: 10px;
-      margin-bottom: 30px;
-      text-align: center;
-      color: #0b3d2e;
-      font-size: 32px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 25px;
-    }
-
-    .modulo {
-      background: #cfae70;
-      padding: 20px;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-
-    .modulo:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    }
-
-    .modulo h3 {
-      margin: 0 0 10px 0;
-      font-size: 22px;
-      color: #0b3d2e;
-    }
-
-    .conteudo-modulo {
-      display: none;
-      margin-top: 10px;
-      font-size: 16px;
-      line-height: 1.6;
-      color: #0f1a17;
-    }
-
-    /* Solidariedade */
-    #solidariedade {
-      max-width: 500px;
-      margin: 50px auto;
-      background: #004466;
-      padding: 20px;
-      text-align: center;
-      border-radius: 10px;
-      color: #fff;
-    }
-
-    #solidariedade button {
-      background: #cfae70;
-      border: none;
-      padding: 12px 25px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 6px;
-      color: #0b3d2e;
-    }
-
-    #dados-solidariedade {
-      display: none;
-      margin-top: 15px;
-      font-size: 16px;
-    }
-
-    /* Rodapé */
-    footer {
-      text-align: center;
-      font-size: 14px;
-      margin: 50px 0 30px;
-      color: #555;
-    }
-  </style>
+  /* Responsividade */
+  @media(max-width:600px){header h1{font-size:40px;} header p{font-size:18px;}}
+</style>
 </head>
 
 <body>
 
-<!-- Capa -->
 <header>
   <h1>LUMBU</h1>
   <p>Pensar África a partir de África</p>
 </header>
 
-<!-- Manifesto -->
 <section id="manifesto">
-  <h2>Manifesto LUMBU</h2>
-  <p>Pensar África a partir de África. O LUMBU nasce para restaurar o pensamento africano como instrumento de liberdade, estratégia e construção. Para África. Com africanos.</p>
+  <p><strong>O LUMBU nasce da necessidade de pensar África com mente livre, voz própria e responsabilidade histórica.</strong></p>
+  <p>África não é um erro do mundo. África é um projeto interrompido.</p>
+  <p>Recusamos a narrativa da inferioridade africana e da dependência permanente. Não somos um continente carente de caridade, mas rico em história, inteligência e cultura.</p>
+  <p>O LUMBU existe para restaurar o pensamento africano como instrumento de libertação e construção.</p>
   <p class="assinatura">LUMBU – Centro Africano do Renascimento</p>
   <p class="autor">Criado por Augusto Tona</p>
 </section>
 
-<!-- Biblioteca / Módulos -->
-<section id="biblioteca">
-  <h2>Módulos LUMBU</h2>
-  <div class="grid">
-    <div class="modulo" onclick="toggleModulo(this)">
-      <h3>Módulo 1 – Introdução à Consciência Africana</h3>
-      <div class="conteudo-modulo">
-        <p><strong>Origem da consciência africana:</strong> História, cultura e resistência.</p>
-        <p><strong>O Pan-Africanismo:</strong> Surgimento e importância na política africana.</p>
-        <p><strong>Rumo à autonomia:</strong> Como pensar e agir para restaurar a África.</p>
-      </div>
+<section class="grid">
+  <div class="modulo" onclick="toggleModulo(this)">
+    <h3>Módulo 1 – Introdução à Consciência Africana</h3>
+    <div class="modulo-content">
+      <p><strong>O que é consciência africana:</strong> Entender a história, cultura e valores próprios do continente.</p>
+      <p><strong>Contexto histórico:</strong> Colonização, neocolonialismo e fragmentação política.</p>
+      <p><strong>Objetivo:</strong> Desenvolver raciocínio crítico e estratégico sobre a realidade africana.</p>
     </div>
-    <div class="modulo" onclick="toggleModulo(this)">
-      <h3>Módulo 2 – Identidade e Cultura</h3>
-      <div class="conteudo-modulo">
-        <p><strong>Tradição e memória:</strong> A base do pensamento africano.</p>
-        <p><strong>Símbolos e adinkra:</strong> Representações culturais de consciência.</p>
-        <p><strong>Educação crítica:</strong> Reconectar a juventude com a história.</p>
-      </div>
+  </div>
+  <div class="modulo" onclick="toggleModulo(this)">
+    <h3>Módulo 2 – Pan-Africanismo</h3>
+    <div class="modulo-content">
+      <p><strong>Definição:</strong> Unidade política, econômica e cultural dos povos africanos.</p>
+      <p><strong>Importância:</strong> Estratégia para autonomia e soberania.</p>
+      <p><strong>Exemplos:</strong> Movimentos históricos e líderes africanos relevantes.</p>
     </div>
-    <div class="modulo" onclick="toggleModulo(this)">
-      <h3>Módulo 3 – Economia e Autonomia</h3>
-      <div class="conteudo-modulo">
-        <p><strong>Independência econômica:</strong> Do colonialismo à soberania.</p>
-        <p><strong>Recursos naturais:</strong> Estratégias para benefício africano.</p>
-        <p><strong>Empreendedorismo:</strong> Juventude e futuro sustentável.</p>
-      </div>
+  </div>
+  <div class="modulo" onclick="toggleModulo(this)">
+    <h3>Módulo 3 – Educação e Pensamento Crítico</h3>
+    <div class="modulo-content">
+      <p><strong>Educação:</strong> Formação baseada na história africana e realidade local.</p>
+      <p><strong>Pensamento crítico:</strong> Desenvolver análise autônoma e capacidade de decisão.</p>
+      <p><strong>Ferramentas:</strong> Livros, debates e estudos de caso.</p>
     </div>
   </div>
 </section>
 
-<!-- Solidariedade -->
 <section id="solidariedade">
   <button onclick="toggleSolidariedade()">Mostrar Solidariedade</button>
-  <div id="dados-solidariedade">
-    <p>IBAN: 004000009098496110220</p>
+  <div id="dados">
+    <p>0040 0000 90984961102 20</p>
     <p>Xpress: 946903366</p>
   </div>
 </section>
 
-<!-- Rodapé -->
+<section id="contato">
+  <h2>Contato</h2>
+  <form>
+    <input type="text" placeholder="Nome" required>
+    <input type="email" placeholder="Email" required>
+    <textarea rows="5" placeholder="Mensagem" required></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+</section>
+
 <footer>
   © LUMBU – Centro Africano do Renascimento · Criado por Augusto Tona
+  <br>
+  <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
 </footer>
 
 <script>
-  function toggleModulo(modulo){
-    const conteudo = modulo.querySelector('.conteudo-modulo');
-    conteudo.style.display = conteudo.style.display === 'block' ? 'none' : 'block';
-  }
+function toggleModulo(modulo) {
+  const content = modulo.querySelector('.modulo-content');
+  const allContents = document.querySelectorAll('.modulo-content');
+  allContents.forEach(c => {if(c!==content)c.style.display='none';});
+  content.style.display = content.style.display==='block'?'none':'block';
+}
 
-  function toggleSolidariedade(){
-    const div = document.getElementById('dados-solidariedade');
-    div.style.display = div.style.display === 'block' ? 'none' : 'block';
-  }
+function toggleSolidariedade() {
+  const dados = document.getElementById('dados');
+  dados.style.display = dados.style.display==='block'?'none':'block';
+}
 </script>
 
 </body>
-    </html>
+  </html>
