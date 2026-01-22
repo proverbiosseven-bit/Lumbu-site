@@ -1,143 +1,334 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
-<title>LUMBU – Centro Africano do Renascimento</title>
-<meta name="description" content="LUMBU é um centro africano de pensamento, consciência e renascimento. Pensar África a partir de África.">
-<meta name="keywords" content="África, Pan-Africanismo, consciência africana, pensamento africano, renascimento africano">
-<meta name="author" content="LUMBU">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>LUMBU – Centro Africano do Renascimento</title>
+  <meta name="description" content="LUMBU é um centro africano de pensamento, consciência e renascimento. Pensar África a partir de África.">
+  <meta name="keywords" content="África, Pan-Africanismo, consciência africana, pensamento africano, renascimento africano">
+  <meta name="author" content="LUMBU">
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: #ffffff;
+      color: #333;
+    }
 
-<style>
-  /* Reset e tipografia */
-  body {margin:0; font-family: Georgia, serif; background: #fdfdfd; color: #111;}
-  h1,h2,h3,p {margin:0;padding:0;}
-  a {color:#004466;text-decoration:none;}
+    header {
+      position: relative;
+      text-align: center;
+      background: #fff;
+    }
 
-  /* Capa */
-  header {
-    background: url('images/lumbu-3d-africa.png') no-repeat center/cover;
-    text-align: center;
-    padding: 120px 15px 60px 15px;
-    position: relative;
-    color:#fff;
-  }
-  header h1 {font-size: 60px; letter-spacing:3px; text-shadow: 2px 2px 4px #000;}
-  header p {font-size:22px; margin-top:10px; font-weight:bold; text-shadow:1px 1px 3px #000;}
+    header img {
+      width: 100%;
+      max-height: 500px;
+      object-fit: cover;
+    }
 
-  /* Manifesto */
-  #manifesto {max-width:900px; margin:40px auto; padding:20px; background:#f0e8d0; border-radius:10px; text-align:center;}
-  #manifesto p {margin-bottom:12px; font-size:16px; line-height:1.7; color:#111;}
-  #manifesto .assinatura {margin-top:20px; font-weight:bold; color:#004466;}
-  #manifesto .autor {font-size:14px; color:#333; margin-top:5px;}
+    header h1 {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 64px;
+      color: #004466;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+      font-weight: bold;
+    }
 
-  /* Grid de módulos */
-  .grid {display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:20px; max-width:1000px; margin:40px auto;}
-  .modulo {background:#fff6e0; border:2px solid #d4af37; border-radius:10px; padding:20px; cursor:pointer; transition:0.3s; box-shadow:0 4px 6px rgba(0,0,0,0.1);}
-  .modulo:hover {background:#fff2cc;}
-  .modulo h3 {color:#d4af37; margin-bottom:10px;}
-  .modulo-content {display:none; margin-top:10px; line-height:1.7; color:#111;}
+    header p {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 24px;
+      color: #004466;
+      font-style: italic;
+    }
 
-  /* Solidariedade */
-  #solidariedade {background:#004466; padding:20px; text-align:center; border-radius:8px; max-width:500px; margin:40px auto;}
-  #solidariedade button {background:#d4af37; border:none; padding:12px 25px; font-size:16px; font-weight:bold; cursor:pointer; border-radius:6px; color:#111;}
-  #dados {display:none; margin-top:15px; line-height:1.6; color:#fff;}
+    #manifesto {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 25px;
+      background: #f7f2e8;
+      border-left: 6px solid #cfae70;
+      border-radius: 6px;
+      line-height: 1.7;
+      text-align: center;
+    }
 
-  /* Formulário de contato */
-  #contato {max-width:600px; margin:50px auto; padding:20px; background:#fdf6e0; border-radius:10px;}
-  #contato h2 {margin-bottom:15px; color:#004466;}
-  #contato input, #contato textarea {width:100%; padding:10px; margin:5px 0 15px 0; border:1px solid #ccc; border-radius:5px; font-size:14px;}
-  #contato button {background:#d4af37; border:none; padding:12px 20px; font-weight:bold; cursor:pointer; border-radius:6px; color:#111;}
+    #manifesto p {
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
 
-  /* Rodapé */
-  footer {text-align:center; font-size:14px; margin:40px 0 20px; color:#333;}
-  footer a {margin:0 5px; font-weight:bold; color:#004466;}
+    #modules {
+      max-width: 1200px;
+      margin: 40px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      padding: 0 15px;
+    }
 
-  /* Responsividade */
-  @media(max-width:600px){header h1{font-size:40px;} header p{font-size:18px;}}
-</style>
+    .module {
+      background: #fff8e1;
+      border: 2px solid #cfae70;
+      border-radius: 8px;
+      padding: 20px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .module:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .module h3 {
+      margin: 0;
+      font-size: 22px;
+      color: #004466;
+    }
+
+    .module-content {
+      display: none;
+      margin-top: 15px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    #solidariedade {
+      background: #003366;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      max-width: 500px;
+      margin: 50px auto;
+      border-radius: 6px;
+    }
+
+    #solidariedade button {
+      background: #004466;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    #dados {
+      display: none;
+      margin-top: 15px;
+      font-size: 16px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      margin: 40px 0 20px;
+      color: #666;
+    }
+
+    /* Redes sociais */
+    .socials {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .socials a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #004466;
+      font-weight: bold;
+    }
+
+    /* Contato */
+    #contact {
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #f7f2e8;
+      border-radius: 6px;
+    }
+    #contact input, #contact textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    #contact button {
+      background: #004466;
+      color: #fff;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 48px; top: 25%; }
+      header p { font-size: 20px; top: 40%; }
+    }
+  </style>
 </head>
-
 <body>
 
 <header>
+  <img src="images/lumbu-banner.png" alt="LUMBU – Centro Africano do Renascimento">
   <h1>LUMBU</h1>
   <p>Pensar África a partir de África</p>
 </header>
 
 <section id="manifesto">
-  <p><strong>O LUMBU nasce da necessidade de pensar África com mente livre, voz própria e responsabilidade histórica.</strong></p>
-  <p>África não é um erro do mundo. África é um projeto interrompido.</p>
-  <p>Recusamos a narrativa da inferioridade africana e da dependência permanente. Não somos um continente carente de caridade, mas rico em história, inteligência e cultura.</p>
-  <p>O LUMBU existe para restaurar o pensamento africano como instrumento de libertação e construção.</p>
-  <p class="assinatura">LUMBU – Centro Africano do Renascimento</p>
-  <p class="autor">Criado por Augusto Tona</p>
+  <p>O LUMBU nasce da necessidade de restaurar a consciência africana, rompendo com narrativas impostas e dependências intelectuais.</p>
+  <p>Aqui, África não é objeto de estudo, mas sujeito do seu próprio pensamento, da sua história e do seu futuro.</p>
+  <p>O conhecimento é libertação. A consciência é o primeiro território a ser recuperado.</p>
 </section>
 
-<section class="grid">
-  <div class="modulo" onclick="toggleModulo(this)">
-    <h3>Módulo 1 – Introdução à Consciência Africana</h3>
-    <div class="modulo-content">
-      <p><strong>O que é consciência africana:</strong> Entender a história, cultura e valores próprios do continente.</p>
-      <p><strong>Contexto histórico:</strong> Colonização, neocolonialismo e fragmentação política.</p>
-      <p><strong>Objetivo:</strong> Desenvolver raciocínio crítico e estratégico sobre a realidade africana.</p>
+<section id="modules">
+  <!-- Módulo 1 -->
+  <div class="module">
+    <h3>Módulo 1 — Introdução ao Despertar Africano</h3>
+    <div class="module-content">
+      <p><strong>O que é o LUMBU:</strong> Espaço africano de reflexão, formação e reconstrução da consciência. Parte do princípio: a África precisa voltar a pensar a si mesma a partir de si mesma.</p>
+      <p><strong>Pensar África a partir de África:</strong> Rejeitar dependência intelectual, olhar para dentro, recuperar o centro do pensamento.</p>
+      <p><strong>Consciência, identidade e libertação:</strong> Liberdade política sem libertação mental é incompleta; o primeiro território a ser recuperado é a mente.</p>
     </div>
   </div>
-  <div class="modulo" onclick="toggleModulo(this)">
-    <h3>Módulo 2 – Pan-Africanismo</h3>
-    <div class="modulo-content">
-      <p><strong>Definição:</strong> Unidade política, econômica e cultural dos povos africanos.</p>
-      <p><strong>Importância:</strong> Estratégia para autonomia e soberania.</p>
-      <p><strong>Exemplos:</strong> Movimentos históricos e líderes africanos relevantes.</p>
+
+  <!-- Módulo 2 -->
+  <div class="module">
+    <h3>Módulo 2 — África antes da ruptura histórica</h3>
+    <div class="module-content">
+      <p><strong>Diversidade e organização política:</strong> Reinos e impérios sofisticados; governança baseada em consenso e instituições próprias.</p>
+      <p><strong>Saber e produção de conhecimento:</strong> Epistemologias próprias, bibliotecas como Timbuktu, conhecimento integrado à vida.</p>
+      <p><strong>Cultura e espiritualidade:</strong> Música, dança, arte e símbolos como Sankofa e Ubuntu transmitiam valores e memória coletiva.</p>
     </div>
   </div>
-  <div class="modulo" onclick="toggleModulo(this)">
-    <h3>Módulo 3 – Educação e Pensamento Crítico</h3>
-    <div class="modulo-content">
-      <p><strong>Educação:</strong> Formação baseada na história africana e realidade local.</p>
-      <p><strong>Pensamento crítico:</strong> Desenvolver análise autônoma e capacidade de decisão.</p>
-      <p><strong>Ferramentas:</strong> Livros, debates e estudos de caso.</p>
+
+  <!-- Módulo 3 -->
+  <div class="module">
+    <h3>Módulo 3 — A colonização como projeto mental</h3>
+    <div class="module-content">
+      <p><strong>Colonização mental:</strong> Mesmo após independências políticas, estruturas de pensamento externas permaneceram. Modelos de sucesso e educação imitativa.</p>
+      <p><strong>Violência simbólica:</strong> Língua, religião e escola foram instrumentos de dominação. Afetaram a autoestima e percepção do africano sobre si mesmo.</p>
+      <p><strong>Impacto atual:</strong> O controle mental persistiu, afetando cultura, economia e política.</p>
     </div>
   </div>
+
+  <!-- Módulo 4 -->
+  <div class="module">
+    <h3>Módulo 4 — Epistemologias africanas</h3>
+    <div class="module-content">
+      <p><strong>O que é conhecimento na África:</strong> Não separado da vida; filosofia, medicina, espiritualidade e ciência coexistiam.</p>
+      <p><strong>Saberes orais e símbolos:</strong> Mitos, histórias, provérbios e adinkras transmitiam ética e memória.</p>
+      <p><strong>Sankofa e Ubuntu:</strong> Princípios de aprendizado com o passado e responsabilidade coletiva.</p>
+      <p><strong>Por que o Ocidente não é universal:</strong> Desconstrução da ideia de que só o pensamento europeu é científico.</p>
+    </div>
+  </div>
+
+  <!-- Módulo 5 -->
+  <div class="module">
+    <h3>Módulo 5 — Linguagem, cultura e alienação</h3>
+    <div class="module-content">
+      <p><strong>A língua como instrumento de poder:</strong> Ensino colonial, imposição de idiomas estrangeiros.</p>
+      <p><strong>Cultura imposta vs cultura vivida:</strong> Tradições, rituais e estética africana subestimados.</p>
+      <p><strong>Estética, autoestima e identidade:</strong> Corpo, imagem e representações culturais.</p>
+      <p><strong>O corpo africano como campo político:</strong> A percepção do africano sobre si mesmo molda seu agir.</p>
+    </div>
+  </div>
+
+  <!-- Módulo 6 -->
+  <div class="module">
+    <h3>Módulo 6 — Economia, poder e dependência</h3>
+    <div class="module-content">
+      <p><strong>Neocolonialismo econômico:</strong> Exploração contínua por corporações e bancos internacionais.</p>
+      <p><strong>Ajuda internacional:</strong> Armadilha disfarçada de benevolência.</p>
+      <p><strong>Instituições globais e África:</strong> FMI, Banco Mundial e regras de mercado.</p>
+      <p><strong>Por que a pobreza é produzida:</strong> Estruturas externas e internas que mantêm a dependência.</p>
+    </div>
+  </div>
+
+  <!-- Módulo 7 -->
+  <div class="module">
+    <h3>Módulo 7 — Reconstrução da consciência africana</h3>
+    <div class="module-content">
+      <p><strong>Descolonizar o pensamento:</strong> Reconhecer imposições e restaurar autonomia intelectual.</p>
+      <p><strong>Educação africana para africanos:</strong> Currículos e metodologias centradas na África.</p>
+      <p><strong>Produção de conhecimento local:</strong> Pesquisa, ciência e filosofia africanas.</p>
+      <p><strong>Responsabilidade individual e coletiva:</strong> Cada africano participa do renascimento do continente.</p>
+    </div>
+  </div>
+
+  <!-- Módulo 8 -->
+  <div class="module">
+    <h3>Módulo 8 — O futuro pensado a partir de África</h3>
+    <div class="module-content">
+      <p><strong>Que África queremos:</strong> Debates e visões realistas, não idealizações.</p>
+      <p><strong>Juventude, tecnologia e cultura:</strong> Ferramentas modernas para emancipação.</p>
+      <p><strong>Pan-africanismo consciente:</strong> Unidade baseada em ação e pensamento, não nostalgia.</p>
+      <p><strong>O papel do LUMBU:</strong> Centro de formação, biblioteca, catalisador de transformação.</p>
+    </div>
+  </div>
+
 </section>
 
 <section id="solidariedade">
-  <button onclick="toggleSolidariedade()">Mostrar Solidariedade</button>
+  <p>Contribua com o LUMBU</p>
+  <button onclick="toggleIBAN()">Mostrar IBAN</button>
   <div id="dados">
-    <p>0040 0000 90984961102 20</p>
-    <p>Xpress: 946903366</p>
+    <p>IBAN: AO06 0123 0000 0000 0000 0000</p>
   </div>
 </section>
 
-<section id="contato">
-  <h2>Contato</h2>
-  <form>
-    <input type="text" placeholder="Nome" required>
-    <input type="email" placeholder="Email" required>
-    <textarea rows="5" placeholder="Mensagem" required></textarea>
+<div class="socials">
+  <a href="https://www.facebook.com/profile.php?id=61585699569212" target="_blank">Facebook</a>
+  <a href="https://www.tiktok.com/@lumbuafrica" target="_blank">TikTok</a>
+  <a href="https://www.linkedin.com/in/lumbu-%C3%A1frica-4a79a63a7" target="_blank">LinkedIn</a>
+  <a href="https://wa.me/244946903366" target="_blank">WhatsApp</a>
+</div>
+
+<section id="contact">
+  <form action="mailto:lumbuafrica@gmail.com" method="post" enctype="text/plain">
+    <input type="text" name="Nome" placeholder="Seu nome" required>
+    <input type="email" name="Email" placeholder="Seu email" required>
+    <textarea name="Mensagem" placeholder="Sua mensagem" rows="5" required></textarea>
     <button type="submit">Enviar</button>
   </form>
 </section>
 
 <footer>
-  © LUMBU – Centro Africano do Renascimento · Criado por Augusto Tona
-  <br>
-  <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
+  &copy; 2026 LUMBU – Centro Africano do Renascimento
 </footer>
 
 <script>
-function toggleModulo(modulo) {
-  const content = modulo.querySelector('.modulo-content');
-  const allContents = document.querySelectorAll('.modulo-content');
-  allContents.forEach(c => {if(c!==content)c.style.display='none';});
-  content.style.display = content.style.display==='block'?'none':'block';
-}
+  const modules = document.querySelectorAll('.module');
+  modules.forEach(module => {
+    module.addEventListener('click', () => {
+      const content = module.querySelector('.module-content');
+      const isVisible = content.style.display === 'block';
+      // Fechar todos os módulos
+      document.querySelectorAll('.module-content').forEach(c => c.style.display = 'none');
+      // Abrir somente o clicado
+      if (!isVisible) content.style.display = 'block';
+    });
+  });
 
-function toggleSolidariedade() {
-  const dados = document.getElementById('dados');
-  dados.style.display = dados.style.display==='block'?'none':'block';
-}
+  function toggleIBAN() {
+    const dados = document.getElementById('dados');
+    if(dados.style.display === 'block') {
+      dados.style.display = 'none';
+    } else {
+      dados.style.display = 'block';
+    }
+  }
 </script>
 
 </body>
-  </html>
+</html>
