@@ -1,1 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<title>LUMBU – Centro Africano do Renascimento</title>
 
+<style>
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: #ffffff;
+  color: #333;
+}
+
+/* ========== HEADER ========== */
+header {
+  position: relative;
+  text-align: center;
+  background: #fff;
+}
+
+header img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
+}
+
+header h1 {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 64px;
+  color: #004466;
+}
+
+header p {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  color: #004466;
+  font-style: italic;
+}
+
+/* ========== MANIFESTO ========== */
+#manifesto {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 25px;
+  background: #f7f2e8;
+  border-left: 6px solid #cfae70;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* ========== NOVO GRID DOS MÓDULOS ========== */
+#modules {
+  max-width: 1200px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 0 15px;
+}
+
+.module {
+  background: #fff8e1;
+  border: 2px solid #cfae70;
+  border-radius: 8px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+/* Conteúdo escondido por padrão */
+.module-content {
+  display: none;
+  margin-top: 15px;
+}
+
+/* Quando aberto */
+.module.open .module-content {
+  display: block;
+}
+
+/* ========== INSCRIÇÃO EM CURSOS ========== */
+#inscricao {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 25px;
+  background: #f7f2e8;
+  border-radius: 8px;
+  border-left: 6px solid #cfae70;
+}
+
+#inscricao h2 {
+  text-align: center;
+  color: #004466;
+}
+
+#inscricao input, #inscricao select, #inscricao textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+#inscricao button {
+  background: #004466;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  width: 100%;
+}
+
+/* ========== RESPONSIVO ========== */
+@media (max-width: 900px) {
+  #modules {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  #modules {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="images/lumbu-banner.png" alt="LUMBU">
+  <h1>LUMBU</h1>
+  <p>Pensar África a partir de África</p>
+</header>
+
+<section id="manifesto">
+  <p>O LUMBU nasce da necessidade de restaurar a consciência africana...</p>
+</section>
+
+<!-- ================= MÓDULOS ================= -->
+<section id="modules">
+
+<div class="module">
+<h3>Módulo 1</h3>
+<div class="module-content">
+<p>Conteúdo do módulo 1...</p>
+</div>
+</div>
+
+<div class="module">
+<h3>Módulo 2</h3>
+<div class="module-content">
+<p>Conteúdo do módulo 2...</p>
+</div>
+</div>
+
+<div class="module">
+<h3>Módulo 3</h3>
+<div class="module-content">
+<p>Conteúdo do módulo 3...</p>
+</div>
+</div>
+
+</section>
+
+<!-- ================= INSCRIÇÃO ================= -->
+<section id="inscricao">
+<h2>Inscreva-se nos Cursos do LUMBU</h2>
+
+<form action="https://formspree.io/f/SEU_CODIGO_AQUI" method="POST">
+
+<input type="text" name="nome" placeholder="Seu nome completo" required>
+
+<input type="email" name="email" placeholder="Seu email" required>
+
+<input type="text" name="whatsapp" placeholder="Seu WhatsApp" required>
+
+<select name="curso">
+<option value="">Escolha o curso</option>
+<option>Módulo Completo LUMBU</option>
+<option>Introdução ao Pensamento Africano</option>
+<option>Epistemologias Africanas</option>
+<option>Pan-Africanismo Consciente</option>
+</select>
+
+<textarea name="mensagem" rows="4" placeholder="Por que quer participar?"></textarea>
+
+<button type="submit">Enviar inscrição</button>
+</form>
+</section>
+
+<footer>
+&copy; 2026 LUMBU – Centro Africano do Renascimento
+</footer>
+
+<script>
+// ======= NOVA LÓGICA DO GRID =======
+
+const modules = document.querySelectorAll('.module');
+
+modules.forEach((module, index) => {
+  module.addEventListener('click', () => {
+
+    const rowStart = Math.floor(index / 3) * 3;
+    const rowEnd = rowStart + 3;
+
+    for (let i = rowStart; i < rowEnd; i++) {
+      if (modules[i]) {
+        modules[i].classList.toggle('open');
+      }
+    }
+  });
+});
+</script>
+
+</body>
+</html>
